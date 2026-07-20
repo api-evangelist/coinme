@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/coinme-caas-openapi.json
+docs: https://docs.coinme.com/docs/get-authorization
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+  model: partner-credential
+  flow: >-
+    Two-step. (1) Partner obtains credentials from Coinme (partnerId, clientsecret, User-Agent).
+    (2) POST /authorize with HTTP Basic (partnerId=username, clientsecret=password) and the
+    partner User-Agent header to obtain a JWT authorization token. The token is cached and passed
+    as the Authorization bearer on every subsequent CaaS call; some endpoints also require an
+    x-api-key header. Token TTL is 60 minutes in production, 30 minutes in staging.
+  consumer_oauth:
+    note: >-
+      Separate from the partner CaaS API, Coinme consumer accounts authenticate via an OIDC provider
+      at auth.coinme.com (grants: authorization_code, refresh_token, client_credentials,
+      token-exchange, device_code; scopes: openid, profile, email). See scopes/coinme-scopes.yml.
+    issuer: https://auth.coinme.com
+schemes:
+- name: basic
+  type: http
+  scheme: basic
+  description: >-
+    HTTP Basic on POST /authorize — partnerId as username, clientsecret as password. Exchanged for
+    a 60-minute JWT authorization token.
+  docs: https://docs.coinme.com/docs/get-authorization
+  sources:
+  - openapi/coinme-caas-openapi.json
+- name: x-api-key
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: Partner API key passed in the x-api-key header on CaaS operations (e.g. quotes, transactions).
+  sources:
+  - openapi/coinme-caas-openapi.json
