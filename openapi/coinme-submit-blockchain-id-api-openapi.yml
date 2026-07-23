@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Submit Blockchain Id API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Submit Blockchain Id
+paths:
+  /submit-blockchain-id:
+    put:
+      description: ''
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                OK:
+                  summary: OK
+                  value: "{\n  \"partnerTransactionId\": \"txn-1234-abcd-5678\" //identifies the transaction in Coinme's system for which the blockchain transaction ID is being submitted\n}"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: "{\n  \"data\": null,\n  \"errorResponse\": {\n    \"httpStatus\":\"200\",\n    \"timestamp\":\"2022-02-01T18:59:28.297Z\", //UTC\n    \"path\":\"/services/submit-blockchain-id PUT\", //The error code is just a sample showing the structure of the error code.\n    \"errorData\": [\n      {\n        \"errorCode\":\"123-123-123-123\",\n        \"message\":\"Invalid Blockchain Hash\"\n      }\n    ]\n}"
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+          default: Bearer ******
+        required: true
+        description: Bearer token {authorize} endpoint
+      - in: header
+        name: User-Agent
+        schema:
+          type: string
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+      operationId: put_submit-blockchain-id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                partnerTransactionId:
+                  type: string
+                  description: ID of the sell transaction from the transaction endpoint
+                blockchainTransactionId:
+                  type: string
+                  description: Onchain transaction hash of the sell order sent to Coinme
+                refundWalletAddress:
+                  type: string
+                  description: address on which to execute refund to in case of transaction failure
+              required:
+              - partnerTransactionId
+              - blockchainTransactionId
+      security:
+      - x-api-key: []
+      tags:
+      - Submit Blockchain Id
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key

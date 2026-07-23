@@ -1,0 +1,184 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Locations API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Locations
+paths:
+  /locations/v2/query:
+    post:
+      summary: Get Cash Ramp Locations
+      description: Returns a list of physical store locations, sorted by the shortest distance to the coordinates sent
+      operationId: get-cash-ramp-locations
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - latitude
+              - longitude
+              - radius
+              - limit
+              - providers
+              properties:
+                latitude:
+                  type: string
+                  description: Latitude of the user's location for searching nearby locations
+                longitude:
+                  type: string
+                  description: Longitude of the user's location for searching nearby locations
+                radius:
+                  type: number
+                  description: Search radius in specified units (miles/kilometers, defaults to miles)
+                  format: double
+                limit:
+                  type: integer
+                  description: Maximum number of location results to return
+                  format: int32
+                providers:
+                  type: array
+                  description: Array of provider names to filter results, Current providers are greendot
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n   \"data\":{\n      \"providers\":[\n         \"GREENDOT\"\n      ],\n      \"locations\":[\n         {\n            \"id\":\"CVS9823\",\n            \"locationReference\":\"R1JFRU5ET1QtMjQzNDpsYXQ9MzguNDk1MTMzLGxuZz0tMTIxLjUwNTMzNg==\",\n            \"provider\":\"GREENDOT\",\n            \"country\":\"USA\",\n            \"state\":\"CA\",\n            \"city\":\"Sacramento\",\n            \"address\":\"1350 Florin Rd\",\n            \"zipCode\":\"95822\",\n            \"hours\":null,\n            \"sellAllowed\":false,\n            \"buyAllowed\":true,\n            \"imageUrl\":null,\n            \"googlePlacesLink\":null,\n            \"notes\":null,\n            \"description\":\"CVS\",\n            \"coordinates\":{\n               \"latitude\":38.495133,\n               \"longitude\":-121.505336\n            },\n            \"lineOfSightDistance\":0.1727927078581357,\n            \"lineOfSightMetric\":\"mi\",\n            \"supportedCoins\":[\n            ],\n            \"locationFees\":null,\n            \"metadata\":{\n               \"providerLocationReference\":\"2434\",\n               \"phone\":\"9163925184\"\n            }\n         },\n         {\n            \"id\":\"Rite Aid6084\",\n            \"locationReference\":\"R1JFRU5ET1QtMjQ2MTpsYXQ9MzguNDkzNTEzLGxuZz0tMTIxLjUyMjU2MQ==\",\n            \"provider\":\"GREENDOT\",\n            \"country\":\"USA\",\n            \"state\":\"CA\",\n            \"city\":\"Sacramento\",\n            \"address\":\"980 Florin Rd\",\n            \"zipCode\":\"95831\",\n            \"hours\":null,\n            \"sellAllowed\":false,\n            \"buyAllowed\":true,\n            \"imageUrl\":null,\n            \"googlePlacesLink\":null,\n            \"notes\":null,\n            \"description\":\"Rite Aid\",\n            \"coordinates\":{\n               \"latitude\":38.493513,\n               \"longitude\":-121.522561\n            },\n            \"lineOfSightDistance\":0.7824274400825684,\n            \"lineOfSightMetric\":\"mi\",\n            \"supportedCoins\":[\n            ],\n            \"locationFees\":null,\n            \"metadata\":{\n               \"providerLocationReference\":\"2461\",\n               \"phone\":\"9164227202\"\n            }\n         }\n      ]\n   },\n   \"errorResponse\":null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      providers:
+                        type: array
+                        items:
+                          type: string
+                          example: GREENDOT
+                      locations:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: CVS9823
+                            locationReference:
+                              type: string
+                              example: R1JFRU5ET1QtMjQzNDpsYXQ9MzguNDk1MTMzLGxuZz0tMTIxLjUwNTMzNg==
+                            provider:
+                              type: string
+                              example: GREENDOT
+                            country:
+                              type: string
+                              example: USA
+                            state:
+                              type: string
+                              example: CA
+                            city:
+                              type: string
+                              example: Sacramento
+                            address:
+                              type: string
+                              example: 1350 Florin Rd
+                            zipCode:
+                              type: string
+                              example: '95822'
+                            hours: {}
+                            sellAllowed:
+                              type: boolean
+                              example: false
+                              default: true
+                            buyAllowed:
+                              type: boolean
+                              example: true
+                              default: true
+                            imageUrl: {}
+                            googlePlacesLink: {}
+                            notes: {}
+                            description:
+                              type: string
+                              example: CVS
+                            coordinates:
+                              type: object
+                              properties:
+                                latitude:
+                                  type: number
+                                  example: 38.495133
+                                  default: 0
+                                longitude:
+                                  type: number
+                                  example: -121.505336
+                                  default: 0
+                            lineOfSightDistance:
+                              type: number
+                              example: 0.1727927078581357
+                              default: 0
+                            lineOfSightMetric:
+                              type: string
+                              example: mi
+                            supportedCoins:
+                              type: array
+                              items:
+                                type: object
+                                properties: {}
+                            locationFees: {}
+                            metadata:
+                              type: object
+                              properties:
+                                providerLocationReference:
+                                  type: string
+                                  example: '2434'
+                                phone:
+                                  type: string
+                                  example: '9163925184'
+                  errorResponse: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      security:
+      - x-api-key: []
+      tags:
+      - Locations
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key

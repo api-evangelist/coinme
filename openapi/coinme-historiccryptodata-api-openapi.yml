@@ -1,0 +1,130 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Historiccryptodata API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Historiccryptodata
+paths:
+  /historiccryptodata:
+    get:
+      summary: Get Historical Crypto Market Data
+      description: Retrieves the historical crypto market prices for a specified cryptocurrency over a certain period of time.
+      operationId: get-historical-crypto-market-data
+      parameters:
+      - name: interval
+        in: query
+        description: The interval (SECONDS, MINUTES, HOURS, DAYS)
+        required: true
+        schema:
+          type: string
+      - name: currency
+        in: query
+        description: Currency code of crypto (i.e. BTC, ETH)
+        required: true
+        schema:
+          type: string
+      - name: fiat
+        in: query
+        description: Currency code of fiat (i.e. USD)
+        required: true
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Number of intervals
+        schema:
+          type: integer
+          format: int32
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"data\": {\n        \"items\": [\n            {\n                \"timestamp\": 1679011200000,\n                \"open\": \"25053.7\",\n                \"close\": \"26781.2\",\n                \"high\": \"27035\",\n                \"low\": \"24947.7\",\n                \"volume\": \"8648.26471449\"\n            },\n            {\n                \"timestamp\": 1678924800000,\n                \"open\": \"24374.8\",\n                \"close\": \"25053.7\",\n                \"high\": \"25213\",\n                \"low\": \"24210.8\",\n                \"volume\": \"6062.601064170007\"\n            },\n            {\n                \"timestamp\": 1678838400000,\n                \"open\": \"24753.4\",\n                \"close\": \"24372.6\",\n                \"high\": \"25300\",\n                \"low\": \"23913.3\",\n                \"volume\": \"7649.429615129982\"\n            },\n            {\n                \"timestamp\": 1678752000000,\n                \"open\": \"24214.2\",\n                \"close\": \"24753.4\",\n                \"high\": \"26526\",\n                \"low\": \"24051\",\n                \"volume\": \"12950.94274097\"\n            },\n            {\n                \"timestamp\": 1678665600000,\n                \"open\": \"22165.1\",\n                \"close\": \"24208.3\",\n                \"high\": \"24599\",\n                \"low\": \"21867.8\",\n                \"volume\": \"13565.331377550023\"\n            },\n            {\n                \"timestamp\": 1678579200000,\n                \"open\": \"20619.7\",\n                \"close\": \"22157.5\",\n                \"high\": \"22299.9\",\n                \"low\": \"20440.3\",\n                \"volume\": \"7431.973570290001\"\n            },\n            {\n                \"timestamp\": 1678492800000,\n                \"open\": \"20224.7\",\n                \"close\": \"20616.4\",\n                \"high\": \"20879\",\n                \"low\": \"19888\",\n                \"volume\": \"9270.554687810012\"\n            },\n            {\n                \"timestamp\": 1678406400000,\n                \"open\": \"20363.7\",\n                \"close\": \"20224.7\",\n                \"high\": \"20364\",\n                \"low\": \"19549.9\",\n                \"volume\": \"8037.341238900003\"\n            },\n            {\n                \"timestamp\": 1678320000000,\n                \"open\": \"21696.5\",\n                \"close\": \"20363.6\",\n                \"high\": \"21819\",\n                \"low\": \"20042.3\",\n                \"volume\": \"5846.941776959993\"\n            },\n            {\n                \"timestamp\": 1678233600000,\n                \"open\": \"22194.8\",\n                \"close\": \"21699.1\",\n                \"high\": \"22267.9\",\n                \"low\": \"21600\",\n                \"volume\": \"2481.03272122\"\n            }\n        ]\n    },\n    \"errorResponse\": null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            timestamp:
+                              type: integer
+                              example: 1679011200000
+                              default: 0
+                            open:
+                              type: string
+                              example: '25053.7'
+                            close:
+                              type: string
+                              example: '26781.2'
+                            high:
+                              type: string
+                              example: '27035'
+                            low:
+                              type: string
+                              example: '24947.7'
+                            volume:
+                              type: string
+                              example: '8648.26471449'
+                  errorResponse: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+        '500':
+          description: '500'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+      deprecated: false
+      security:
+      - x-api-key: []
+      tags:
+      - Historiccryptodata
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key

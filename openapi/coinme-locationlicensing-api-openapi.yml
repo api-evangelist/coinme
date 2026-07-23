@@ -1,0 +1,126 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Locationlicensing API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Locationlicensing
+paths:
+  /locationlicensing:
+    get:
+      summary: Get Location Licensing
+      description: Return list of states Coinme is approved to operate in
+      operationId: get-locations
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - country
+              properties:
+                country:
+                  type: string
+                  description: 3 character abbreviation (i.e. USA)
+                  default: USA
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": \n  {\n    \"locations\": [\n      \"WA\",// two character abbreviation\n      \"VA\" //two character abbreviation\n    ]\n  },\n  \"errorResponse\": null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      locations:
+                        type: array
+                        items:
+                          type: string
+                          example: WA
+                  errorResponse: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": null,\n  \"errorResponse\": {\n    \"httpStatus\":\"200\",\n    \"timestamp\":\"2022-02-01T18:59:28.297Z\",//UTC\n    \"path\":\"/services/locationlicensing GET\",\n    \"errorData\": [\n      {\n        \"errorCode\":\"123-123-123-123\",//The error code is just a sample showing the structure of the error code.\n        \"message\":\"Not able to return the list of states for the country specified in the request\"\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  data: {}
+                  errorResponse:
+                    type: object
+                    properties:
+                      httpStatus:
+                        type: string
+                        example: '200'
+                      timestamp:
+                        type: string
+                        example: '2022-02-01T18:59:28.297Z'
+                      path:
+                        type: string
+                        example: /services/locationlicensing GET
+                      errorData:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            errorCode:
+                              type: string
+                              example: 123-123-123-123
+                            message:
+                              type: string
+                              example: Not able to return the list of states for the country specified in the request
+        '401':
+          description: '401'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+        '500':
+          description: '500'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+      deprecated: false
+      security:
+      - x-api-key: []
+      tags:
+      - Locationlicensing
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key

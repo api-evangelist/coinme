@@ -1,0 +1,177 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Transaction API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Transaction
+paths:
+  /transaction:
+    post:
+      summary: Initiate Buy/Sell Transaction with Quote
+      description: Creates a buy or sell transaction using a customerId and quoteId.
+      operationId: initiate-buy-sell-transaction
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - customerId
+              - quoteId
+              properties:
+                customerId:
+                  type: integer
+                  description: Unique customer identifier
+                  format: int64
+                paymentMethodId:
+                  type: integer
+                  description: ID of payment method to buy or sell with (given in Add New Payment Method response). Required when using payment processing through Coinme
+                  format: int64
+                partnerTransactionId:
+                  type: string
+                  description: Automatically generated if not provided
+                quoteId:
+                  type: string
+                  description: Quote Identifier referring to the specific crypto quote
+                externalCustodyCreditInfo:
+                  type: object
+                  description: Applicable for BUY flow only when sending to an external wallet (not custodied by Coinme), details for sending crypto to external wallet
+                  required:
+                  - walletAddress
+                  properties:
+                    walletAddress:
+                      type: string
+                      description: Wallet address to send crypto to. Required for external crypto deposit
+                    blockchainMemo:
+                      type: string
+                      description: Blockchain memo for transaction (if applicable)
+                sourceWalletAddress:
+                  type: string
+                  description: Applicable for SELL flow only when selling from an external wallet (not custodied by Coinme), indicates from what wallet address is crypto sent
+                tags:
+                  type: string
+                  description: Can be used to mark a transaction with unique keywords
+                webSessionId:
+                  type: string
+                  description: To be provided when using Coinme payment processing
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": \n  { \"partnerTransactionId\":\"34567890\",\n    \"creditCurrencyUnitPrice\":\"7.917\",\n    \"creditCurrencyUnitPriceCode\":\"DOGE/USD\",\n    \"debitCurrencyUnitPrice\":\"0.1263104711\",\n    \"debitCurrencyUnitPriceCode\":\"USD/DOGE\",\n    \"creditCurrencyAmount\":\"771.9075\",//include the spread \n    \"creditCurrencyCode\":\"DOGE\",\n    \"debitCurrencyAmount\":\"100\",//Amount value requested by User\n    \"debitCurrencyCode\":\"USD\",\n    \"totalFees\":\"2.5\",//exchange fee value\n    \"feeCurrencyCode\":\"USD\", // exchange fee currency code\n    \"feesMap\":{\n      \"exchangeFee\":\"2.5\",\n      \"processingFee\":\"0\",\n      \"blockchainFee\": \"0.4\" // present if request for quote had cryptoSettlementType: EXTERNAL\n    },\n    \"spreadAmount\":\"0.117\",\n    \"spreadCurrencyCode\":\"USD\"\n},\n  \"errorResponse\": null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      partnerTransactionId:
+                        type: string
+                        example: '34567890'
+                      creditCurrencyUnitPrice:
+                        type: string
+                        example: '7.917'
+                      creditCurrencyUnitPriceCode:
+                        type: string
+                        example: DOGE/USD
+                      debitCurrencyUnitPrice:
+                        type: string
+                        example: '0.1263104711'
+                      debitCurrencyUnitPriceCode:
+                        type: string
+                        example: USD/DOGE
+                      creditCurrencyAmount:
+                        type: string
+                        example: '771.9075'
+                      creditCurrencyCode:
+                        type: string
+                        example: DOGE
+                      debitCurrencyAmount:
+                        type: string
+                        example: '100'
+                      debitCurrencyCode:
+                        type: string
+                        example: USD
+                      totalFees:
+                        type: string
+                        example: '2.5'
+                      feeCurrencyCode:
+                        type: string
+                        example: USD
+                      feesMap:
+                        type: object
+                        properties:
+                          exchangeFee:
+                            type: string
+                            example: '2.5'
+                          processingFee:
+                            type: string
+                            example: '0'
+                          blockchainFee:
+                            type: string
+                            example: '0.4'
+                      spreadAmount:
+                        type: string
+                        example: '0.117'
+                      spreadCurrencyCode:
+                        type: string
+                        example: USD
+                  errorResponse: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": null,\n  \"errorResponse\": {\n    \"httpStatus\":\"200\",\n    \"timestamp\":\"2022-02-01T18:59:28.297Z\",//UTC\n    \"path\":\"/services/transaction POST\",\n    \"errorData\": [\n      {\n        \"errorCode\":\"123-123-123-123\",//The error code is just a sample showing the structure of the error code.\n        \"message\":\"Invalid QuoteId\"\n      }\n    ]\n}"
+        '401':
+          description: '401'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+        '500':
+          description: '500'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+      deprecated: false
+      security:
+      - x-api-key: []
+      tags:
+      - Transaction
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key

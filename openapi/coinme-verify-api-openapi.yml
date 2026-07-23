@@ -1,0 +1,138 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Verify API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Verify
+paths:
+  /verify:
+    post:
+      summary: Initiate Verify
+      description: This endpoint can be called to verify that the submitted data correctly matches the customer associated with it. The more data input, the more accurate of a result can be returned. In order to keep the information confidential, Coinme uses a third party, VeryGoodSecurity, as a reverse proxy to create a token for the ssn upon the request and then decrypt the token on the request to Prove’s pre-fill service.
+      operationId: verify
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - ssn
+              - phoneNumber
+              properties:
+                ssn:
+                  type: string
+                  description: Social security number token from VGS API call
+                phoneNumber:
+                  type: integer
+                  description: 10-digit phone number
+                  format: int32
+                consentStatus:
+                  type: string
+                  description: enum of optedIn, optedOut, notCollected, unknown
+                  enum:
+                  - optedIn
+                  - optedOut
+                  - notCollected
+                  - unknown
+                firstName:
+                  type: string
+                  description: First name of customer
+                lastName:
+                  type: string
+                  description: Last name of customer
+                address:
+                  type: string
+                  description: Line 1 of customer home address
+                extendedAddress:
+                  type: string
+                  description: Line 2 of customer home address
+                city:
+                  type: string
+                  description: City of customer home address
+                region:
+                  type: string
+                  description: State of customer home address
+                postalCode:
+                  type: string
+                  description: Postal code of customer home address
+                dob:
+                  type: string
+                  description: Date of birth of customer in format YYYY-MM-DD
+                  format: date
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"data\": {\n\t\t\"requestId\": \"<<UUID>>\",\n\t\t\"status\": 0,\n\t\t\"description\": \"Success.\",\n\t\t\"additionalInfo\": null,\n\t\t\"response\": {\n\t\t\t\"verified\": true, //boolean to say if the data matches\n\t\t\t\"transactionId\": \"12228136833\",\n\t\t\t\"payfoneAlias\": \"<<payfoneAliasId>>\",\n\t\t\t\"phoneNumber\": \"<<inputPhoneNumber>>\",\n\t\t\t\"lineType\": \"Landline\",\n\t\t\t\"carrier\": \"<<carrier>>\",\n\t\t\t\"countryCode\": \"US\",\n\t\t\t\"reasonCodes\": [\n\t\t\t<<List of 2-digit reason codes>>\n\t\t\t],\n\t\t\t\"address\": {\n\t\t\t\t\"distance\": 0.0,\n\t\t\t\t\"addressScore\": 100, //0-100 on matching of address\n\t\t\t\t\"streetNumber\": 100, //0-100 on matching of street number\n\t\t\t\t\"street\": false, // boolean on street match\n\t\t\t\t\"city\": true, //boolean on city match\n\t\t\t\t\"region\": true, //boolean on region match\n\t\t\t\t\"postalCode\": true //boolean on postal code match\n\t\t\t},\n\t\t\t\"name\": {\n\t\t\t\t\"nameScore\": 100, //0-100 on matching of full name\n\t\t\t\t\"firstName\": 100, //0-100 on matching of first name\n\t\t\t\t\"lastName\": 100 //0-100 on matching of last name\n\t\t\t},\n\t\t\t\"identifiers\": {\n\t\t\t\t\"last4\": false, //if last4 used instead of full ssn (should always be false in this case)\n\t\t\t\t\"dob\": true, //boolean on dob matches\n\t\t\t\t\"driversLicenseState\": false, //boolean on drivers license state match (not supported at this time)\n\t\t\t\t\"driversLicenseNumber\": false, //boolean on drivers license number match (not supported at this time)\n\t\t\t\t\"ssn\": true //boolean on ssn match\n\t\t\t},\n\t\t\t\"knowYourCustomer\": { //AML or Sanctions hits\n\t\t\t\t\"totalHits\": 1, \n\t\t\t\t\"amlTypeLists\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"amlType\": \"pep-class-1\",\n\t\t\t\t\t\t\"listHits\": 1,\n\t\t\t\t\t\t\"fields\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"source\": \"europe-sanction-list\",\n\t\t\t\t\t\t\t\t\"name\": \"TestName\",\n\t\t\t\t\t\t\t\t\"value\": \"TestValue\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t},\n\t\t\t\"matchDataType\": null //not suported at this time\n\t\t}\n\t},\n\t\"errorResponse\": null\n}"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"data\": null,\n\t\"errorResponse\": {\n\t\t\"timestamp\": \"2023-08-30T04:43:56.286644803Z\",\n\t\t\"httpStatus\": 200,\n\t\t\"errorData\": [\n\t\t\t{\n\t\t\t\t\"errorCode\": \"131-400-110-004\",\n\t\t\t\t\"message\": \"Subscriber is not found on the required whitelist. - \"\n\t\t\t}\n\t\t],\n\t\t\"path\": \"POST /services/identity\"\n\t}\n}"
+              schema:
+                type: object
+                properties:
+                  data: {}
+                  errorResponse:
+                    type: object
+                    properties:
+                      timestamp:
+                        type: string
+                        example: '2023-08-30T04:43:56.286644803Z'
+                      httpStatus:
+                        type: integer
+                        example: 200
+                        default: 0
+                      errorData:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            errorCode:
+                              type: string
+                              example: 131-400-110-004
+                            message:
+                              type: string
+                              example: 'Subscriber is not found on the required whitelist. - '
+                      path:
+                        type: string
+                        example: POST /services/identity
+      deprecated: false
+      security:
+      - x-api-key: []
+      tags:
+      - Verify
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key

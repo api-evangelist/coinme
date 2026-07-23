@@ -1,0 +1,803 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Paymentmethods API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Paymentmethods
+paths:
+  /paymentmethods:
+    post:
+      summary: Add Card Payment Method
+      description: Method for adding new card for customer
+      operationId: add-new-payment-method
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - customerId
+              - providerId
+              - card
+              - billingAddress
+              - paymentProcessAssociation
+              properties:
+                customerId:
+                  type: integer
+                  description: Unique customer identifier
+                  format: int64
+                providerId:
+                  type: string
+                  description: ID of payment provider (provided by Coinme)
+                card:
+                  type: object
+                  description: Debit card details
+                  required:
+                  - cardNumber
+                  - month
+                  - year
+                  - cvv
+                  properties:
+                    cardNumber:
+                      type: string
+                      description: 16-digit debit card number (i.e. 12345343242)
+                    month:
+                      type: string
+                      description: Debit card expiration date month (i.e. 02)
+                    year:
+                      type: string
+                      description: Debit card expiration date month (i.e. 2026)
+                    cvv:
+                      type: string
+                      description: Debit card CVV / security code
+                billingAddress:
+                  type: object
+                  description: Billing address for customer
+                  required:
+                  - country
+                  - addressLine1
+                  - zipCode
+                  - city
+                  - state
+                  properties:
+                    firstName:
+                      type: string
+                      description: First name of customer
+                    lastName:
+                      type: string
+                      description: Last name of customer
+                    country:
+                      type: string
+                      description: 2 character abbreviation of country for customer's billing address (i.e. US)
+                    addressLine1:
+                      type: string
+                      description: Line 1 of customer billing address
+                    addressLine2:
+                      type: string
+                      description: Line 2 of customer billing address
+                    zipCode:
+                      type: string
+                      description: ZIP code of customer billing address
+                    city:
+                      type: string
+                      description: City of customer billing address
+                    state:
+                      type: string
+                      description: 2 character abbreviation of state for customer billing address (i.e. FL)
+                paymentProcessAssociation:
+                  type: string
+                  description: Identifier if payment method is for buy or sell
+                  enum:
+                  - BUY
+                  - SELL
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": \n  {\n    \"customerId\":\"34567890\",\n    \"partnerId\":\"30157493212106\",\n    \"paymentMethod\": {\n        \"paymentMethodId\": \"123456\",\n        \"providerId\": \"654987321\",\n        \"providerName\": \"Provider Name\",\n        \"type\": \"DEBIT\", // could be DEBIT, CREDIT or PREPAID\n        \"cardProvider\": \"Visa\",\n        \"card\": {\n            \"cardNumber\": \"123412321\",\n            \"month\": \"03\",\n            \"year\": \"2024\"\n        },\n        \"billingAddress\": {\n            \"firstName\": \"John\",\n            \"lastName\": \"Doe\",\n            \"country\": \"US\",\n            \"addressLine1\": \"11 Creekside St.\",\n            \"addressLine2\": \"Additional line\",\n            \"zipCode\": \"33414\",\n            \"city\": \"West Palm Beach\",\n            \"state\": \"FL\"\n        },\n        \"status\": \"VERIFIED\", //enum, could be [CREATED, VERIFIED, DECLINED, STAGED, DELETED]\n        \"buySupported\": false, \n        \"sellSupported\": true,\n        \"createdAt\": 1714560970 //timestamp in millis\n    }\n  },\n  \"errorResponse\": null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      customerId:
+                        type: string
+                        example: '34567890'
+                      partnerId:
+                        type: string
+                        example: '30157493212106'
+                      paymentMethod:
+                        type: object
+                        properties:
+                          paymentMethodId:
+                            type: string
+                            example: '123456'
+                          stagingProviderId:
+                            type: string
+                            example: '654987321'
+                          stagingProviderName:
+                            type: string
+                            example: Provider Name
+                          type:
+                            type: string
+                            example: DEBIT
+                            enum:
+                            - CREDIT
+                            - DEBIT
+                            - PREPAID
+                          cardProvider:
+                            type: string
+                            example: Visa
+                          card:
+                            type: object
+                            properties:
+                              cardNumber:
+                                type: string
+                                example: '123412321'
+                              month:
+                                type: string
+                                example: '03'
+                              year:
+                                type: string
+                                example: '2024'
+                          billingAddress:
+                            type: object
+                            properties:
+                              firstName:
+                                type: string
+                                example: John
+                              lastName:
+                                type: string
+                                example: Doe
+                              country:
+                                type: string
+                                example: US
+                              addressLine1:
+                                type: string
+                                example: 11 Creekside St.
+                              addressLine2:
+                                type: string
+                                example: Additional line
+                              zipCode:
+                                type: string
+                                example: '33414'
+                              city:
+                                type: string
+                                example: West Palm Beach
+                              state:
+                                type: string
+                                example: FL
+                          status:
+                            type: string
+                            example: VERIFIED
+                            enum:
+                            - CREATED
+                            - VERIFIED
+                            - DECLINED
+                            - STAGED
+                            - DELETED
+                          buySupported:
+                            type: boolean
+                            example: false
+                            default: true
+                          sellSupported:
+                            type: boolean
+                            example: true
+                            default: true
+                          createdAt:
+                            type: integer
+                            example: 1714560970
+                            default: 0
+                    description: If there are no client errors this field will be filled out and errorResponse will be null
+                  errorResponse:
+                    description: If there are client errors, this field will be filled out and data will be null
+                    type: object
+                    properties:
+                      timestamp:
+                        type: string
+                      httpStatus:
+                        type: string
+                      errorData:
+                        type: array
+                        items:
+                          properties:
+                            errorCode:
+                              type: string
+                            message:
+                              type: string
+                          type: object
+                      path:
+                        type: string
+                      retry:
+                        type: string
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": null,\n  \"errorResponse\": {\n    \"httpStatus\":\"200\",\n    \"timestamp\":\"2022-02-01T18:59:28.297Z\",//UTC\n    \"path\":\"/external/partners/v1/payment-method\",\n    \"errorData\": [\n      {\n        \"errorCode\":\"123-123-123-123\", //The error code is just a sample showing the structure of the error code.\n        \"message\":\"Invalid customer id\"\n      }\n    ]\n}"
+      security:
+      - {}
+      tags:
+      - Paymentmethods
+    get:
+      summary: Get All Payment Methods
+      description: Method for fetching all payment methods for a specific customer
+      operationId: get-all-payment-methods
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      - name: customerId
+        in: query
+        description: Unique customer identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": {\n    \"paymentMethods\": [\n    {\n        \"paymentMethodId\": \"123456\",\n        \"providerId\": \"654987321\",\n        \"providerName\": \"Provider Name\",\n        \"type\": \"DEBIT\", // could be DEBIT, CREDIT or PREPAID\n        \"cardProvider\": \"Visa\",\n        \"card\": {\n            \"cardNumber\": \"123412321\",\n            \"month\": \"03\",\n            \"year\": \"2024\"\n        },\n        \"billingAddress\": {\n            \"firstName\": \"John\",\n            \"lastName\": \"Doe\",\n            \"country\": \"US\",\n            \"addressLine1\": \"11 Creekside St.\",\n            \"addressLine2\": \"Additional line\",\n            \"zipCode\": \"33414\",\n            \"city\": \"West Palm Beach\",\n            \"state\": \"FL\"\n        },\n        \"status\": \"VERIFIED\", //enum, could be [CREATED, VERIFIED, DECLINED, STAGED, DELETED]\n        \"buySupported\": false,\n        \"sellSupported\": true,\n        \"createdAt\": 1714560970, //timestamp in millis\n        \"verifiedAt\": 1714560970 //timestamp in millis\n    }\n    .....\n    ]\n  },\n  \"errorResponse\": null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      paymentMethods:
+                        type: array
+                        items:
+                          properties:
+                            paymentMethodId:
+                              type: string
+                            providerId:
+                              type: string
+                            providerName:
+                              type: string
+                            type:
+                              type: string
+                              enum:
+                              - CREDIT
+                              - DEBIT
+                              - PREPAID
+                            cardProvider:
+                              type: string
+                            card:
+                              type: object
+                              properties:
+                                cardNumber:
+                                  type: string
+                                month:
+                                  type: string
+                                year:
+                                  type: string
+                            billingAddress:
+                              type: object
+                              properties:
+                                firstName:
+                                  type: string
+                                lastName:
+                                  type: string
+                                country:
+                                  type: string
+                                addressLine1:
+                                  type: string
+                                addressLine2:
+                                  type: string
+                                zipCode:
+                                  type: string
+                                city:
+                                  type: string
+                                state:
+                                  type: string
+                            status:
+                              type: string
+                              enum:
+                              - CREATED
+                              - VERIFIED
+                              - DECLINED
+                              - STAGED
+                              - DELETED
+                            buySupported:
+                              type: boolean
+                            sellSupported:
+                              type: boolean
+                            createdAt:
+                              type: string
+                            verifiedAt:
+                              type: string
+                            declinedAt:
+                              type: string
+                            deletedAt:
+                              type: string
+                          type: object
+                    description: If there are no client errors this field will be filled out and errorResponse will be null
+                  errorResponse:
+                    type: object
+                    properties:
+                      timestamp:
+                        type: string
+                      httpStatus:
+                        type: string
+                      errorData:
+                        type: array
+                        items:
+                          properties:
+                            errorCode:
+                              type: string
+                            message:
+                              type: string
+                          type: object
+                      path:
+                        type: string
+                      retry:
+                        type: string
+                    description: If there are client errors, this field will be filled out and data will be null
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": null,\n  \"errorResponse\": {\n    \"httpStatus\":\"200\",\n    \"timestamp\":\"2022-02-01T18:59:28.297Z\",//UTC\n    \"path\":\"/external/v1/payment-method\",//The error code is just a sample showing the structure of the error code.\n    \"errorData\": [\n      {\n        \"errorCode\":\"123-123-123-123\",\n        \"message\":\"Invalid account id\"\n      }\n    ]\n}"
+      security:
+      - x-api-key: []
+      tags:
+      - Paymentmethods
+  /paymentmethods/{paymentMethodId}:
+    get:
+      summary: Get Payment Method
+      description: Method for fetching a payment method by id
+      operationId: get-payment-method
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      - name: paymentMethodId
+        in: path
+        description: ID of payment method to get details of
+        schema:
+          type: string
+        required: true
+      - name: customerId
+        in: query
+        description: Unique customer identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": \n  {\n    \"paymentMethodId\": \"123456\",\n    \"providerId\": \"654987321\",\n    \"providerName\": \"Provider Name\",\n    \"type\": \"DEBIT\", // could be DEBIT, CREDIT or PREPAID\n    \"cardProvider\": \"Visa\",\n    \"card\": {\n        \"cardNumber\": \"123412321\",\n        \"month\": \"03\",\n        \"year\": \"2024\"\n    },\n    \"billingAddress\": {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"country\": \"US\",\n        \"addressLine1\": \"11 Creekside St.\",\n        \"addressLine2\": \"Additional line\",\n        \"zipCode\": \"33414\",\n        \"city\": \"West Palm Beach\",\n        \"state\": \"FL\"\n    },\n    \"status\": \"VERIFIED\", //enum, could be [CREATED, VERIFIED, DECLINED, STAGED, DELETED]\n    \"buySupported\": false,\n    \"sellSupported\": true,\n    \"createdAt\": 1714560970, //timestamp in millis\n    \"verifiedAt\": 1714560970 //timestamp in millis\n  },\n  \"errorResponse\": null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      paymentMethodId:
+                        type: string
+                        example: '123456'
+                      providerId:
+                        type: string
+                        example: '654987321'
+                      providerName:
+                        type: string
+                        example: Provider Name
+                      type:
+                        type: string
+                        example: DEBIT
+                        enum:
+                        - CREDIT
+                        - DEBIT
+                        - PREPAID
+                      cardProvider:
+                        type: string
+                        example: Visa
+                      card:
+                        type: object
+                        properties:
+                          cardNumber:
+                            type: string
+                            example: '123412321'
+                          month:
+                            type: string
+                            example: '03'
+                          year:
+                            type: string
+                            example: '2024'
+                      billingAddress:
+                        type: object
+                        properties:
+                          firstName:
+                            type: string
+                            example: John
+                          lastName:
+                            type: string
+                            example: Doe
+                          country:
+                            type: string
+                            example: US
+                          addressLine1:
+                            type: string
+                            example: 11 Creekside St.
+                          addressLine2:
+                            type: string
+                            example: Additional line
+                          zipCode:
+                            type: string
+                            example: '33414'
+                          city:
+                            type: string
+                            example: West Palm Beach
+                          state:
+                            type: string
+                            example: FL
+                      status:
+                        type: string
+                        example: VERIFIED
+                        enum:
+                        - CREATED
+                        - VERIFIED
+                        - DECLINED
+                        - STAGED
+                        - DELETED
+                      buySupported:
+                        type: boolean
+                        example: false
+                        default: true
+                      sellSupported:
+                        type: boolean
+                        example: true
+                        default: true
+                      createdAt:
+                        type: string
+                        example: 1714560970
+                        default: 0
+                      verifiedAt:
+                        type: string
+                        example: 1714560970
+                        default: 0
+                    description: If there are no client errors this field will be filled out and errorResponse will be null
+                  errorResponse:
+                    description: If there are client errors, this field will be filled out and data will be null
+                    type: object
+                    properties:
+                      timestamp:
+                        type: string
+                      httpStatus:
+                        type: string
+                      errorData:
+                        type: array
+                        items:
+                          properties:
+                            errorCode:
+                              type: string
+                            message:
+                              type: string
+                          type: object
+                      path:
+                        type: string
+                      retry:
+                        type: string
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": null,\n  \"errorResponse\": {\n    \"httpStatus\":\"200\",\n    \"timestamp\":\"2022-02-01T18:59:28.297Z\",//UTC\n    \"path\":\"/external/partners/v1/payment-method\",//The error code is just a sample showing the structure of the error code.\n    \"errorData\": [\n      {\n        \"errorCode\":\"123-123-123-123\", //The error code is just a sample showing the structure of the error code.\n        \"message\":\"Invalid account id\"\n      }\n    ]\n}"
+      security:
+      - x-api-key: []
+      tags:
+      - Paymentmethods
+    delete:
+      summary: Delete Payment Method
+      description: Method for deleting a payment method
+      operationId: delete-payment-method
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      - name: paymentMethodId
+        in: path
+        description: ID of payment method to delete
+        schema:
+          type: string
+        required: true
+      - name: customerId
+        in: query
+        description: Unique customer identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": \n  {\n    \"paymentMethodId\": \"123456\",\n    \"providerId\": \"654987321\",\n    \"providerName\": \"Provider Name\",\n    \"type\": \"DEBIT\", // could be DEBIT, CREDIT or PREPAID\n    \"cardProvider\": \"Visa\",\n    \"card\": {\n        \"cardNumber\": \"123412321\",\n        \"month\": \"03\",\n        \"year\": \"2024\"\n    },\n    \"billingAddress\": {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"country\": \"US\",\n        \"addressLine1\": \"11 Creekside St.\",\n        \"addressLine2\": \"Additional line\",\n        \"zipCode\": \"33414\",\n        \"city\": \"West Palm Beach\",\n        \"state\": \"FL\"\n    },\n    \"status\": \"DELETED\", //enum, could be [CREATED, VERIFIED, DECLINED, STAGED, DELETED]\n    \"buySupported\": false,\n    \"sellSupported\": true,\n    \"createdAt\": 1714560970, //timestamp in millis\n    \"deletedAt\": 1714560970 //timestamp in millis\n  },\n  \"errorResponse\": null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      paymentMethodId:
+                        type: string
+                        example: '123456'
+                      providerId:
+                        type: string
+                        example: '654987321'
+                      providerName:
+                        type: string
+                        example: Provider Name
+                      type:
+                        type: string
+                        example: DEBIT
+                        enum:
+                        - CREDIT
+                        - DEBIT
+                        - PREPAID
+                      cardProvider:
+                        type: string
+                        example: Visa
+                      card:
+                        type: object
+                        properties:
+                          cardNumber:
+                            type: string
+                            example: '123412321'
+                          month:
+                            type: string
+                            example: '03'
+                          year:
+                            type: string
+                            example: '2024'
+                      billingAddress:
+                        type: object
+                        properties:
+                          firstName:
+                            type: string
+                            example: John
+                          lastName:
+                            type: string
+                            example: Doe
+                          country:
+                            type: string
+                            example: US
+                          addressLine1:
+                            type: string
+                            example: 11 Creekside St.
+                          addressLine2:
+                            type: string
+                            example: Additional line
+                          zipCode:
+                            type: string
+                            example: '33414'
+                          city:
+                            type: string
+                            example: West Palm Beach
+                          state:
+                            type: string
+                            example: FL
+                      status:
+                        type: string
+                        example: DELETED
+                        enum:
+                        - CREATED
+                        - VERIFIED
+                        - DECLINED
+                        - STAGED
+                        - DELETED
+                      buySupported:
+                        type: boolean
+                        example: false
+                        default: true
+                      sellSupported:
+                        type: boolean
+                        example: true
+                        default: true
+                      createdAt:
+                        type: string
+                        example: 1714560970
+                        default: 0
+                      deletedAt:
+                        type: string
+                        example: 1714560970
+                        default: 0
+                    description: If there are no client errors this field will be filled out and errorResponse will be null
+                  errorResponse:
+                    description: If there are client errors, this field will be filled out and data will be null
+                    type: object
+                    properties:
+                      timestamp:
+                        type: string
+                      httpStatus:
+                        type: string
+                      errorData:
+                        type: array
+                        items:
+                          properties:
+                            errorCode:
+                              type: string
+                            message:
+                              type: string
+                          type: object
+                      path:
+                        type: string
+                      retry:
+                        type: string
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": null,\n  \"errorResponse\": {\n    \"httpStatus\":\"200\",\n    \"timestamp\":\"2022-02-01T18:59:28.297Z\",//UTC\n\t\t\"path\":\"/external/partners/v1/payment-method\",    \n      \"errorData\": [\n      {\n        \"errorCode\":\"123-123-123-123\", //The error code is just a sample showing the structure of the error code.\n        \"message\":\"Invalid account id\"\n      }\n    ]\n}"
+      security:
+      - x-api-key: []
+      tags:
+      - Paymentmethods
+  /paymentmethods/status:
+    get:
+      description: Check if a customer has reached their payment method limits. Returns the status of various payment method thresholds to determine if the customer can add additional payment methods.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value: "{\n  \"data\": {\n    \"maxReached\": 3, // indicates if an account has reached the maximum number of payment methods they can add (verified or unverified, the default is 5)\n    \"maxTotalReached\": 5, // indicates if the account has reached the maximum number of verified payment methods they can have (default 3)\n    \"maxVerifiedReached\": 10 // inidicates whether the account can add any more payment methods\n  },\n  \"errorResponse\": null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: If there are no client errors this field will be filled out and errorResponse will be null
+                    properties:
+                      maxReached:
+                        type: boolean
+                        description: True if no more cards can be added
+                      maxVerifiedReached:
+                        type: boolean
+                        description: True if no more cards can be verified
+                      maxTotalReached:
+                        type: string
+                        description: True if the total number of cards in any status has been reached
+                  errorResponse:
+                    type: object
+                    description: If there are client errors, this field will be filled out and data will be null
+                    properties:
+                      timestamp:
+                        type: string
+                      httpStatus:
+                        type: string
+                      errorData:
+                        type: array
+                        items:
+                          properties:
+                            errorCode:
+                              type: string
+                            message:
+                              type: string
+                          type: object
+                      path:
+                        type: string
+                      retry:
+                        type: string
+                required:
+                - data
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: "{\n  \"data\": null,\n  \"errorResponse\": {\n    \"httpStatus\": \"200\",\n    \"timestamp\": \"2025-01-09T14:30:00.000Z\", //UTC\n    \"path\": \"/services/paymentmethods/status GET\",\n    \"errorData\": [\n      {\n        \"errorCode\":\"123-123-123-123\", //The error code is just a sample showing the structure of the error code.\n        \"message\":\"Customer Id not found\"\n      }\n    ]\n  }\n}"
+          description: Bad Request
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+          default: Bearer ******
+        required: true
+        description: Bearer token {authorize} endpoint
+      - in: header
+        name: User-Agent
+        schema:
+          type: string
+        required: true
+        description: Partner User Agent ID (provided by Coinme)
+      - in: query
+        name: customerId
+        schema:
+          type: string
+        description: Unique customer identifier
+        required: true
+      operationId: get_paymentmethods-status
+      summary: Get Payment Method Status
+      security:
+      - x-api-key: []
+      tags:
+      - Paymentmethods
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key

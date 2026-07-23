@@ -1,0 +1,165 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Wallets API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Wallets
+paths:
+  /wallets:
+    get:
+      description: ''
+      operationId: get_wallets
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    walletAddresses:
+                    - walletAddress: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
+                      currencyName: Bitcoin
+                      currencySymbol: BTC
+                      assetId: btc-main
+                      chain: BTC
+                    - walletAddress: '0x742d35Cc6634C0532925a3b844Bc9e7595f2bD3e'
+                      currencyName: Ethereum
+                      currencySymbol: ETH
+                      assetId: eth-main
+                      chain: ETH
+                    errorResponse: null
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: "{\n  \"walletAddresses\": null,\n  \"errorResponse\": {\n    \"httpStatus\": \"[NEED STATUS CODE]\",\n    \"timestamp\": \"2025-01-09T14:30:00.000Z\", //UTC\n    \"path\": \"/services/wallets GET\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"[NEED ERROR CODE]\",\n        \"message\": \"[NEED ERROR MESSAGE]\"\n      }\n    ]\n  }\n}"
+          description: Bad Request
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+          default: Bearer ******
+        required: true
+        description: 'Bearer token {authorize} endpoint
+
+          '
+      - in: header
+        name: User-Agent
+        schema:
+          type: string
+        required: true
+        description: Partner User Agent ID (provided by Coinme)
+      - in: query
+        name: customerId
+        schema:
+          type: integer
+          format: int64
+        description: Unique customer identifier
+        required: true
+      security:
+      - x-api-key: []
+      tags:
+      - Wallets
+  /wallets/estimateFee:
+    get:
+      description: ''
+      operationId: get_walletsestimateFee
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    estimateFee: '0.00042'
+                    estimateFeeUSD: '0.15'
+              schema:
+                type: object
+                properties:
+                  estimateFee:
+                    type: string
+                    description: Estimated network fee denominated in the crypto asset identified by currencySymbol (e.g. 0.00042 ETH).
+                    default: '0.00042'
+                  estimateFeeUSD:
+                    type: string
+                    description: Same fee converted to USD
+                    default: '0.15'
+                required:
+                - estimateFee
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value:
+                    httpStatus: '400'
+                    path: GET /services/wallets/estimateFee
+                    timestamp: '2025-11-12T22:28:36Z'
+                    errorData:
+                    - errorCode: INVALID_CHAIN
+                      message: Unsupported chain
+          description: Bad Request
+      parameters:
+      - in: query
+        name: customerId
+        schema:
+          type: integer
+          format: int64
+        description: Unique customer identifier
+      - in: query
+        name: currencySymbol
+        schema:
+          type: string
+        required: false
+        description: Symbol of the crypto asset you’re sending on that chain (e.g. ETH, USDT, USDC, BTC). Partners also have the option to use full asset ID (e.g. USDT_SOL, USDC_POL, etc)
+      - in: query
+        name: chain
+        schema:
+          type: string
+        required: false
+        description: The crypto chain identifier to estimate the fee on (e.g. ETH, SOL). Must match supported chains returned by /services/cryptoChains. Not needed if using full assetId in currencySymbol
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Bearer token {authorize} endpoint
+      - in: header
+        name: User-Agent
+        schema:
+          type: string
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+      security:
+      - basic: []
+      tags:
+      - Wallets
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key

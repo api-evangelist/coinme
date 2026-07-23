@@ -1,0 +1,108 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Transactions API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Transactions
+paths:
+  /transactions/{partnerTransactionId}:
+    get:
+      summary: Get Specific Transaction
+      description: The below API takes the partnerTransactionId in the request and returns the transactions related to only that particular transactionId.
+      operationId: get-specific-transaction
+      parameters:
+      - name: partnerTransactionId
+        in: path
+        description: Transaction ID of the desired transaction
+        schema:
+          type: string
+        required: true
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": {\n            \"totalFees\": \"2.5\",\n            \"feeCurrencyCode\":\"USD\",\n            \"creditCurrencyAmount\":\"771.9075\",\n            \"creditCurrencyCode\":\"DOGE\",\n            \"debitCurrencyAmount\":\"100\",//Amount value requested by User\n            \"debitCurrencyCode\":\"USD\",\n            \"transactionDateTime\": \"2022-01-25T09:27:07.066193Z\",//UTC\n            \"partnerTransactionId\": \"345678\",\n            \"transactionStatus\": \"CONFIRMED\",\n            \"fromWalletAddress\": \"\",//will be used in future for SEND and RECEIVE\n            \"toWalletAddress\": \"\"//will be used in future for SEND and RECEIVE\n        }\n  },\n  \"errorResponse\": null\n}"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": null,\n  \"errorResponse\": {\n    \"httpStatus\":\"200\",\n    \"timestamp\":\"2022-02-01T18:59:28.297Z\",//UTC\n    \"path\":\"/services/transactions GET\",\n    \"errorData\": [\n      {\n        \"errorCode\":\"123-123-123-123\",//The error code is just a sample showing the structure of the error code.\n        \"message\":\"Partner Transaction id not found\"\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  data: {}
+                  errorResponse:
+                    type: object
+                    properties:
+                      httpStatus:
+                        type: string
+                        example: '200'
+                      timestamp:
+                        type: string
+                        example: '2022-02-01T18:59:28.297Z'
+                      path:
+                        type: string
+                        example: /services/transactions GET
+                      errorData:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            errorCode:
+                              type: string
+                              example: 123-123-123-123
+                            message:
+                              type: string
+                              example: Partner Transaction id not found
+        '401':
+          description: '401'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+        '500':
+          description: '500'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+      deprecated: false
+      security:
+      - x-api-key: []
+      tags:
+      - Transactions
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key

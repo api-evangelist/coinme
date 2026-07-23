@@ -1,0 +1,208 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Customeronboarding API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Customeronboarding
+paths:
+  /customeronboarding:
+    post:
+      summary: Initiate Customer Onboarding
+      description: Verify Customer KYC and create a new customer account if one does not exist
+      operationId: customer-onboarding
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              - fullName
+              - address
+              - phoneNumber
+              - dateOfBirth
+              - SSN
+              properties:
+                email:
+                  type: string
+                  description: Email of customer
+                fullName:
+                  type: object
+                  description: Full legal name of customer
+                  required:
+                  - firstName
+                  - lastName
+                  properties:
+                    firstName:
+                      type: string
+                      description: First name of customer
+                    middleName:
+                      type: string
+                      description: Middle name of customer
+                    lastName:
+                      type: string
+                      description: Last name of customer
+                    otherNames:
+                      type: object
+                      properties:
+                        secondLastName:
+                          type: string
+                          description: Second last name of customer
+                        otherName1:
+                          type: string
+                        otherName2:
+                          type: string
+                address:
+                  type: object
+                  description: Full home address of customer
+                  required:
+                  - line1
+                  - city
+                  - state
+                  - postalCode
+                  - country
+                  properties:
+                    line1:
+                      type: string
+                      description: Line 1 of customer home address
+                    line2:
+                      type: string
+                      description: Line 2 of customer home address
+                    city:
+                      type: string
+                      description: City of customer home address
+                    state:
+                      type: string
+                      description: State of customer home address
+                    postalCode:
+                      type: string
+                      description: Postal code of customer home address
+                    country:
+                      type: string
+                      description: 3 character abbreviation of country of customer's home address (i.e. USA)
+                phoneNumber:
+                  type: object
+                  description: 10-digit phone number
+                  required:
+                  - countryCode
+                  - number
+                  properties:
+                    countryCode:
+                      type: integer
+                      description: Country code of phone number (i.e. 1)
+                      format: int32
+                    number:
+                      type: number
+                      description: 10-digit phone number
+                dateOfBirth:
+                  type: string
+                  description: Date of birth in format YYYY-MM-DD
+                  format: date
+                SSN:
+                  type: string
+                  description: Social security number of the customer
+                name:
+                  type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": \n  {\n    \"customerId\": \"654987321\"\n  },\n  \"errorResponse\": null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      customerId:
+                        type: string
+                        example: '654987321'
+                  errorResponse: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": null,\n  \"errorResponse\": {\n    \"httpStatus\":\"200\",\n    \"timestamp\":\"2022-02-01T18:59:28.297Z\",//UTC\n    \"path\":\"/services/customeronboarding POST\",\n    \"errorData\": [\n      {\n        \"errorCode\":\"123-123-123-123\",//The error code is just a sample showing the structure of the error code.\n        \"message\":\"Customer identity could not be validated\"\n      }\n    ],\n    \"retry\":\"N\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  data: {}
+                  errorResponse:
+                    type: object
+                    properties:
+                      httpStatus:
+                        type: string
+                        example: '200'
+                      timestamp:
+                        type: string
+                        example: '2022-02-01T18:59:28.297Z'
+                      path:
+                        type: string
+                        example: /services/customeronboarding POST
+                      errorData:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            errorCode:
+                              type: string
+                              example: 123-123-123-123
+                            message:
+                              type: string
+                              example: Customer identity could not be validated
+                      retry:
+                        type: string
+                        example: N
+        '401':
+          description: '401'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+        '500':
+          description: '500'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+      deprecated: false
+      security:
+      - basic: []
+      tags:
+      - Customeronboarding
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key

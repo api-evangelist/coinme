@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Coinme Crypto-as-a-Service AuthLinkResult Services API
+  version: '1.2'
+  description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
+servers:
+- url: https://caas.coinme.com/services
+  description: production
+- url: https://caas-staging.coinme.com/services
+  description: staging
+tags:
+- name: Services
+paths:
+  /services/order-template/refresh?refreshOrderTemplateId={refreshOrderTemplateId}:
+    get:
+      summary: Regenerate Order Template
+      description: Generates a new order template, with the same parameters as an already crated order template
+      operationId: regenerate-order-template
+      parameters:
+      - name: refreshOrderTemplateId
+        in: path
+        description: ID of a previously generated order template, from which the new one will be generated
+        schema:
+          type: string
+        required: true
+      - name: Authorization
+        in: header
+        description: Bearer token {authorize} endpoint
+        required: true
+        schema:
+          type: string
+          default: Bearer ******
+      - name: User-Agent
+        in: header
+        description: Partner User Agent ID (provided by Coinme)
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"data\": {\n        \"transactionTemplate\": {\n            \"transactionSystemRef\": \"1231976224861065216\",\n            \"transactionProviderRef\": \"830324007540008113329460093303\",\n            \"sealed\": true,\n            \"debitCurrencyCode\": \"USD\",\n            \"debitCurrencyUnitPrice\": \"90887.64\",\n            \"creditCurrencyCode\": \"BTC\",\n            \"creditCurrencyAmount\": \"0.00012100\",\n            \"amountValue\": \"11\",\n            \"amountCurrencyCode\": \"USD\",\n            \"feesMap\": {\n                \"instantWithdrawalFee\": \"2.50\",\n                \"exchangeFee\": \"0.16\"\n            },\n            \"active\": true,\n            \"expiryTimestamp\": \"2025-04-22T15:33:48.270Z\"\n        }\n    },\n    \"errorResponse\": null\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      transactionTemplate:
+                        type: object
+                        properties:
+                          transactionSystemRef:
+                            type: string
+                            example: '1231976224861065216'
+                          transactionProviderRef:
+                            type: string
+                            example: '830324007540008113329460093303'
+                          sealed:
+                            type: boolean
+                            example: true
+                            default: true
+                          debitCurrencyCode:
+                            type: string
+                            example: USD
+                          debitCurrencyUnitPrice:
+                            type: string
+                            example: '90887.64'
+                          creditCurrencyCode:
+                            type: string
+                            example: BTC
+                          creditCurrencyAmount:
+                            type: string
+                            example: '0.00012100'
+                          amountValue:
+                            type: string
+                            example: '11'
+                          amountCurrencyCode:
+                            type: string
+                            example: USD
+                          feesMap:
+                            type: object
+                            properties:
+                              instantWithdrawalFee:
+                                type: string
+                                example: '2.50'
+                              exchangeFee:
+                                type: string
+                                example: '0.16'
+                          active:
+                            type: boolean
+                            example: true
+                            default: true
+                          expiryTimestamp:
+                            type: string
+                            example: '2025-04-22T15:33:48.270Z'
+                  errorResponse: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      security:
+      - x-api-key: []
+      tags:
+      - Services
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key
