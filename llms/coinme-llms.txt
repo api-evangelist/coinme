@@ -1,0 +1,120 @@
+# Crypto-as-a-Service Documentation
+
+> Documentation for Crypto-as-a-Service
+
+## Guides
+- [Welcome to Coinme's Crypto-as-a-Service Platform](https://docs.coinme.com/docs/welcome.md): 👋 API infrastructure to bring crypto to your users
+- [Why Integrate With Us](https://docs.coinme.com/docs/benefits-and-use-cases.md): ⭐ Native crypto experience for your users
+- [Use Cases](https://docs.coinme.com/docs/use-cases.md): ✅ Crypto-enable your platform
+- [Demo](https://docs.coinme.com/docs/demo.md)
+- [Getting Started](https://docs.coinme.com/docs/getting-started.md)
+- [Getting Credentials](https://docs.coinme.com/docs/get-credentials.md)
+- [Getting the Authorization Token](https://docs.coinme.com/docs/get-authorization.md)
+- [Customer Onboarding](https://docs.coinme.com/docs/customer-onboarding-overview.md)
+- [Customer Onboarding Using 3rd Party KYC](https://docs.coinme.com/docs/onboarding-using-existing-kyc.md)
+- [Customer Onboarding Using Coinme KYC](https://docs.coinme.com/docs/onboarding-using-coinme-kyc.md)
+- [Business Onboarding](https://docs.coinme.com/docs/business-onboard.md)
+- [Integrating the Coinme Risk Engine](https://docs.coinme.com/docs/integrating-the-coinme-risk-engine.md)
+- [Adding a New Payment Method](https://docs.coinme.com/docs/adding-a-new-payment-method.md)
+- [Delete a Payment Method](https://docs.coinme.com/docs/delete-a-payment-method.md)
+- [Get a Payment Method](https://docs.coinme.com/docs/get-a-payment-method.md)
+- [Get All Payment Methods](https://docs.coinme.com/docs/get-all-payment-methods-1.md)
+- [Payment Methods Status](https://docs.coinme.com/docs/payment-methods-status.md)
+- [Quotes](https://docs.coinme.com/docs/quotes.md)
+- [Getting a Transactional Quote](https://docs.coinme.com/docs/getting-a-transaction-quote.md)
+- [Getting an Informational Quote](https://docs.coinme.com/docs/getting-an-informational-quote.md)
+- [Creating a Buy Order](https://docs.coinme.com/docs/creating-a-buy-order.md)
+- [Creating a Sell Order](https://docs.coinme.com/docs/creating-a-sell-order.md)
+- [Getting Transaction History](https://docs.coinme.com/docs/transaction-history.md)
+- [Getting Transaction Limits](https://docs.coinme.com/docs/transaction-limits.md)
+- [Historical Crypto Market Performance](https://docs.coinme.com/docs/historical-crypto-market-performance.md)
+- [Getting Supported Crypto Chains](https://docs.coinme.com/docs/getting-supported-crypto-chains.md)
+- [Getting Location Licensing](https://docs.coinme.com/docs/getting-location-licensing.md)
+- [Cash On-Ramp Overview](https://docs.coinme.com/docs/cash-on-ramp-overview.md)
+- [Getting Cash Ramp Locations](https://docs.coinme.com/docs/getting-cash-ramp-locations.md)
+- [Cash On-Ramp - Order Template](https://docs.coinme.com/docs/order.md)
+- [Create Order Template](https://docs.coinme.com/docs/create-order.md)
+- [Regenerate Order Template](https://docs.coinme.com/docs/regenerate-order.md)
+- [Get Order Template](https://docs.coinme.com/docs/get-order.md)
+- [Get Order Template Count](https://docs.coinme.com/docs/get-order-count.md)
+- [Delete Order Template](https://docs.coinme.com/docs/delete-order.md)
+- [Order Template Events](https://docs.coinme.com/docs/order-template-events.md)
+- [Testing Barcode Scan Flow in Staging](https://docs.coinme.com/docs/testing-barcode-scan-flow-in-staging.md)
+- [Cash Off-Ramp Guide](https://docs.coinme.com/docs/offramp-integration-guide.md)
+- [About the Coinme Widget](https://docs.coinme.com/docs/about-the-widget.md)
+- [How to Integrate the Widget](https://docs.coinme.com/docs/how-to-integrate.md)
+- [Widget Staging Info](https://docs.coinme.com/docs/widget-staging-info.md)
+- [Widget Common Questions - Geolocation in Embedded Apps](https://docs.coinme.com/docs/widget-common-questions-geolocation-in-embedded-apps.md)
+- [Get Customer Wallets](https://docs.coinme.com/docs/get-wallets.md)
+- [Crypto Asset Balances](https://docs.coinme.com/docs/crypto-asset-balance.md)
+- [Consumer Balance Inquiry](https://docs.coinme.com/docs/consumer-asset-balance-inquiry.md)
+- [Enterprise Balance Inquiry](https://docs.coinme.com/docs/enterprise-balance-inquiry.md)
+- [Creating a Sell All Order](https://docs.coinme.com/docs/creating-a-sell-all-order.md)
+- [Send to an External Wallet](https://docs.coinme.com/docs/send-to-an-external-wallet.md): Send crypto to an external wallet address
+- [Send Specified Amount](https://docs.coinme.com/docs/sending-a-specified-amount.md): Sends crypto from a customer's wallet to an external wallet.
+- [Send All Assets](https://docs.coinme.com/docs/send-all.md): Creates a send-all withdrawal order that sends the customer's entire available balance of a given asset to an external wallet address.
+- [Receive from an External Wallet](https://docs.coinme.com/docs/receive-from-an-external-wallet.md)
+- [Estimate Withdrawal Fee](https://docs.coinme.com/docs/estimate-withdrawal-fee.md)
+- [Supported Cryptocurrencies and Blockchains](https://docs.coinme.com/docs/supported-cryptocurrencies-and-blockchains.md)
+- [Customer Limits](https://docs.coinme.com/docs/customer-limits.md)
+- [Webhook Notifications](https://docs.coinme.com/docs/webhook-notifications.md)
+- [Webhook Security](https://docs.coinme.com/docs/webhook-security.md)
+- [Legal](https://docs.coinme.com/docs/legal.md)
+- [Features Coming Soon](https://docs.coinme.com/docs/features-coming-soon.md)
+- [Coinme Risk SDK](https://docs.coinme.com/docs/coinme-risk-sdk.md)
+- [Coinme Risk SDK for Web](https://docs.coinme.com/docs/using-the-coinme-risk-sdk-for-web.md)
+- [Coinme Risk SDK for iOS Native Apps](https://docs.coinme.com/docs/risk-sdk-for-ios-native-apps.md)
+- [Coinme Risk SDK for Android Native Apps](https://docs.coinme.com/docs/risk-sdk-for-android-native-apps.md)
+- [Coinme Risk SDK for React Native](https://docs.coinme.com/docs/coinme-risk-sdk-for-react-native.md)
+- [Quick Start for iOS](https://docs.coinme.com/docs/ios-quick-start.md)
+- [Integration Guide](https://docs.coinme.com/docs/ios-integration-guide.md)
+- [Quick Start for Android](https://docs.coinme.com/docs/android-quick-start.md)
+- [Integration Guide](https://docs.coinme.com/docs/android-integration-guide.md)
+- [Coinme Vault SDK](https://docs.coinme.com/docs/coinme-vault-sdk.md)
+- [Coinme Vault SDK for React Native](https://docs.coinme.com/docs/coinme-vault-sdk-for-react-native.md)
+- [Coinme Vault SDK for Javascript](https://docs.coinme.com/docs/coinme-vault-sdk-for-javascript.md)
+
+## API Reference
+- [Get Authorization Token](https://docs.coinme.com/reference/initiate-authorize.md): The first step for a partner is to obtain authentication token by calling the Coinme authorize endpoint, this token has a 60m life and needs to be passed with each subsequent call
+- [Initiate Mobile Auth](https://docs.coinme.com/reference/mobile-auth.md)
+- [Initiate Mobile Auth Finish](https://docs.coinme.com/reference/mobile-auth-finish.md)
+- [Initiate Instant Link](https://docs.coinme.com/reference/initiate-instant-link.md): This flow requires the user to enter their phone number and to click on the authentication link in the SMS that will be sent to that phone number.
+- [Get Instant Link by ID](https://docs.coinme.com/reference/get-instant-link-by-id.md): To be used for the First Option in the Customer Onboarding using Coinme KYC guide. The smsRedirectUrl is a URL in the Coinme domain
+- [Initiate Instant Link Finish](https://docs.coinme.com/reference/instant-link-finish.md): Extract the vfp value from the URL and use it to ask for the result of the authentication.
+- [Initiate Identity Pre-Fill](https://docs.coinme.com/reference/identity.md): The following API will attempt to retrieve the personal information for a user given their phone number and Social Security number. In order to keep the information confidential, Coinme uses a third party, VeryGoodSecurity, as a reverse proxy to create a token for the ssn upon the request and then decrypt the token on the request to Prove’s pre-fill service.
+- [Initiate Verify](https://docs.coinme.com/reference/verify.md): This endpoint can be called to verify that the submitted data correctly matches the customer associated with it. The more data input, the more accurate of a result can be returned. In order to keep the information confidential, Coinme uses a third party, VeryGoodSecurity, as a reverse proxy to create a token for the ssn upon the request and then decrypt the token on the request to Prove’s pre-fill service.
+- [Initiate Customer Onboarding](https://docs.coinme.com/reference/customer-onboarding.md): Verify Customer KYC and create a new customer account if one does not exist
+- [Initiate Business Onboarding](https://docs.coinme.com/reference/initiate-business-onboarding.md): Create a new business account if one does not exist. This is to be used for partners who service business clients.
+- [Add Card Payment Method](https://docs.coinme.com/reference/add-new-payment-method.md): Method for adding new card for customer
+- [Get All Payment Methods](https://docs.coinme.com/reference/get-all-payment-methods.md): Method for fetching all payment methods for a specific customer
+- [Get Payment Method](https://docs.coinme.com/reference/get-payment-method.md): Method for fetching a payment method by id
+- [Get Payment Method Status](https://docs.coinme.com/reference/get-payment-method-status.md): Check if a customer has reached their payment method limits. Returns the status of various payment method thresholds to determine if the customer can add additional payment methods.
+- [Delete Payment Method](https://docs.coinme.com/reference/delete-payment-method.md): Method for deleting a payment method
+- [Create Transactional Quote](https://docs.coinme.com/reference/initiate-transactional-quote.md): Return crypto quote for amount exchanged from one currency to another and it’s expiration time in UTC. Response also includes a quoteId, which can be used to initiate a transaction. If the transaction is initiated with the quoteId, the transaction will execute based on the information provided in the quote: the user will be credited and debited the exact amounts specified in the quote, charged the exact amount of fees as specified in the quote, etc. Due to crypto volatility the quote expires after a certain amount of time. By default its 30 seconds, but timeout can be configured on a partner level. The same endpoint is used to create both a buy or a sell quote. To create a buy quote provide a fiat currency in debitCurrencyCode (e.g. USD) and a crypto currency code in creditCurrencyCode (e.g. DOGE). Vice versa to create a sell quote
+- [Get Transactional Quote](https://docs.coinme.com/reference/get-transactional-quote.md): Gathers details on a transactional quote based on the quoteId
+- [Initiate Informative Quote](https://docs.coinme.com/reference/initiate-informative-quote.md): Returns an informational crypto quote for amount exchanged from one currency to another. Unlike the Transactional Quote endpoint, this response does not include a quoteId (since its just informative) nor any expiration time. A buy or sell flow cannot be initiated with this quote
+- [Get Cash Ramp Locations](https://docs.coinme.com/reference/get-cash-ramp-locations.md): Returns a list of physical store locations, sorted by the shortest distance to the coordinates sent
+- [Generate Order Template](https://docs.coinme.com/reference/generate-order-template.md): Initiates an order template creation (i.e. creates a barcode)
+- [Regenerate Order Template](https://docs.coinme.com/reference/regenerate-order-template.md): Generates a new order template, with the same parameters as an already crated order template
+- [Get Order Template](https://docs.coinme.com/reference/get-order-template.md): Returns a list of all order templates for a particular user
+- [Get Order Templates Count](https://docs.coinme.com/reference/get-order-templates-count.md): Returns the number of active/created order templates and additional details
+- [Delete Order Template](https://docs.coinme.com/reference/delete-order-template.md): Invalidates an order template. An order template can only be invalidated if it is in the CREATED status
+- [Initiate Buy/Sell Transaction with Quote](https://docs.coinme.com/reference/initiate-buy-sell-transaction.md): Creates a buy or sell transaction using a customerId and quoteId.
+- [Initiate Sell All Transaction](https://docs.coinme.com/reference/initiate-sell-all-transaction.md): Sells all of the customer's remaining cryptocurrency as specified. The response is exactly same as the Cryptoquote end point. This is usable only if the user’s crypto asset are managed by Coinme’s custody wallet
+- [Initiate Buy or Sell without Quote](https://docs.coinme.com/reference/initiate-buy-or-sell-without-quote.md): Initiates a buy or sell order without the end user's explicit approval
+- [Get Transaction History](https://docs.coinme.com/reference/get-transaction-history.md): Return the list of all transactions initiated via Partner interface by specific customer within the specified time
+- [Get Specific Transaction](https://docs.coinme.com/reference/get-specific-transaction.md): The below API takes the partnerTransactionId in the request and returns the transactions related to only that particular transactionId.
+- [Get Transaction Limits](https://docs.coinme.com/reference/get-transaction-limits.md): Return the remaining limit based on varying transaction limits that are dynamically imposed on the Customer based on risk analysis and documents/data collected
+- [Submit Blockchain ID](https://docs.coinme.com/reference/submit-blockchain-id.md): Submit a blockchain transaction ID for an ongoing transaction. Used when partners handle external crypto settlement and need to provide Coinme with the on-chain transaction hash for verification.
+- [Get Customer Wallet](https://docs.coinme.com/reference/get-customer-wallet.md): Retrieve wallet addresses for a customer. Returns all wallets associated with the specified customer, including wallet address, currency details, and blockchain network.
+- [Crypto Asset Balance](https://docs.coinme.com/reference/crypto-asset-balance-1.md)
+- [Get Crypto Asset Balance](https://docs.coinme.com/reference/get-crypto-asset-balance.md): Return the list of all crypto assets and balances of Partner’s customer with estimated (point in time) value in the requested currency
+- [Initiate a Send Transaction](https://docs.coinme.com/reference/send.md): Send a specified amount of crypto to an external wallet address
+- [Estimate Network Fee](https://docs.coinme.com/reference/estimate-network-fee.md): This endpoint returns an estimated network (blockchain) fee for sending crypto from a customer’s Coinme wallet on a given chain and asset.
+- [Get Location Licensing](https://docs.coinme.com/reference/get-locations.md): Return list of jurisdictions Coinme is approved to operate in
+- [Get Supported Crypto Chains](https://docs.coinme.com/reference/get-supported-crypto-chains.md): Returns a list of supported crypto currencies and their supported chains.
+- [Get Historical Crypto Market Data](https://docs.coinme.com/reference/get-historical-crypto-market-data.md): Retrieves the historical crypto market prices for a specified cryptocurrency over a certain period of time.
+- [Get Transaction History](https://docs.coinme.com/reference/get-transaction-history-widget.md): Return the list of all transactions initiated via Partner interface by specific customer within the specified time
+
+## Recipes
+- [Dollar-Cost Averaging (DCA)](https://docs.coinme.com/recipes/dollar-cost-averaging-dca.md)

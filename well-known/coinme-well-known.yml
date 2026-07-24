@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: searched
+host: https://auth.coinme.com
+notes: >-
+  Probed coinme.com, docs.coinme.com, api.coinme.com, auth.coinme.com, account.coinme.com.
+  auth.coinme.com (the Coinme consumer OIDC provider) publishes real OIDC/OAuth discovery.
+  account.coinme.com returned an identical SPA shell (HTTP 200) for every path — a catch-all,
+  not genuine well-known documents — so those are recorded as not-applicable, not captured.
+documents:
+- path: /.well-known/openid-configuration
+  host: auth.coinme.com
+  status: 200
+  file: coinme-openid-configuration.json
+- path: /.well-known/oauth-authorization-server
+  host: auth.coinme.com
+  status: 200
+  file: coinme-oauth-authorization-server.json
+- path: /.well-known/security.txt
+  host: auth.coinme.com
+  status: 404
+- path: /.well-known/security.txt
+  host: coinme.com
+  status: 404
+- path: /.well-known/security.txt
+  host: docs.coinme.com
+  status: 404
+- path: /.well-known/api-catalog
+  host: auth.coinme.com
+  status: 404
+- path: /.well-known/ai-plugin.json
+  host: coinme.com
+  status: 404

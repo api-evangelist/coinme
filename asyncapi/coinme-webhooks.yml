@@ -1,0 +1,37 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.coinme.com/docs/webhook-notifications
+spec_type: Webhooks
+description: >-
+  Coinme sends real-time webhook notifications to partner endpoints whenever a transaction completes
+  (successfully or not). Notifications use a generic envelope with a type discriminator; the data
+  object shape is fixed per type. No AsyncAPI document is published, so this captures the webhook
+  catalog directly.
+envelope:
+  fields:
+    id: Unique notification identifier (UUID).
+    type: One of CAAS | PAYMENT_METHOD | REFUND | CAAS_BLOCKCHAIN.
+    at: Timestamp in epoch seconds.
+    data: Type-specific payload (fixed shape per type).
+    errorData: Present on failures; contains an error code.
+event_types:
+- type: CAAS
+  description: >-
+    Buy/sell transaction lifecycle notification (sub-flows include BUY, SELL, ORDER_TRACKING).
+    Carries transaction status (e.g. COMPLETED, DECLINED).
+- type: CAAS_BLOCKCHAIN
+  description: On-chain settlement/receive notification (e.g. RECEIVE, wallet activity).
+- type: PAYMENT_METHOD
+  description: Payment method events (e.g. add/verify status).
+- type: REFUND
+  description: Refund notification.
+security:
+  source: https://docs.coinme.com/docs/webhook-security
+  methods:
+  - name: HMAC signature
+    detail: SHA256 HMAC signature of the payload sent in a signature header; partner verifies it.
+  - name: SSL/TLS encryption
+    detail: Notifications delivered over HTTPS.
+  - name: API key authentication
+    detail: Optional header-based API key on inbound webhook requests.
+  combinable: true

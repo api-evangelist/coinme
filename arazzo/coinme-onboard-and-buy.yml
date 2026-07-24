@@ -1,0 +1,42 @@
+arazzo: 1.0.1
+info:
+  title: Coinme — onboard a customer and buy crypto
+  version: 1.0.0
+  description: >-
+    Authorize as a partner, KYC-onboard an end user, create an executable buy quote, and execute it
+    against the quote. Operation ids are verified against openapi/coinme-caas-openapi.json.
+sourceDescriptions:
+- name: coinme
+  url: ../openapi/coinme-caas-openapi.json
+  type: openapi
+workflows:
+- workflowId: onboard-and-buy
+  summary: Onboard a customer and execute a buy against a transactional quote.
+  inputs:
+    type: object
+    properties:
+      debitCurrencyCode: { type: string, default: USD }
+      creditCurrencyCode: { type: string, default: BTC }
+  steps:
+  - stepId: authorize
+    operationId: initiate-authorize
+    outputs:
+      token: $response.body
+  - stepId: onboard
+    operationId: customer-onboarding
+    outputs:
+      customerId: $response.body#/customerId
+  - stepId: quote
+    operationId: initiate-transactional-quote
+    outputs:
+      quoteId: $response.body#/quoteId
+  - stepId: execute
+    operationId: initiate-buy-sell-transaction
+    outputs:
+      transaction: $response.body
+  - stepId: confirm
+    operationId: get-transaction-history
+    outputs:
+      history: $response.body
+  outputs:
+    transaction: $steps.execute.transaction

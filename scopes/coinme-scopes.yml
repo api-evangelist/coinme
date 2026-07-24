@@ -1,0 +1,26 @@
+generated: '2026-07-18'
+method: searched
+source: https://auth.coinme.com/.well-known/openid-configuration
+docs: https://auth.coinme.com/.well-known/openid-configuration
+notes: >-
+  The partner Crypto-as-a-Service API (caas.coinme.com) authenticates with HTTP Basic + x-api-key
+  and declares no OAuth2 scopes. These scopes belong to the separate Coinme consumer OIDC provider
+  at auth.coinme.com, captured from its published discovery document. Grants supported:
+  authorization_code, refresh_token, client_credentials, token-exchange, device_code.
+schemes:
+- name: OIDC
+  source: https://auth.coinme.com/.well-known/openid-configuration
+  authorizationUrl: https://auth.coinme.com/oauth/authorize
+  tokenUrl: https://auth.coinme.com/oauth/token
+  flows:
+  - authorization_code
+  - refresh_token
+  - client_credentials
+  - device_code
+scopes:
+- scope: openid
+  description: OIDC authentication; issue an ID token for the authenticated Coinme user.
+- scope: profile
+  description: Access the user's basic profile claims.
+- scope: email
+  description: Access the user's email address.

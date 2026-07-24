@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/coinme-caas-openapi.json
+skills:
+- file: coinme-onboard-and-buy.md
+  name: Onboard a customer and buy crypto
+  api: openapi/coinme-caas-openapi.json
+  operations: [initiate-authorize, customer-onboarding, initiate-transactional-quote, initiate-buy-sell-transaction, get-transaction-history]
+- file: coinme-sell-and-withdraw.md
+  name: Sell crypto and withdraw to an external wallet
+  api: openapi/coinme-caas-openapi.json
+  operations: [initiate-authorize, get-crypto-asset-balance, initiate-transactional-quote, initiate-buy-sell-transaction, get_walletsestimateFee, send]
+- file: coinme-cash-onramp.md
+  name: Cash on-ramp with a barcode order template
+  api: openapi/coinme-caas-openapi.json
+  operations: [initiate-authorize, get-cash-ramp-locations, generate-order-template, get-order-template]

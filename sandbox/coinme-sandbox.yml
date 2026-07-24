@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.coinme.com/docs/widget-staging-info
+environments:
+  staging:
+    base_url: https://caas-staging.coinme.com/services
+    auth_token_ttl_minutes: 30
+    description: Partner testing environment for the CaaS API and widget.
+  production:
+    base_url: https://caas.coinme.com/services
+    auth_token_ttl_minutes: 60
+test_accounts:
+  source: https://docs.coinme.com/docs/widget-staging-info
+  description: >-
+    Coinme publishes pre-configured mock user accounts for staging widget/onboarding testing, each
+    set up with different attributes (verified true/false, sanctions-hit true/false) to exercise
+    verification and sanctions-screening workflows. The specific mock identities are listed in the
+    Widget Staging Info doc.
+  email_alias_tip: >-
+    Reuse one Gmail inbox across test accounts with plus-addressing, e.g. jane123+test001@gmail.com
+    routes to jane123@gmail.com.
+  scenarios:
+  - Sanctions screening (accounts with Sanctions Hits? = true)
+  - Verification states (accounts with Verified = true/false)
+barcode_testing:
+  source: https://docs.coinme.com/docs/testing-barcode-scan-flow-in-staging
+  description: Staging guide for exercising the cash on-ramp barcode/order-template scan flow.
+vault_sdk:
+  environments: [sandbox, live]
+  note: The Vault SDK is pre-configured for Coinme's sandbox and live environments.
+notes: >-
+  No published static test card numbers or magic test values were found; card data in staging is
+  captured through the Vault SDK's secure fields. Nothing here is invented — only what the docs
+  publish is recorded.

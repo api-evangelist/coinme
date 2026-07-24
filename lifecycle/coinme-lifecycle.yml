@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.coinme.com/
+versioning:
+  scheme: doc-version
+  current: '1.2'
+  known:
+  - '1.0'
+  - '1.2 (Stablecoin)'
+  docs: https://docs.coinme.com/
+  notes: >-
+    The OpenAPI info.version is 1.2; the docs expose a version switcher (v1.0 / Stablecoin v1.2).
+    No URI-path version segment is used on the CaaS base path (/services).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or RFC 8594 Sunset/Deprecation header support was found.
+sla:
+  url: null
+  uptime_target: null
+status_page: https://status.coinme.com/
+status_page_provider: Better Stack
+status_page_components:
+- Customer Onboarding API
+- Cryptoquote API
+- Cryptoquote (Informative) API
+- Transactions API
+- Webhooks
+deprecated_operations: []

@@ -1,0 +1,61 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/coinme-caas-openapi.json
+notes: >-
+  Entity graph derived from the CaaS OpenAPI paths and id-reference fields (customerId, quoteId,
+  paymentMethodId, partnerTransactionId, transactionSystemRef). Partner is the top-level tenant.
+entities:
+- name: Partner
+  description: The onboarded integrator; authenticates with partnerId/clientsecret and holds the API key.
+  id_fields: [partnerId]
+- name: Customer
+  description: An end user onboarded via KYC under a partner.
+  id_fields: [customerId]
+- name: Business
+  description: A business account for partners servicing business clients.
+- name: PaymentMethod
+  description: A card payment method attached to a customer.
+  id_fields: [paymentMethodId]
+- name: Quote
+  description: A transactional (executable, quoteId + expiry) or informative crypto quote.
+  id_fields: [quoteId]
+- name: Transaction
+  description: A buy/sell/send order executed for a customer.
+  id_fields: [partnerTransactionId]
+- name: OrderTemplate
+  description: A cash on-ramp order template (barcode) for in-store cash purchases.
+  id_fields: [transactionSystemRef, refreshOrderTemplateId]
+- name: Wallet
+  description: A customer's crypto wallet address on a given chain/asset.
+- name: AssetBalance
+  description: A customer's balance of a given crypto asset.
+relationships:
+- from: Customer
+  type: belongs_to
+  to: Partner
+- from: PaymentMethod
+  type: belongs_to
+  to: Customer
+  via: customerId
+- from: Quote
+  type: belongs_to
+  to: Customer
+  via: customerId
+- from: Transaction
+  type: belongs_to
+  to: Customer
+  via: customerId
+- from: Transaction
+  type: has_one
+  to: Quote
+  via: quoteId
+- from: OrderTemplate
+  type: belongs_to
+  to: Customer
+  via: customerId
+- from: Wallet
+  type: has_many
+  to: AssetBalance
+- from: Customer
+  type: has_many
+  to: Wallet

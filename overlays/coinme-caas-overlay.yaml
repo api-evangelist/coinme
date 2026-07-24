@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Coinme Crypto-as-a-Service
+  version: 1.0.0
+extends: openapi/coinme-caas-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-18'
+    x-apievangelist-source: harvested from per-endpoint OpenAPI blocks at docs.coinme.com/reference
+    x-artifact-authentication: authentication/coinme-authentication.yml
+    x-artifact-conventions: conventions/coinme-conventions.yml
+    x-artifact-errors: errors/coinme-problem-types.yml
+    x-artifact-webhooks: asyncapi/coinme-webhooks.yml
+    x-artifact-lifecycle: lifecycle/coinme-lifecycle.yml
+    x-artifact-data-model: data-model/coinme-data-model.yml
+- target: $.info
+  update:
+    x-status-page: https://status.coinme.com/
+    x-docs: https://docs.coinme.com/
+    x-product: Crypto-as-a-Service (KYC onboarding, quotes, buy/sell, wallets, sends, cash on/off-ramp)

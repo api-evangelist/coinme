@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.coinme.com/docs/about-the-widget
+components:
+- family: Coinme Widget
+  kind: embeddable-hosted-ui
+  description: >-
+    A drop-in embeddable crypto UI (buy/sell, onboarding, wallet) partners integrate into web/mobile
+    apps. Has a staging environment and geolocation handling for embedded apps.
+  docs: https://docs.coinme.com/docs/about-the-widget
+  integrate: https://docs.coinme.com/docs/how-to-integrate
+  staging: https://docs.coinme.com/docs/widget-staging-info
+- family: Coinme Vault SDK
+  kind: secure-input-fields
+  description: >-
+    Cross-origin iframe secure fields (VGS-backed) for capturing card data — number, expiry, CVC,
+    billing address — without raw values touching partner code, DOM, logs, or backend.
+  docs: https://docs.coinme.com/docs/coinme-vault-sdk
+  loaders:
+  - "@coinme-security/vault-sdk-js (JavaScript)"
+  - Coinme Vault SDK for React Native
+- family: Coinme Risk SDK
+  kind: client-side-instrumentation
+  description: >-
+    Client SDK that collects device/location/connection/behavioral signals for the Coinme Risk
+    Engine's real-time fraud scoring. Required for transactional services. Web + native iOS/Android +
+    React Native.
+  docs: https://docs.coinme.com/docs/coinme-risk-sdk

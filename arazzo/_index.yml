@@ -1,0 +1,8 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/coinme-caas-openapi.json
+workflows:
+- file: coinme-onboard-and-buy.yml
+  workflowId: onboard-and-buy
+  title: Onboard a customer and buy crypto
+  summary: Authorize, KYC-onboard, quote a buy, execute against the quote, and confirm.

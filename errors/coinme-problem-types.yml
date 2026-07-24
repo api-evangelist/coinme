@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/coinme-caas-openapi.json
+format: json
+notes: >-
+  Derived from the HTTP status responses declared across the CaaS OpenAPI operations. Coinme does not
+  use RFC 9457 application/problem+json; error bodies are plain JSON objects. Webhook failure
+  notifications carry an errorData object with an error code (see asyncapi/coinme-webhooks.yml).
+problems:
+- status: 400
+  title: Bad Request
+  occurrences: 38
+  description: Invalid or malformed request parameters/body. Declared on nearly every operation.
+- status: 401
+  title: Unauthorized
+  occurrences: 22
+  description: >-
+    Missing, expired, or invalid authorization token / credentials. The JWT from /authorize expires
+    after 60 minutes (30 in staging) and must be refreshed.
+- status: 500
+  title: Internal Server Error
+  occurrences: 22
+  description: Unexpected server-side error.

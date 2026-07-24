@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.coinme.com/
+authentication:
+  style: partner-basic-to-jwt
+  detail: >-
+    HTTP Basic (partnerId/clientsecret) on POST /authorize returns a 60-min JWT; pass it as the
+    Authorization bearer on subsequent calls, plus x-api-key on CaaS operations and a partner
+    User-Agent header. See authentication/coinme-authentication.yml.
+idempotency:
+  supported: false
+  notes: >-
+    No general Idempotency-Key header/parameter is documented. Transactions are instead bound to a
+    single-use quoteId from a transactional quote (30s default expiry), which scopes execution to
+    the exact quoted amounts/fees — a quote-bound execution model rather than a replayable
+    idempotency-key contract.
+pagination:
+  style: time-window
+  notes: >-
+    Transaction history is queried by customer and a time window (from/to) rather than
+    cursor/offset pagination.
+versioning:
+  style: doc-version
+  current: '1.2'
+  see: lifecycle/coinme-lifecycle.yml
+request_tracing:
+  request_id_header: null
+  notes: No documented request-id / correlation header.
+error_envelope:
+  shape: json-object
+  see: errors/coinme-problem-types.yml
+  notes: >-
+    Errors return JSON objects with HTTP status (400/401/500). Webhook error notifications carry an
+    errorData object with an error code. Not RFC 9457 application/problem+json.
+rate_limit_signaling:
+  documented: false
+webhooks:
+  supported: true
+  see: asyncapi/coinme-webhooks.yml
+  security: HMAC SHA256 signature, SSL/TLS, optional API key (see webhook docs).

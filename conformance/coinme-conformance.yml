@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/coinme-caas-openapi.json
+standards:
+- id: oauth2
+  conforms: false
+  evidence: >-
+    Partner CaaS API uses HTTP Basic + apiKey, not oauth2. (Consumer auth at auth.coinme.com is
+    OIDC/OAuth2 — see below.)
+- id: oidc
+  conforms: true
+  evidence: >-
+    auth.coinme.com publishes a valid OpenID Connect discovery document
+    (/.well-known/openid-configuration) with authorization_code + PKCE-capable flows.
+- id: rfc8414-oauth-authorization-server
+  conforms: true
+  evidence: auth.coinme.com serves /.well-known/oauth-authorization-server (RFC 8414).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Error responses are plain JSON objects, not application/problem+json.
+- id: pci-dss
+  conforms: true
+  evidence: >-
+    Coinme Vault SDK routes card data through a PCI-compliant vault (VGS proxy) so partner code
+    stays out of PCI scope; documented at docs.coinme.com/docs/coinme-vault-sdk.
+- id: kyc-aml
+  conforms: true
+  evidence: >-
+    Customer/business onboarding endpoints perform KYC/AML verification; Coinme is a licensed money
+    transmitter (help.coinme.com licensing).
+- id: hmac-webhook-signing
+  conforms: true
+  evidence: Webhooks are signed with an HMAC SHA256 signature (docs.coinme.com/docs/webhook-security).

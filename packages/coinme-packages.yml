@@ -1,0 +1,59 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.coinme.com/docs/coinme-vault-sdk-for-javascript
+notes: >-
+  Coinme publishes first-party client SDKs in its developer docs. The Vault SDK ships as the scoped
+  npm package @coinme-security/vault-sdk-js; the Risk SDK ships as an npm package for web plus native
+  iOS/Android libraries. As of this probe the scoped npm packages are not resolvable on the public
+  registry (registry.npmjs.org returned 404) — they are distributed to onboarded partners — so
+  registry URLs are omitted and the docs page is the source of record. official: true reflects that
+  these are Coinme-authored SDKs, not that a public registry listing was confirmed.
+packages:
+- language: javascript
+  registry: npm
+  name: "@coinme-security/vault-sdk-js"
+  url: https://docs.coinme.com/docs/coinme-vault-sdk-for-javascript
+  install: npm install @coinme-security/vault-sdk-js
+  official: true
+  registry_public: false
+  description: >-
+    Framework-agnostic JS wrapper for secure debit-card capture; mounts VGS-hosted cross-origin
+    iframe fields so raw card data never touches partner code (keeps partner out of PCI scope).
+- language: javascript
+  registry: npm
+  name: coinme-risk-sdk-web
+  url: https://docs.coinme.com/docs/using-the-coinme-risk-sdk-for-web
+  install: npm install (partner-provided package)
+  official: true
+  registry_public: false
+  description: >-
+    Web (browser) SDK for the Coinme Risk Engine — collects device/location/connection/behavioral
+    signals for real-time fraud scoring. Required to use Coinme transactional services.
+- language: swift
+  registry: cocoapods-spm
+  name: coinme-risk-sdk-ios
+  url: https://docs.coinme.com/docs/risk-sdk-for-ios-native-apps
+  official: true
+  registry_public: false
+  description: Native iOS SDK for the Coinme Risk Engine.
+- language: kotlin
+  registry: maven
+  name: coinme-risk-sdk-android
+  url: https://docs.coinme.com/docs/risk-sdk-for-android-native-apps
+  official: true
+  registry_public: false
+  description: Native Android SDK for the Coinme Risk Engine.
+- language: javascript
+  registry: npm
+  name: coinme-risk-sdk-react-native
+  url: https://docs.coinme.com/docs/coinme-risk-sdk-for-react-native
+  official: true
+  registry_public: false
+  description: React Native SDK for the Coinme Risk Engine.
+- language: javascript
+  registry: npm
+  name: coinme-vault-sdk-react-native
+  url: https://docs.coinme.com/docs/coinme-vault-sdk-for-react-native
+  official: true
+  registry_public: false
+  description: React Native binding for the Coinme Vault SDK (secure card capture).

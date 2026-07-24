@@ -1,0 +1,72 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/coinme-caas-openapi.json
+notes: >-
+  No official hosted/remote Coinme MCP server was found (docs, npm @modelcontextprotocol, registries).
+  This is a candidate tool surface derived one-tool-per-operation from the harvested CaaS OpenAPI, to
+  seed a future MCP server. Not published by Coinme.
+server:
+  name: coinme-caas
+  transport: http
+tools:
+- name: get_authorization_token
+  description: Exchange partner Basic credentials for a 60-minute JWT authorization token.
+  source_operation: openapi/coinme-caas-openapi.json#initiate-authorize
+- name: onboard_customer
+  description: Verify customer KYC and create a customer account if one does not exist.
+  source_operation: openapi/coinme-caas-openapi.json#customer-onboarding
+- name: onboard_business
+  description: Create a business account for partners servicing business clients.
+  source_operation: openapi/coinme-caas-openapi.json#initiate-business-onboarding
+- name: add_payment_method
+  description: Add a card payment method for a customer.
+  source_operation: openapi/coinme-caas-openapi.json#add-new-payment-method
+- name: list_payment_methods
+  description: Fetch all payment methods for a customer.
+  source_operation: openapi/coinme-caas-openapi.json#get-all-payment-methods
+- name: create_transactional_quote
+  description: Create an executable buy/sell crypto quote with a quoteId and expiry.
+  source_operation: openapi/coinme-caas-openapi.json#initiate-transactional-quote
+- name: create_informative_quote
+  description: Return a non-executable informational crypto quote.
+  source_operation: openapi/coinme-caas-openapi.json#initiate-informative-quote
+- name: create_buy_sell_transaction
+  description: Execute a buy or sell transaction using a customerId and quoteId.
+  source_operation: openapi/coinme-caas-openapi.json#initiate-buy-sell-transaction
+- name: sell_all
+  description: Sell all of a customer's remaining crypto for a given asset.
+  source_operation: openapi/coinme-caas-openapi.json#initiate-sell-all-transaction
+- name: get_transaction_history
+  description: List transactions for a customer within a time window.
+  source_operation: openapi/coinme-caas-openapi.json#get-transaction-history
+- name: get_transaction_limits
+  description: Return the customer's remaining transaction limits.
+  source_operation: openapi/coinme-caas-openapi.json#get-transaction-limits
+- name: get_customer_wallet
+  description: Retrieve wallet addresses for a customer.
+  source_operation: openapi/coinme-caas-openapi.json#get_wallets
+- name: get_crypto_asset_balance
+  description: List a customer's crypto assets and balances.
+  source_operation: openapi/coinme-caas-openapi.json#get-crypto-asset-balance
+- name: send_crypto
+  description: Send a specified amount of crypto to an external wallet address.
+  source_operation: openapi/coinme-caas-openapi.json#send
+- name: estimate_network_fee
+  description: Estimate the blockchain network fee for a send.
+  source_operation: openapi/coinme-caas-openapi.json#get_walletsestimateFee
+- name: get_cash_ramp_locations
+  description: List physical cash on-ramp store locations near coordinates.
+  source_operation: openapi/coinme-caas-openapi.json#get-cash-ramp-locations
+- name: generate_order_template
+  description: Create a cash on-ramp order template (barcode).
+  source_operation: openapi/coinme-caas-openapi.json#generate-order-template
+- name: get_supported_crypto_chains
+  description: List supported cryptocurrencies and their chains.
+  source_operation: openapi/coinme-caas-openapi.json#get-supported-crypto-chains
+- name: get_location_licensing
+  description: List jurisdictions where Coinme is approved to operate.
+  source_operation: openapi/coinme-caas-openapi.json#get-locations
+- name: get_historical_crypto_market_data
+  description: Retrieve historical crypto market prices for an asset.
+  source_operation: openapi/coinme-caas-openapi.json#get-historical-crypto-market-data
