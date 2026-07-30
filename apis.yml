@@ -612,6 +612,8 @@ apis:
   - type: Arazzo
     url: arazzo/coinme-onboard-and-buy.yml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/coinme/overview
 - type: Website
   url: https://coinme.com/
 - type: DeveloperPortal
