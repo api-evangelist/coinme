@@ -1,0 +1,245 @@
+{
+  "info": {
+    "_postman_id": "24524b0a-5550-4024-a8fe-6b2126dbecd7",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Locations API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:18.000Z",
+    "updatedAt": "2026-07-28T01:25:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-24524b0a-5550-4024-a8fe-6b2126dbecd7"
+  },
+  "item": [
+    {
+      "name": "locations",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "query",
+              "item": [
+                {
+                  "name": "Get Cash Ramp Locations",
+                  "id": "c6dbf96c-fb98-463d-8bb5-7e904cc7518b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "x-api-key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"limit\": \"<integer>\",\n  \"providers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/locations/v2/query",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "locations",
+                        "v2",
+                        "query"
+                      ]
+                    },
+                    "description": "Returns a list of physical store locations, sorted by the shortest distance to the coordinates sent"
+                  },
+                  "response": [
+                    {
+                      "id": "04c58f4d-1cdd-423c-b75f-ced255d9dd5f",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                            "key": "User-Agent",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"limit\": \"<integer>\",\n  \"providers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/locations/v2/query",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "locations",
+                            "v2",
+                            "query"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"providers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"locations\": [\n      {\n        \"id\": \"<string>\",\n        \"locationReference\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"country\": \"<string>\",\n        \"state\": \"<string>\",\n        \"city\": \"<string>\",\n        \"address\": \"<string>\",\n        \"zipCode\": \"<string>\",\n        \"hours\": {},\n        \"sellAllowed\": true,\n        \"buyAllowed\": true,\n        \"imageUrl\": {},\n        \"googlePlacesLink\": {},\n        \"notes\": {},\n        \"description\": \"<string>\",\n        \"coordinates\": {\n          \"latitude\": 0,\n          \"longitude\": 0\n        },\n        \"lineOfSightDistance\": 0,\n        \"lineOfSightMetric\": \"<string>\",\n        \"locationFees\": {},\n        \"metadata\": {\n          \"providerLocationReference\": \"<string>\",\n          \"phone\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"locationReference\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"country\": \"<string>\",\n        \"state\": \"<string>\",\n        \"city\": \"<string>\",\n        \"address\": \"<string>\",\n        \"zipCode\": \"<string>\",\n        \"hours\": {},\n        \"sellAllowed\": true,\n        \"buyAllowed\": true,\n        \"imageUrl\": {},\n        \"googlePlacesLink\": {},\n        \"notes\": {},\n        \"description\": \"<string>\",\n        \"coordinates\": {\n          \"latitude\": 0,\n          \"longitude\": 0\n        },\n        \"lineOfSightDistance\": 0,\n        \"lineOfSightMetric\": \"<string>\",\n        \"locationFees\": {},\n        \"metadata\": {\n          \"providerLocationReference\": \"<string>\",\n          \"phone\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"errorResponse\": {}\n}",
+                      "createdAt": "2026-07-28T01:25:19.000Z",
+                      "updatedAt": "2026-07-28T01:25:19.000Z",
+                      "uid": "35240-04c58f4d-1cdd-423c-b75f-ced255d9dd5f"
+                    },
+                    {
+                      "id": "ae256d4b-cdc7-4e56-a421-952706562bf6",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                            "key": "User-Agent",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"limit\": \"<integer>\",\n  \"providers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/locations/v2/query",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "locations",
+                            "v2",
+                            "query"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T01:25:19.000Z",
+                      "updatedAt": "2026-07-28T01:25:19.000Z",
+                      "uid": "35240-ae256d4b-cdc7-4e56-a421-952706562bf6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:25:19.000Z",
+                  "updatedAt": "2026-07-28T01:25:19.000Z",
+                  "uid": "35240-c6dbf96c-fb98-463d-8bb5-7e904cc7518b"
+                }
+              ],
+              "id": "a63b2705-002c-4ef6-82e7-a930198cc676",
+              "createdAt": "2026-07-28T01:25:19.000Z",
+              "updatedAt": "2026-07-28T01:25:19.000Z",
+              "uid": "35240-a63b2705-002c-4ef6-82e7-a930198cc676"
+            }
+          ],
+          "id": "55a6521f-d52a-43bd-b9cc-c572da759b9f",
+          "createdAt": "2026-07-28T01:25:19.000Z",
+          "updatedAt": "2026-07-28T01:25:19.000Z",
+          "uid": "35240-55a6521f-d52a-43bd-b9cc-c572da759b9f"
+        }
+      ],
+      "id": "114d5af4-8972-4381-a395-787572fd4046",
+      "createdAt": "2026-07-28T01:25:19.000Z",
+      "updatedAt": "2026-07-28T01:25:19.000Z",
+      "uid": "35240-114d5af4-8972-4381-a395-787572fd4046"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

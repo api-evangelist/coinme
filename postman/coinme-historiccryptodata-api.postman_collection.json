@@ -1,0 +1,383 @@
+{
+  "info": {
+    "_postman_id": "67afd7c2-4ed1-4332-8aeb-0c3f3aa8818b",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Historiccryptodata API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:15.000Z",
+    "updatedAt": "2026-07-28T01:25:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-67afd7c2-4ed1-4332-8aeb-0c3f3aa8818b"
+  },
+  "item": [
+    {
+      "name": "historiccryptodata",
+      "item": [
+        {
+          "name": "Get Historical Crypto Market Data",
+          "id": "4a05aecb-57ee-4376-b389-a6909a8f6519",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/historiccryptodata?interval=<string>&currency=<string>&fiat=<string>&count=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "historiccryptodata"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The interval (SECONDS, MINUTES, HOURS, DAYS)",
+                  "key": "interval",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Currency code of crypto (i.e. BTC, ETH)",
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Currency code of fiat (i.e. USD)",
+                  "key": "fiat",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of intervals",
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieves the historical crypto market prices for a specified cryptocurrency over a certain period of time."
+          },
+          "response": [
+            {
+              "id": "b5b154ac-2307-40de-b300-6ce9a9b17595",
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/historiccryptodata?interval=<string>&currency=<string>&fiat=<string>&count=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "historiccryptodata"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The interval (SECONDS, MINUTES, HOURS, DAYS)",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Currency code of crypto (i.e. BTC, ETH)",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Currency code of fiat (i.e. USD)",
+                      "key": "fiat",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of intervals",
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"items\": [\n      {\n        \"timestamp\": 0,\n        \"open\": \"<string>\",\n        \"close\": \"<string>\",\n        \"high\": \"<string>\",\n        \"low\": \"<string>\",\n        \"volume\": \"<string>\"\n      },\n      {\n        \"timestamp\": 0,\n        \"open\": \"<string>\",\n        \"close\": \"<string>\",\n        \"high\": \"<string>\",\n        \"low\": \"<string>\",\n        \"volume\": \"<string>\"\n      }\n    ]\n  },\n  \"errorResponse\": {}\n}",
+              "createdAt": "2026-07-28T01:25:16.000Z",
+              "updatedAt": "2026-07-28T01:25:16.000Z",
+              "uid": "35240-b5b154ac-2307-40de-b300-6ce9a9b17595"
+            },
+            {
+              "id": "68021783-fb5c-4ea7-a0fc-99a4a7e3e552",
+              "name": "400",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/historiccryptodata?interval=<string>&currency=<string>&fiat=<string>&count=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "historiccryptodata"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The interval (SECONDS, MINUTES, HOURS, DAYS)",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Currency code of crypto (i.e. BTC, ETH)",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Currency code of fiat (i.e. USD)",
+                      "key": "fiat",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of intervals",
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:16.000Z",
+              "updatedAt": "2026-07-28T01:25:16.000Z",
+              "uid": "35240-68021783-fb5c-4ea7-a0fc-99a4a7e3e552"
+            },
+            {
+              "id": "1425cec6-ba10-41fa-beab-006febf07481",
+              "name": "401",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/historiccryptodata?interval=<string>&currency=<string>&fiat=<string>&count=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "historiccryptodata"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The interval (SECONDS, MINUTES, HOURS, DAYS)",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Currency code of crypto (i.e. BTC, ETH)",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Currency code of fiat (i.e. USD)",
+                      "key": "fiat",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of intervals",
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:16.000Z",
+              "updatedAt": "2026-07-28T01:25:16.000Z",
+              "uid": "35240-1425cec6-ba10-41fa-beab-006febf07481"
+            },
+            {
+              "id": "aef753f3-eab0-446b-a6dc-5afa45d5aae9",
+              "name": "500",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/historiccryptodata?interval=<string>&currency=<string>&fiat=<string>&count=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "historiccryptodata"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The interval (SECONDS, MINUTES, HOURS, DAYS)",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Currency code of crypto (i.e. BTC, ETH)",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Currency code of fiat (i.e. USD)",
+                      "key": "fiat",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of intervals",
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:16.000Z",
+              "updatedAt": "2026-07-28T01:25:16.000Z",
+              "uid": "35240-aef753f3-eab0-446b-a6dc-5afa45d5aae9"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:16.000Z",
+          "updatedAt": "2026-07-28T01:25:16.000Z",
+          "uid": "35240-4a05aecb-57ee-4376-b389-a6909a8f6519"
+        }
+      ],
+      "id": "f6e626d1-cf3b-4364-b0fd-ab9e9bce2e33",
+      "createdAt": "2026-07-28T01:25:16.000Z",
+      "updatedAt": "2026-07-28T01:25:16.000Z",
+      "uid": "35240-f6e626d1-cf3b-4364-b0fd-ab9e9bce2e33"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "info": {
+    "_postman_id": "341efbe2-a7c6-4bd3-8430-260ff2731f41",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult CryptoChains API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:10.000Z",
+    "updatedAt": "2026-07-28T01:25:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-341efbe2-a7c6-4bd3-8430-260ff2731f41"
+  },
+  "item": [
+    {
+      "name": "cryptoChains",
+      "item": [
+        {
+          "name": "Get Supported Crypto Chains",
+          "id": "3cb298fa-05ea-438f-99ba-ca3d48404563",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cryptoChains",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cryptoChains"
+              ]
+            },
+            "description": "Returns a list of supported crypto currencies and their supported chains."
+          },
+          "response": [
+            {
+              "id": "2e2ce515-fb0f-48f9-b34e-49d81eb982d9",
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoChains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoChains"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"cryptoChains\": {\n      \"BTC\": {\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"decimals\": 0,\n        \"supportedChains\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"MATIC\": {\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"decimals\": 0,\n        \"supportedChains\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"ETH\": {\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"decimals\": 0,\n        \"supportedChains\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"XLM\": {\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"decimals\": 0,\n        \"supportedChains\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"LINK\": {\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"decimals\": 0,\n        \"supportedChains\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"DOGE\": {\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"decimals\": 0,\n        \"supportedChains\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"USDC\": {\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"decimals\": 0,\n        \"supportedChains\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"LTC\": {\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"decimals\": 0,\n        \"supportedChains\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  },\n  \"errorResponse\": {}\n}",
+              "createdAt": "2026-07-28T01:25:11.000Z",
+              "updatedAt": "2026-07-28T01:25:11.000Z",
+              "uid": "35240-2e2ce515-fb0f-48f9-b34e-49d81eb982d9"
+            },
+            {
+              "id": "e2bf5c97-1f95-43f3-9a4b-054d260133d2",
+              "name": "400",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoChains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoChains"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {},\n  \"errorResponse\": {\n    \"timestamp\": \"<string>\",\n    \"httpStatus\": 0,\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:25:11.000Z",
+              "updatedAt": "2026-07-28T01:25:11.000Z",
+              "uid": "35240-e2bf5c97-1f95-43f3-9a4b-054d260133d2"
+            },
+            {
+              "id": "62ca5020-bd8e-425a-ac80-9b544852cac7",
+              "name": "401",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoChains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoChains"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:11.000Z",
+              "updatedAt": "2026-07-28T01:25:11.000Z",
+              "uid": "35240-62ca5020-bd8e-425a-ac80-9b544852cac7"
+            },
+            {
+              "id": "a9ce2037-57cd-43af-b94c-2a3f4c00e476",
+              "name": "500",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoChains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoChains"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:11.000Z",
+              "updatedAt": "2026-07-28T01:25:11.000Z",
+              "uid": "35240-a9ce2037-57cd-43af-b94c-2a3f4c00e476"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:11.000Z",
+          "updatedAt": "2026-07-28T01:25:11.000Z",
+          "uid": "35240-3cb298fa-05ea-438f-99ba-ca3d48404563"
+        }
+      ],
+      "id": "b3b7e9a6-5348-4453-8bb6-2a697688f52c",
+      "createdAt": "2026-07-28T01:25:11.000Z",
+      "updatedAt": "2026-07-28T01:25:11.000Z",
+      "uid": "35240-b3b7e9a6-5348-4453-8bb6-2a697688f52c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

@@ -1,0 +1,517 @@
+{
+  "info": {
+    "_postman_id": "12837fa3-a4d4-492f-a9bb-1290449810e5",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Widget API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:26:23.000Z",
+    "updatedAt": "2026-07-28T01:26:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-12837fa3-a4d4-492f-a9bb-1290449810e5"
+  },
+  "item": [
+    {
+      "name": "widget",
+      "item": [
+        {
+          "name": "transactionhistory",
+          "item": [
+            {
+              "name": "Copy of Get Transaction History",
+              "id": "29dabead-a984-4b22-9df1-aae6ad40caee",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "x-api-key",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/widget/transactionhistory?customerId=<long>&currencyCode=<string>&startDateTime=<dateTime>&endDateTime=<dateTime>&page=<integer>&size=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "widget",
+                    "transactionhistory"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Currency code of the cryptocurrency (i.e. DOGE)",
+                      "key": "currencyCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "UTC (i.e. 2022-01-24T16:44:49Z)",
+                      "key": "startDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "UTC (i.e. 2022-01-24T16:44:49Z)",
+                      "key": "endDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Number of pages",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Page size (max value is 500)",
+                      "key": "size",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Return the list of all transactions initiated via Partner interface by specific customer within the specified time"
+              },
+              "response": [
+                {
+                  "id": "a47d7cb4-b041-4cf8-8de1-17c4d3f23ca1",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/widget/transactionhistory?customerId=<long>&currencyCode=<string>&startDateTime=<dateTime>&endDateTime=<dateTime>&page=<integer>&size=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "widget",
+                        "transactionhistory"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Currency code of the cryptocurrency (i.e. DOGE)",
+                          "key": "currencyCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "UTC (i.e. 2022-01-24T16:44:49Z)",
+                          "key": "startDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "UTC (i.e. 2022-01-24T16:44:49Z)",
+                          "key": "endDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Number of pages",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Page size (max value is 500)",
+                          "key": "size",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"transactions\": [\n      {\n        \"totalFees\": \"<string>\",\n        \"feeCurrencyCode\": \"<string>\",\n        \"creditCurrencyAmount\": \"<string>\",\n        \"creditCurrencyCode\": \"<string>\",\n        \"debitCurrencyAmount\": \"<string>\",\n        \"debitCurrencyCode\": \"<string>\",\n        \"transactionDateTime\": \"<string>\",\n        \"partnerTransactionId\": \"<string>\",\n        \"transactionStatus\": \"<string>\",\n        \"fromWalletAddress\": \"<string>\",\n        \"toWalletAddress\": \"<string>\",\n        \"promoCode\": \"<string>\"\n      },\n      {\n        \"totalFees\": \"<string>\",\n        \"feeCurrencyCode\": \"<string>\",\n        \"creditCurrencyAmount\": \"<string>\",\n        \"creditCurrencyCode\": \"<string>\",\n        \"debitCurrencyAmount\": \"<string>\",\n        \"debitCurrencyCode\": \"<string>\",\n        \"transactionDateTime\": \"<string>\",\n        \"partnerTransactionId\": \"<string>\",\n        \"transactionStatus\": \"<string>\",\n        \"fromWalletAddress\": \"<string>\",\n        \"toWalletAddress\": \"<string>\",\n        \"promoCode\": \"<string>\"\n      }\n    ]\n  },\n  \"errorResponse\": {}\n}",
+                  "createdAt": "2026-07-28T01:26:24.000Z",
+                  "updatedAt": "2026-07-28T01:26:24.000Z",
+                  "uid": "35240-a47d7cb4-b041-4cf8-8de1-17c4d3f23ca1"
+                },
+                {
+                  "id": "c56ba22b-a7dd-4176-8860-11f2eb7f3166",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/widget/transactionhistory?customerId=<long>&currencyCode=<string>&startDateTime=<dateTime>&endDateTime=<dateTime>&page=<integer>&size=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "widget",
+                        "transactionhistory"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Currency code of the cryptocurrency (i.e. DOGE)",
+                          "key": "currencyCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "UTC (i.e. 2022-01-24T16:44:49Z)",
+                          "key": "startDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "UTC (i.e. 2022-01-24T16:44:49Z)",
+                          "key": "endDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Number of pages",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Page size (max value is 500)",
+                          "key": "size",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {},\n  \"errorResponse\": {\n    \"httpStatus\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"path\": \"<string>\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:26:24.000Z",
+                  "updatedAt": "2026-07-28T01:26:24.000Z",
+                  "uid": "35240-c56ba22b-a7dd-4176-8860-11f2eb7f3166"
+                },
+                {
+                  "id": "bfc9ff0b-f740-4919-bedc-4c2cc363dad0",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/widget/transactionhistory?customerId=<long>&currencyCode=<string>&startDateTime=<dateTime>&endDateTime=<dateTime>&page=<integer>&size=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "widget",
+                        "transactionhistory"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Currency code of the cryptocurrency (i.e. DOGE)",
+                          "key": "currencyCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "UTC (i.e. 2022-01-24T16:44:49Z)",
+                          "key": "startDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "UTC (i.e. 2022-01-24T16:44:49Z)",
+                          "key": "endDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Number of pages",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Page size (max value is 500)",
+                          "key": "size",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:26:24.000Z",
+                  "updatedAt": "2026-07-28T01:26:24.000Z",
+                  "uid": "35240-bfc9ff0b-f740-4919-bedc-4c2cc363dad0"
+                },
+                {
+                  "id": "fa4caaa8-0167-4f23-98c6-843cf18fbaac",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/widget/transactionhistory?customerId=<long>&currencyCode=<string>&startDateTime=<dateTime>&endDateTime=<dateTime>&page=<integer>&size=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "widget",
+                        "transactionhistory"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Currency code of the cryptocurrency (i.e. DOGE)",
+                          "key": "currencyCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "UTC (i.e. 2022-01-24T16:44:49Z)",
+                          "key": "startDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "UTC (i.e. 2022-01-24T16:44:49Z)",
+                          "key": "endDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Number of pages",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Page size (max value is 500)",
+                          "key": "size",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:26:24.000Z",
+                  "updatedAt": "2026-07-28T01:26:24.000Z",
+                  "uid": "35240-fa4caaa8-0167-4f23-98c6-843cf18fbaac"
+                }
+              ],
+              "createdAt": "2026-07-28T01:26:24.000Z",
+              "updatedAt": "2026-07-28T01:26:24.000Z",
+              "uid": "35240-29dabead-a984-4b22-9df1-aae6ad40caee"
+            }
+          ],
+          "id": "dc894b53-b176-4fbd-a053-167caaa728ed",
+          "createdAt": "2026-07-28T01:26:24.000Z",
+          "updatedAt": "2026-07-28T01:26:24.000Z",
+          "uid": "35240-dc894b53-b176-4fbd-a053-167caaa728ed"
+        }
+      ],
+      "id": "cbc97286-91c9-4656-b8f5-2168121136be",
+      "createdAt": "2026-07-28T01:26:24.000Z",
+      "updatedAt": "2026-07-28T01:26:24.000Z",
+      "uid": "35240-cbc97286-91c9-4656-b8f5-2168121136be"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

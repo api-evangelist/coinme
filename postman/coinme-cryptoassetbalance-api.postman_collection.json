@@ -1,0 +1,403 @@
+{
+  "info": {
+    "_postman_id": "6170624f-eefd-4612-b71a-218de15fafb9",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Cryptoassetbalance API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:09.000Z",
+    "updatedAt": "2026-07-28T01:25:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6170624f-eefd-4612-b71a-218de15fafb9"
+  },
+  "item": [
+    {
+      "name": "cryptoassetbalance",
+      "item": [
+        {
+          "name": "Get Crypto Asset Balance",
+          "id": "3aaa3c04-f0cc-4c39-b2d9-f05f1b1e427e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cryptoassetbalance?customerId=<long>&estimatedBalanceCurrencyCode=USD",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cryptoassetbalance"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Unique customer identifier",
+                  "key": "customerId",
+                  "value": "<long>"
+                },
+                {
+                  "description": "(Required) Currency code of the balance (i.e. USD)",
+                  "key": "estimatedBalanceCurrencyCode",
+                  "value": "USD"
+                }
+              ]
+            },
+            "description": "Return the list of all crypto assets and balances of Partner\u2019s customer with estimated (point in time) value in the requested currency"
+          },
+          "response": [
+            {
+              "id": "1841ad49-ef00-4ce8-9e7d-0d0734b5981b",
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoassetbalance?customerId=<long>&estimatedBalanceCurrencyCode=USD",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoassetbalance"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "(Required) Currency code of the balance (i.e. USD)",
+                      "key": "estimatedBalanceCurrencyCode",
+                      "value": "USD"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"cryptoAssetsBalance\": [\n      {\n        \"balance\": \"<string>\",\n        \"currencyName\": \"<string>\",\n        \"currencySymbol\": \"<string>\",\n        \"updatedAt\": \"<string>\",\n        \"estimatedBalanceValue\": \"<string>\"\n      },\n      {\n        \"balance\": \"<string>\",\n        \"currencyName\": \"<string>\",\n        \"currencySymbol\": \"<string>\",\n        \"updatedAt\": \"<string>\",\n        \"estimatedBalanceValue\": \"<string>\"\n      }\n    ]\n  },\n  \"errorResponse\": {}\n}",
+              "createdAt": "2026-07-28T01:25:10.000Z",
+              "updatedAt": "2026-07-28T01:25:10.000Z",
+              "uid": "35240-1841ad49-ef00-4ce8-9e7d-0d0734b5981b"
+            },
+            {
+              "id": "41d86966-b669-44de-b428-b783b26063e4",
+              "name": "400",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoassetbalance?customerId=<long>&estimatedBalanceCurrencyCode=USD",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoassetbalance"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "(Required) Currency code of the balance (i.e. USD)",
+                      "key": "estimatedBalanceCurrencyCode",
+                      "value": "USD"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {},\n  \"errorResponse\": {\n    \"httpStatus\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"path\": \"<string>\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:25:10.000Z",
+              "updatedAt": "2026-07-28T01:25:10.000Z",
+              "uid": "35240-41d86966-b669-44de-b428-b783b26063e4"
+            },
+            {
+              "id": "f236d202-9056-42c5-9c63-7f1b520932ef",
+              "name": "401",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoassetbalance?customerId=<long>&estimatedBalanceCurrencyCode=USD",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoassetbalance"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "(Required) Currency code of the balance (i.e. USD)",
+                      "key": "estimatedBalanceCurrencyCode",
+                      "value": "USD"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:10.000Z",
+              "updatedAt": "2026-07-28T01:25:10.000Z",
+              "uid": "35240-f236d202-9056-42c5-9c63-7f1b520932ef"
+            },
+            {
+              "id": "9892cf0a-5ef9-4ee6-87b7-2b4c71d19ea1",
+              "name": "500",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoassetbalance?customerId=<long>&estimatedBalanceCurrencyCode=USD",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoassetbalance"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "(Required) Currency code of the balance (i.e. USD)",
+                      "key": "estimatedBalanceCurrencyCode",
+                      "value": "USD"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:10.000Z",
+              "updatedAt": "2026-07-28T01:25:10.000Z",
+              "uid": "35240-9892cf0a-5ef9-4ee6-87b7-2b4c71d19ea1"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:10.000Z",
+          "updatedAt": "2026-07-28T01:25:10.000Z",
+          "uid": "35240-3aaa3c04-f0cc-4c39-b2d9-f05f1b1e427e"
+        }
+      ],
+      "id": "398184fa-b080-4838-9dec-5dbb03576f7b",
+      "createdAt": "2026-07-28T01:25:10.000Z",
+      "updatedAt": "2026-07-28T01:25:10.000Z",
+      "uid": "35240-398184fa-b080-4838-9dec-5dbb03576f7b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

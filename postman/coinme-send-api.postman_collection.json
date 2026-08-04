@@ -1,0 +1,155 @@
+{
+  "info": {
+    "_postman_id": "0a56c573-ada3-4692-9c26-752b0b93e6a0",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Send API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:24.000Z",
+    "updatedAt": "2026-07-28T01:25:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0a56c573-ada3-4692-9c26-752b0b93e6a0"
+  },
+  "item": [
+    {
+      "name": "send",
+      "item": [
+        {
+          "name": "Initiate a Send Transaction",
+          "id": "998b58a8-f849-4414-9f24-9ef3c10ba740",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<long>\",\n  \"destinationWalletAddress\": \"<string>\",\n  \"amount\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"partnerTransactionId\": \"<string>\",\n  \"cryptoChain\": \"<string>\",\n  \"blockchainTag\": \"<string>\",\n  \"note\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/send",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "send"
+              ]
+            },
+            "description": "Send a specified amount of crypto to an external wallet address"
+          },
+          "response": [
+            {
+              "id": "d0f9f293-c406-4aed-8601-99ed9a722d48",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"destinationWalletAddress\": \"<string>\",\n  \"amount\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"partnerTransactionId\": \"<string>\",\n  \"cryptoChain\": \"<string>\",\n  \"blockchainTag\": \"<string>\",\n  \"note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/send",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "send"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"partnerTransactionId\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:25:25.000Z",
+              "updatedAt": "2026-07-28T01:25:25.000Z",
+              "uid": "35240-d0f9f293-c406-4aed-8601-99ed9a722d48"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:25.000Z",
+          "updatedAt": "2026-07-28T01:25:25.000Z",
+          "uid": "35240-998b58a8-f849-4414-9f24-9ef3c10ba740"
+        }
+      ],
+      "id": "12741c85-2790-4794-96a7-dfea40ffceb2",
+      "createdAt": "2026-07-28T01:25:25.000Z",
+      "updatedAt": "2026-07-28T01:25:25.000Z",
+      "uid": "35240-12741c85-2790-4794-96a7-dfea40ffceb2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

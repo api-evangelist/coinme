@@ -1,0 +1,315 @@
+{
+  "info": {
+    "_postman_id": "600460f1-6003-4725-89ca-8b2675728a3a",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult SmsAuth API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:26:16.000Z",
+    "updatedAt": "2026-07-28T01:26:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-600460f1-6003-4725-89ca-8b2675728a3a"
+  },
+  "item": [
+    {
+      "name": "smsAuth",
+      "item": [
+        {
+          "name": "{authId}",
+          "item": [
+            {
+              "name": "Get Instant Link by ID",
+              "id": "8a4fa51b-cce4-452e-9ee9-ea806fa4f33f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "x-api-key",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/smsAuth/:authId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "smsAuth",
+                    ":authId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "26a368e8-24f1-43af-83f9-c7e09bfc2e71",
+                      "key": "authId",
+                      "value": "<string>",
+                      "description": "(Required) authId appended to the smsRedirectUrl from the Initiate Instant Link response"
+                    }
+                  ]
+                },
+                "description": "To be used for the First Option in the Customer Onboarding using Coinme KYC guide. The smsRedirectUrl is a URL in the Coinme domain"
+              },
+              "response": [
+                {
+                  "id": "156e9afc-e65f-4089-9733-476019f28bed",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/smsAuth/:authId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "smsAuth",
+                        ":authId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "authId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T01:26:17.000Z",
+                  "updatedAt": "2026-07-28T01:26:17.000Z",
+                  "uid": "35240-156e9afc-e65f-4089-9733-476019f28bed"
+                },
+                {
+                  "id": "4d69ad47-3609-4bb2-a480-eb3fb3faa1af",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/smsAuth/:authId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "smsAuth",
+                        ":authId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "authId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T01:26:17.000Z",
+                  "updatedAt": "2026-07-28T01:26:17.000Z",
+                  "uid": "35240-4d69ad47-3609-4bb2-a480-eb3fb3faa1af"
+                },
+                {
+                  "id": "49590dfc-adbc-4fce-acb5-fd289fafe9b1",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/smsAuth/:authId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "smsAuth",
+                        ":authId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "authId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:26:17.000Z",
+                  "updatedAt": "2026-07-28T01:26:17.000Z",
+                  "uid": "35240-49590dfc-adbc-4fce-acb5-fd289fafe9b1"
+                },
+                {
+                  "id": "203212e3-c46f-4605-a3c8-c0c6e03212c9",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/smsAuth/:authId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "smsAuth",
+                        ":authId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "authId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:26:17.000Z",
+                  "updatedAt": "2026-07-28T01:26:17.000Z",
+                  "uid": "35240-203212e3-c46f-4605-a3c8-c0c6e03212c9"
+                }
+              ],
+              "createdAt": "2026-07-28T01:26:17.000Z",
+              "updatedAt": "2026-07-28T01:26:17.000Z",
+              "uid": "35240-8a4fa51b-cce4-452e-9ee9-ea806fa4f33f"
+            }
+          ],
+          "id": "6e04ff9f-0c20-49a6-8cc3-0057e6361d77",
+          "createdAt": "2026-07-28T01:26:17.000Z",
+          "updatedAt": "2026-07-28T01:26:17.000Z",
+          "uid": "35240-6e04ff9f-0c20-49a6-8cc3-0057e6361d77"
+        }
+      ],
+      "id": "0a068ee3-edfa-46d8-8a9c-e47201210ea1",
+      "createdAt": "2026-07-28T01:26:17.000Z",
+      "updatedAt": "2026-07-28T01:26:17.000Z",
+      "uid": "35240-0a068ee3-edfa-46d8-8a9c-e47201210ea1"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

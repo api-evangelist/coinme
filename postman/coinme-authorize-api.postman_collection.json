@@ -1,0 +1,268 @@
+{
+  "info": {
+    "_postman_id": "7ef51203-c191-4305-8cee-e63127776f27",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Authorize API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:08.000Z",
+    "updatedAt": "2026-07-28T01:25:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7ef51203-c191-4305-8cee-e63127776f27"
+  },
+  "item": [
+    {
+      "name": "authorize",
+      "item": [
+        {
+          "name": "Get Authorization Token",
+          "id": "c833a500-0347-4700-ac6f-5c3768abe722",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (given by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/authorize",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "authorize"
+              ]
+            },
+            "description": "The first step for a partner is to obtain authentication token by calling the Coinme authorize endpoint, this token has a 60m life and needs to be passed with each subsequent call"
+          },
+          "response": [
+            {
+              "id": "5a1038b6-dfc3-4963-9d88-35b56de97360",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (given by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/authorize",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "authorize"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T01:25:08.000Z",
+              "updatedAt": "2026-07-28T01:25:08.000Z",
+              "uid": "35240-5a1038b6-dfc3-4963-9d88-35b56de97360"
+            },
+            {
+              "id": "f8117140-9aa1-4f97-920c-e11b6ed8c7e5",
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (given by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/authorize",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "authorize"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T01:25:08.000Z",
+              "updatedAt": "2026-07-28T01:25:08.000Z",
+              "uid": "35240-f8117140-9aa1-4f97-920c-e11b6ed8c7e5"
+            },
+            {
+              "id": "e3bc579e-73ab-426a-9f9d-65b0c5b9b486",
+              "name": "401",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (given by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/authorize",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "authorize"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:08.000Z",
+              "updatedAt": "2026-07-28T01:25:08.000Z",
+              "uid": "35240-e3bc579e-73ab-426a-9f9d-65b0c5b9b486"
+            },
+            {
+              "id": "ee7f934b-cd6f-41c9-b4b9-7fbb81d971f4",
+              "name": "500",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (given by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/authorize",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "authorize"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:08.000Z",
+              "updatedAt": "2026-07-28T01:25:08.000Z",
+              "uid": "35240-ee7f934b-cd6f-41c9-b4b9-7fbb81d971f4"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:08.000Z",
+          "updatedAt": "2026-07-28T01:25:08.000Z",
+          "uid": "35240-c833a500-0347-4700-ac6f-5c3768abe722"
+        }
+      ],
+      "id": "89ff48b8-02b2-4c69-8e72-c85ecc021de5",
+      "createdAt": "2026-07-28T01:25:08.000Z",
+      "updatedAt": "2026-07-28T01:25:08.000Z",
+      "uid": "35240-89ff48b8-02b2-4c69-8e72-c85ecc021de5"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

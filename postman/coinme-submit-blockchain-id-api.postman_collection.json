@@ -1,0 +1,220 @@
+{
+  "info": {
+    "_postman_id": "8041aa97-76b0-4a71-8113-b48783d7d6d8",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Submit Blockchain Id API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:26:17.000Z",
+    "updatedAt": "2026-07-28T01:26:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8041aa97-76b0-4a71-8113-b48783d7d6d8"
+  },
+  "item": [
+    {
+      "name": "submit-blockchain-id",
+      "item": [
+        {
+          "name": "put submit-blockchain-id",
+          "id": "db9dec99-b88b-47cd-8a8d-c593dac8b4a2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerTransactionId\": \"<string>\",\n  \"blockchainTransactionId\": \"<string>\",\n  \"refundWalletAddress\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/submit-blockchain-id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "submit-blockchain-id"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9d06804b-4195-4576-82c9-251c1084a2a0",
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerTransactionId\": \"<string>\",\n  \"blockchainTransactionId\": \"<string>\",\n  \"refundWalletAddress\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/submit-blockchain-id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "submit-blockchain-id"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T01:26:18.000Z",
+              "updatedAt": "2026-07-28T01:26:18.000Z",
+              "uid": "35240-9d06804b-4195-4576-82c9-251c1084a2a0"
+            },
+            {
+              "id": "de96e24d-d044-4f74-ade9-48948b5acae3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerTransactionId\": \"<string>\",\n  \"blockchainTransactionId\": \"<string>\",\n  \"refundWalletAddress\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/submit-blockchain-id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "submit-blockchain-id"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:26:18.000Z",
+              "updatedAt": "2026-07-28T01:26:18.000Z",
+              "uid": "35240-de96e24d-d044-4f74-ade9-48948b5acae3"
+            }
+          ],
+          "createdAt": "2026-07-28T01:26:18.000Z",
+          "updatedAt": "2026-07-28T01:26:18.000Z",
+          "uid": "35240-db9dec99-b88b-47cd-8a8d-c593dac8b4a2"
+        }
+      ],
+      "id": "e44e5030-89c9-456e-bcfc-5af4524afb4a",
+      "createdAt": "2026-07-28T01:26:18.000Z",
+      "updatedAt": "2026-07-28T01:26:18.000Z",
+      "uid": "35240-e44e5030-89c9-456e-bcfc-5af4524afb4a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

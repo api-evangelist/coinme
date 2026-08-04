@@ -1,0 +1,941 @@
+{
+  "info": {
+    "_postman_id": "f4265b1f-e85b-4e40-9e95-ba5243102733",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Paymentmethods API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:22.000Z",
+    "updatedAt": "2026-07-28T01:25:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f4265b1f-e85b-4e40-9e95-ba5243102733"
+  },
+  "item": [
+    {
+      "name": "paymentmethods",
+      "item": [
+        {
+          "name": "{paymentMethodId}",
+          "item": [
+            {
+              "name": "Get Payment Method",
+              "id": "f45de4ef-462e-4281-9c2d-64d77e6ae48a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "x-api-key",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentmethods/:paymentMethodId?customerId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentmethods",
+                    ":paymentMethodId"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "eb11f209-f9df-4290-8146-514ce6572546",
+                      "key": "paymentMethodId",
+                      "value": "<string>",
+                      "description": "(Required) ID of payment method to get details of"
+                    }
+                  ]
+                },
+                "description": "Method for fetching a payment method by id"
+              },
+              "response": [
+                {
+                  "id": "686b5388-2e9d-40a2-a5f7-3426a840827f",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentmethods/:paymentMethodId?customerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentmethods",
+                        ":paymentMethodId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "paymentMethodId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"paymentMethodId\": \"<string>\",\n    \"providerId\": \"<string>\",\n    \"providerName\": \"<string>\",\n    \"type\": \"DEBIT\",\n    \"cardProvider\": \"<string>\",\n    \"card\": {\n      \"cardNumber\": \"<string>\",\n      \"month\": \"<string>\",\n      \"year\": \"<string>\"\n    },\n    \"billingAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"zipCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    \"status\": \"CREATED\",\n    \"buySupported\": true,\n    \"sellSupported\": true,\n    \"createdAt\": 0,\n    \"verifiedAt\": 0\n  },\n  \"errorResponse\": {\n    \"timestamp\": \"<string>\",\n    \"httpStatus\": \"<string>\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"retry\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:23.000Z",
+                  "updatedAt": "2026-07-28T01:25:23.000Z",
+                  "uid": "35240-686b5388-2e9d-40a2-a5f7-3426a840827f"
+                },
+                {
+                  "id": "85834fba-67e3-43cf-a609-150eda8a647e",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentmethods/:paymentMethodId?customerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentmethods",
+                        ":paymentMethodId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "paymentMethodId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"httpStatus\\\":\\\"200\\\",\\n    \\\"timestamp\\\":\\\"2022-02-01T18:59:28.297Z\\\",//UTC\\n    \\\"path\\\":\\\"/external/partners/v1/payment-method\\\",//The error code is just a sample showing the structure of the error code.\\n    \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\":\\\"123-123-123-123\\\", //The error code is just a sample showing the structure of the error code.\\n        \\\"message\\\":\\\"Invalid account id\\\"\\n      }\\n    ]\\n}\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:23.000Z",
+                  "updatedAt": "2026-07-28T01:25:23.000Z",
+                  "uid": "35240-85834fba-67e3-43cf-a609-150eda8a647e"
+                }
+              ],
+              "createdAt": "2026-07-28T01:25:23.000Z",
+              "updatedAt": "2026-07-28T01:25:23.000Z",
+              "uid": "35240-f45de4ef-462e-4281-9c2d-64d77e6ae48a"
+            },
+            {
+              "name": "Delete Payment Method",
+              "id": "c9045355-c347-4c72-ac2a-ff5d3ca97053",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "x-api-key",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentmethods/:paymentMethodId?customerId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentmethods",
+                    ":paymentMethodId"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "7d191a59-721c-4b85-b0a4-a70935881251",
+                      "key": "paymentMethodId",
+                      "value": "<string>",
+                      "description": "(Required) ID of payment method to delete"
+                    }
+                  ]
+                },
+                "description": "Method for deleting a payment method"
+              },
+              "response": [
+                {
+                  "id": "fdb3594a-f7fd-4aa2-b346-e8d4212027e9",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentmethods/:paymentMethodId?customerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentmethods",
+                        ":paymentMethodId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "paymentMethodId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"paymentMethodId\": \"<string>\",\n    \"providerId\": \"<string>\",\n    \"providerName\": \"<string>\",\n    \"type\": \"DEBIT\",\n    \"cardProvider\": \"<string>\",\n    \"card\": {\n      \"cardNumber\": \"<string>\",\n      \"month\": \"<string>\",\n      \"year\": \"<string>\"\n    },\n    \"billingAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"zipCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    \"status\": \"CREATED\",\n    \"buySupported\": true,\n    \"sellSupported\": true,\n    \"createdAt\": 0,\n    \"deletedAt\": 0\n  },\n  \"errorResponse\": {\n    \"timestamp\": \"<string>\",\n    \"httpStatus\": \"<string>\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"retry\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:23.000Z",
+                  "updatedAt": "2026-07-28T01:25:23.000Z",
+                  "uid": "35240-fdb3594a-f7fd-4aa2-b346-e8d4212027e9"
+                },
+                {
+                  "id": "0ab93233-c35d-4b46-a32c-e7f55ba25e6f",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentmethods/:paymentMethodId?customerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentmethods",
+                        ":paymentMethodId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "paymentMethodId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"httpStatus\\\":\\\"200\\\",\\n    \\\"timestamp\\\":\\\"2022-02-01T18:59:28.297Z\\\",//UTC\\n\\t\\t\\\"path\\\":\\\"/external/partners/v1/payment-method\\\",    \\n      \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\":\\\"123-123-123-123\\\", //The error code is just a sample showing the structure of the error code.\\n        \\\"message\\\":\\\"Invalid account id\\\"\\n      }\\n    ]\\n}\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:23.000Z",
+                  "updatedAt": "2026-07-28T01:25:23.000Z",
+                  "uid": "35240-0ab93233-c35d-4b46-a32c-e7f55ba25e6f"
+                }
+              ],
+              "createdAt": "2026-07-28T01:25:23.000Z",
+              "updatedAt": "2026-07-28T01:25:23.000Z",
+              "uid": "35240-c9045355-c347-4c72-ac2a-ff5d3ca97053"
+            }
+          ],
+          "id": "59a15614-67bd-4eab-b293-c1bd585e4b80",
+          "createdAt": "2026-07-28T01:25:23.000Z",
+          "updatedAt": "2026-07-28T01:25:23.000Z",
+          "uid": "35240-59a15614-67bd-4eab-b293-c1bd585e4b80"
+        },
+        {
+          "name": "status",
+          "item": [
+            {
+              "name": "Get Payment Method Status",
+              "id": "6a70b731-e29e-4394-b625-b350713e76bc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "x-api-key",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentmethods/status?customerId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentmethods",
+                    "status"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Check if a customer has reached their payment method limits. Returns the status of various payment method thresholds to determine if the customer can add additional payment methods."
+              },
+              "response": [
+                {
+                  "id": "84056a7c-41e9-45e0-bf3d-31c0a7b67e76",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentmethods/status?customerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentmethods",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"maxReached\": \"<boolean>\",\n    \"maxVerifiedReached\": \"<boolean>\",\n    \"maxTotalReached\": \"<string>\"\n  },\n  \"errorResponse\": {\n    \"timestamp\": \"<string>\",\n    \"httpStatus\": \"<string>\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"retry\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:23.000Z",
+                  "updatedAt": "2026-07-28T01:25:23.000Z",
+                  "uid": "35240-84056a7c-41e9-45e0-bf3d-31c0a7b67e76"
+                },
+                {
+                  "id": "8cca6d6c-738b-488f-a0bf-3793385e9d16",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentmethods/status?customerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentmethods",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T01:25:23.000Z",
+                  "updatedAt": "2026-07-28T01:25:23.000Z",
+                  "uid": "35240-8cca6d6c-738b-488f-a0bf-3793385e9d16"
+                }
+              ],
+              "createdAt": "2026-07-28T01:25:23.000Z",
+              "updatedAt": "2026-07-28T01:25:23.000Z",
+              "uid": "35240-6a70b731-e29e-4394-b625-b350713e76bc"
+            }
+          ],
+          "id": "8a76f464-06c0-42c8-b8a1-608d41c3e888",
+          "createdAt": "2026-07-28T01:25:23.000Z",
+          "updatedAt": "2026-07-28T01:25:23.000Z",
+          "uid": "35240-8a76f464-06c0-42c8-b8a1-608d41c3e888"
+        },
+        {
+          "name": "Add Card Payment Method",
+          "id": "cda2f892-df74-4f22-9ae9-8f2c75965a45",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<long>\",\n  \"providerId\": \"<string>\",\n  \"card\": {\n    \"cardNumber\": \"<string>\",\n    \"month\": \"<string>\",\n    \"year\": \"<string>\",\n    \"cvv\": \"<string>\"\n  },\n  \"billingAddress\": {\n    \"country\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"zipCode\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"addressLine2\": \"<string>\"\n  },\n  \"paymentProcessAssociation\": \"SELL\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/paymentmethods",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "paymentmethods"
+              ]
+            },
+            "description": "Method for adding new card for customer"
+          },
+          "response": [
+            {
+              "id": "7408ff72-734f-446f-a8ec-2f9cbfa9aa74",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"providerId\": \"<string>\",\n  \"card\": {\n    \"cardNumber\": \"<string>\",\n    \"month\": \"<string>\",\n    \"year\": \"<string>\",\n    \"cvv\": \"<string>\"\n  },\n  \"billingAddress\": {\n    \"country\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"zipCode\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"addressLine2\": \"<string>\"\n  },\n  \"paymentProcessAssociation\": \"SELL\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/paymentmethods",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentmethods"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"customerId\": \"<string>\",\n    \"partnerId\": \"<string>\",\n    \"paymentMethod\": {\n      \"paymentMethodId\": \"<string>\",\n      \"stagingProviderId\": \"<string>\",\n      \"stagingProviderName\": \"<string>\",\n      \"type\": \"DEBIT\",\n      \"cardProvider\": \"<string>\",\n      \"card\": {\n        \"cardNumber\": \"<string>\",\n        \"month\": \"<string>\",\n        \"year\": \"<string>\"\n      },\n      \"billingAddress\": {\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"country\": \"<string>\",\n        \"addressLine1\": \"<string>\",\n        \"addressLine2\": \"<string>\",\n        \"zipCode\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\"\n      },\n      \"status\": \"STAGED\",\n      \"buySupported\": true,\n      \"sellSupported\": true,\n      \"createdAt\": 0\n    }\n  },\n  \"errorResponse\": {\n    \"timestamp\": \"<string>\",\n    \"httpStatus\": \"<string>\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"retry\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:25:23.000Z",
+              "updatedAt": "2026-07-28T01:25:23.000Z",
+              "uid": "35240-7408ff72-734f-446f-a8ec-2f9cbfa9aa74"
+            },
+            {
+              "id": "ef1bb0c4-9d52-4ba3-bab8-bf7b2579561b",
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"providerId\": \"<string>\",\n  \"card\": {\n    \"cardNumber\": \"<string>\",\n    \"month\": \"<string>\",\n    \"year\": \"<string>\",\n    \"cvv\": \"<string>\"\n  },\n  \"billingAddress\": {\n    \"country\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"zipCode\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"addressLine2\": \"<string>\"\n  },\n  \"paymentProcessAssociation\": \"SELL\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/paymentmethods",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentmethods"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"httpStatus\\\":\\\"200\\\",\\n    \\\"timestamp\\\":\\\"2022-02-01T18:59:28.297Z\\\",//UTC\\n    \\\"path\\\":\\\"/external/partners/v1/payment-method\\\",\\n    \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\":\\\"123-123-123-123\\\", //The error code is just a sample showing the structure of the error code.\\n        \\\"message\\\":\\\"Invalid customer id\\\"\\n      }\\n    ]\\n}\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:23.000Z",
+              "updatedAt": "2026-07-28T01:25:23.000Z",
+              "uid": "35240-ef1bb0c4-9d52-4ba3-bab8-bf7b2579561b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:23.000Z",
+          "updatedAt": "2026-07-28T01:25:23.000Z",
+          "uid": "35240-cda2f892-df74-4f22-9ae9-8f2c75965a45"
+        },
+        {
+          "name": "Get All Payment Methods",
+          "id": "df35519d-1e75-4e92-881a-6c5aca16dea4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/paymentmethods?customerId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "paymentmethods"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Unique customer identifier",
+                  "key": "customerId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Method for fetching all payment methods for a specific customer"
+          },
+          "response": [
+            {
+              "id": "42eed1b7-de1a-47e0-9f69-4ff227c0e59f",
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentmethods?customerId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentmethods"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"paymentMethods\": [\n      {\n        \"paymentMethodId\": \"<string>\",\n        \"providerId\": \"<string>\",\n        \"providerName\": \"<string>\",\n        \"type\": \"CREDIT\",\n        \"cardProvider\": \"<string>\",\n        \"card\": {\n          \"cardNumber\": \"<string>\",\n          \"month\": \"<string>\",\n          \"year\": \"<string>\"\n        },\n        \"billingAddress\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"country\": \"<string>\",\n          \"addressLine1\": \"<string>\",\n          \"addressLine2\": \"<string>\",\n          \"zipCode\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\"\n        },\n        \"status\": \"CREATED\",\n        \"buySupported\": \"<boolean>\",\n        \"sellSupported\": \"<boolean>\",\n        \"createdAt\": \"<string>\",\n        \"verifiedAt\": \"<string>\",\n        \"declinedAt\": \"<string>\",\n        \"deletedAt\": \"<string>\"\n      },\n      {\n        \"paymentMethodId\": \"<string>\",\n        \"providerId\": \"<string>\",\n        \"providerName\": \"<string>\",\n        \"type\": \"CREDIT\",\n        \"cardProvider\": \"<string>\",\n        \"card\": {\n          \"cardNumber\": \"<string>\",\n          \"month\": \"<string>\",\n          \"year\": \"<string>\"\n        },\n        \"billingAddress\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"country\": \"<string>\",\n          \"addressLine1\": \"<string>\",\n          \"addressLine2\": \"<string>\",\n          \"zipCode\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\"\n        },\n        \"status\": \"CREATED\",\n        \"buySupported\": \"<boolean>\",\n        \"sellSupported\": \"<boolean>\",\n        \"createdAt\": \"<string>\",\n        \"verifiedAt\": \"<string>\",\n        \"declinedAt\": \"<string>\",\n        \"deletedAt\": \"<string>\"\n      }\n    ]\n  },\n  \"errorResponse\": {\n    \"timestamp\": \"<string>\",\n    \"httpStatus\": \"<string>\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"retry\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:25:23.000Z",
+              "updatedAt": "2026-07-28T01:25:23.000Z",
+              "uid": "35240-42eed1b7-de1a-47e0-9f69-4ff227c0e59f"
+            },
+            {
+              "id": "b1635c5f-8c05-478b-a416-c3513ad50de4",
+              "name": "400",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentmethods?customerId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentmethods"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"httpStatus\\\":\\\"200\\\",\\n    \\\"timestamp\\\":\\\"2022-02-01T18:59:28.297Z\\\",//UTC\\n    \\\"path\\\":\\\"/external/v1/payment-method\\\",//The error code is just a sample showing the structure of the error code.\\n    \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\":\\\"123-123-123-123\\\",\\n        \\\"message\\\":\\\"Invalid account id\\\"\\n      }\\n    ]\\n}\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:23.000Z",
+              "updatedAt": "2026-07-28T01:25:23.000Z",
+              "uid": "35240-b1635c5f-8c05-478b-a416-c3513ad50de4"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:23.000Z",
+          "updatedAt": "2026-07-28T01:25:23.000Z",
+          "uid": "35240-df35519d-1e75-4e92-881a-6c5aca16dea4"
+        }
+      ],
+      "id": "7d0a2c64-9680-4cfc-9fbb-a5297653e4d3",
+      "createdAt": "2026-07-28T01:25:23.000Z",
+      "updatedAt": "2026-07-28T01:25:23.000Z",
+      "uid": "35240-7d0a2c64-9680-4cfc-9fbb-a5297653e4d3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

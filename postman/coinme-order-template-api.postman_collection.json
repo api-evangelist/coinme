@@ -1,0 +1,805 @@
+{
+  "info": {
+    "_postman_id": "8e0db10f-6c1d-4ac3-8823-f1ee15ad7b28",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Order Template API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:21.000Z",
+    "updatedAt": "2026-07-28T01:25:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8e0db10f-6c1d-4ac3-8823-f1ee15ad7b28"
+  },
+  "item": [
+    {
+      "name": "order-template",
+      "item": [
+        {
+          "name": "templates",
+          "item": [
+            {
+              "name": "{customerId}",
+              "item": [
+                {
+                  "name": "Get Order Template",
+                  "id": "f000bd13-fda6-4f16-8ed9-26c0661c462f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "x-api-key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/order-template/templates/:customerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "order-template",
+                        "templates",
+                        ":customerId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "cd2cdce5-3a52-44a0-a193-bd64bc4c82c3",
+                          "key": "customerId",
+                          "value": "<long>",
+                          "description": "(Required) Unique customer identifier"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of all order templates for a particular user"
+                  },
+                  "response": [
+                    {
+                      "id": "7fe985ea-7436-49bb-a734-d22577a3adbb",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                            "key": "User-Agent",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/order-template/templates/:customerId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "order-template",
+                            "templates",
+                            ":customerId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "customerId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n    \\\"data\\\": {\\n        \\\"transactionTemplate\\\": [\\n            {\\n                \\\"orderTemplateId\\\": \\\"1187389229447122944\\\",\\n                \\\"accountId\\\": \\\"1187008833961594880\\\",\\n                \\\"partnerId\\\": \\\"829720882820681728\\\",\\n                \\\"transactionSystemRef\\\": \\\"1187389229447122944\\\",\\n                \\\"transactionProviderRef\\\": \\\"830324007540008113329399514064\\\",\\n                \\\"sealed\\\": false,\\n                \\\"debitCurrencyCode\\\": \\\"USD\\\",\\n                \\\"creditCurrencyCode\\\": \\\"BTC\\\",\\n                \\\"creditCurrencyAmount\\\":\\\"0.00018627\\\",\\n                \\\"amountValue\\\": \\\"11\\\",\\n                \\\"amountCurrencyCode\\\": \\\"USD\\\",\\n                \\\"feesMap\\\": {\\n                \\\"instantWithdrawalFee\\\": \\\"2.50\\\",\\n                \\\"exchangeFee\\\": \\\"0.16\\\"\\n                },\\n                \\\"locationData\\\":{\\n                  \\\"country\\\":\\\"USA\\\",\\n                  \\\"state\\\":\\\"CA\\\",\\n                  \\\"city\\\":\\\"Sacramento\\\",\\n                  \\\"zipCode\\\":\\\"95822\\\",\\n                  \\\"address1\\\":\\\"1350 Florin Rd\\\",\\n                  \\\"description\\\":\\\"CVS\\\",\\n                  \\\"coordinates\\\":{\\n                    \\\"latitude\\\":38.495133,\\n                    \\\"longitude\\\":-121.505336\\n                  }\\n                },\\n                \\\"active\\\": false,\\n                \\\"status\\\":\\\"COMPLETED\\\",\\n                \\\"timestamp\\\":\\\"2025-01-02T14:21:20.965Z\\\"\\n            },\\n            {\\n                \\\"orderTemplateId\\\": \\\"1188417339844071424\\\",\\n                \\\"accountId\\\": \\\"1187008833961594880\\\",\\n                \\\"partnerId\\\": \\\"829720882820681728\\\",\\n                \\\"transactionSystemRef\\\": \\\"1188417339844071424\\\",\\n                \\\"transactionProviderRef\\\": \\\"830324007540008113329400042165\\\",\\n                \\\"sealed\\\": false,\\n                \\\"debitCurrencyCode\\\": \\\"USD\\\",\\n                \\\"creditCurrencyCode\\\": \\\"BTC\\\",\\n                \\\"creditCurrencyAmount\\\":\\\"0.00018627\\\",\\n                \\\"amountValue\\\": \\\"11\\\",\\n                \\\"amountCurrencyCode\\\": \\\"USD\\\",\\n                \\\"feesMap\\\": {\\n                \\\"instantWithdrawalFee\\\": \\\"2.50\\\",\\n                \\\"exchangeFee\\\": \\\"0.16\\\"\\n                 },\\n                 \\\"locationData\\\":{\\n                  \\\"country\\\":\\\"USA\\\",\\n                  \\\"state\\\":\\\"CA\\\",\\n                  \\\"city\\\":\\\"Sacramento\\\",\\n                  \\\"zipCode\\\":\\\"95822\\\",\\n                  \\\"address1\\\":\\\"1350 Florin Rd\\\",\\n                  \\\"description\\\":\\\"CVS\\\",\\n                  \\\"coordinates\\\":{\\n                    \\\"latitude\\\":38.495133,\\n                    \\\"longitude\\\":-121.505336\\n                  }\\n                },\\n                \\\"active\\\": false,\\n                \\\"status\\\":\\\"EXPIRED\\\",\\n                \\\"timestamp\\\":\\\"2025-03-06T11:49:28.108Z\\\"\\n            }\\n        ],\\n    \\\"errorResponse\\\": null\\n}\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:25:22.000Z",
+                      "updatedAt": "2026-07-28T01:25:22.000Z",
+                      "uid": "35240-7fe985ea-7436-49bb-a734-d22577a3adbb"
+                    },
+                    {
+                      "id": "eb7705bf-7cac-4712-8bde-95ca7babc5cb",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                            "key": "User-Agent",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/order-template/templates/:customerId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "order-template",
+                            "templates",
+                            ":customerId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "customerId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T01:25:22.000Z",
+                      "updatedAt": "2026-07-28T01:25:22.000Z",
+                      "uid": "35240-eb7705bf-7cac-4712-8bde-95ca7babc5cb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:25:22.000Z",
+                  "updatedAt": "2026-07-28T01:25:22.000Z",
+                  "uid": "35240-f000bd13-fda6-4f16-8ed9-26c0661c462f"
+                }
+              ],
+              "id": "ccf1885a-03a4-4da3-ac81-43f3e494da11",
+              "createdAt": "2026-07-28T01:25:22.000Z",
+              "updatedAt": "2026-07-28T01:25:22.000Z",
+              "uid": "35240-ccf1885a-03a4-4da3-ac81-43f3e494da11"
+            },
+            {
+              "name": "count",
+              "item": [
+                {
+                  "name": "{customerId}?providerId={providerId}",
+                  "item": [
+                    {
+                      "name": "Get Order Templates Count",
+                      "id": "82b4b463-bb99-42ad-9e82-310560b860c9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "x-api-key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                            "key": "User-Agent",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/order-template/templates/count/{{customerId}}?providerId={{providerId}}",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "order-template",
+                            "templates",
+                            "count",
+                            "{{customerId}}"
+                          ],
+                          "query": [
+                            {
+                              "key": "providerId",
+                              "value": "{{providerId}}"
+                            }
+                          ]
+                        },
+                        "description": "Returns the number of active/created order templates and additional details"
+                      },
+                      "response": [
+                        {
+                          "id": "d4f43789-703d-4305-bddc-1af0b4519138",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                                "key": "User-Agent",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/order-template/templates/count/{{customerId}}",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "order-template",
+                                "templates",
+                                "count",
+                                "{{customerId}}"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n    \\\"data\\\": {\\n              \\\"createdCount\\\": 1,\\n              \\\"maxOrdersSubmitted\\\": 2,\\n              \\\"maximumReached\\\": false\\n            }\\n    \\\"errorResponse\\\": null\\n}\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T01:25:22.000Z",
+                          "updatedAt": "2026-07-28T01:25:22.000Z",
+                          "uid": "35240-d4f43789-703d-4305-bddc-1af0b4519138"
+                        },
+                        {
+                          "id": "6224e18b-3d42-4684-90bb-e9fd6cfd96d5",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                                "key": "User-Agent",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/order-template/templates/count/{{customerId}}",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "order-template",
+                                "templates",
+                                "count",
+                                "{{customerId}}"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T01:25:22.000Z",
+                          "updatedAt": "2026-07-28T01:25:22.000Z",
+                          "uid": "35240-6224e18b-3d42-4684-90bb-e9fd6cfd96d5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:25:22.000Z",
+                      "updatedAt": "2026-07-28T01:25:22.000Z",
+                      "uid": "35240-82b4b463-bb99-42ad-9e82-310560b860c9"
+                    }
+                  ],
+                  "id": "bdfd938d-d0f7-44b9-8edb-99b73f775255",
+                  "createdAt": "2026-07-28T01:25:22.000Z",
+                  "updatedAt": "2026-07-28T01:25:22.000Z",
+                  "uid": "35240-bdfd938d-d0f7-44b9-8edb-99b73f775255"
+                }
+              ],
+              "id": "47f917a5-f1d3-4369-9dbc-249fa76dbc4d",
+              "createdAt": "2026-07-28T01:25:22.000Z",
+              "updatedAt": "2026-07-28T01:25:22.000Z",
+              "uid": "35240-47f917a5-f1d3-4369-9dbc-249fa76dbc4d"
+            }
+          ],
+          "id": "4f06fbff-8f81-4b33-b225-04b7353dcfe8",
+          "createdAt": "2026-07-28T01:25:22.000Z",
+          "updatedAt": "2026-07-28T01:25:22.000Z",
+          "uid": "35240-4f06fbff-8f81-4b33-b225-04b7353dcfe8"
+        },
+        {
+          "name": "{transactionSystemRef}",
+          "item": [
+            {
+              "name": "Delete Order Template",
+              "id": "e63e66e8-1dc7-42c9-97c7-a3c7f1507336",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "x-api-key",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/order-template/:transactionSystemRef?customerId=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "order-template",
+                    ":transactionSystemRef"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "0383cf8e-c3e1-402b-865e-3aec7788c997",
+                      "key": "transactionSystemRef",
+                      "value": "<string>",
+                      "description": "(Required) ID of the order template in Coinme's system"
+                    }
+                  ]
+                },
+                "description": "Invalidates an order template. An order template can only be invalidated if it is in the CREATED status"
+              },
+              "response": [
+                {
+                  "id": "bf9cdd04-b67b-4bf3-a100-1762b2306762",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/order-template/:transactionSystemRef?customerId=<long>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "order-template",
+                        ":transactionSystemRef"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<long>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "transactionSystemRef"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T01:25:22.000Z",
+                  "updatedAt": "2026-07-28T01:25:22.000Z",
+                  "uid": "35240-bf9cdd04-b67b-4bf3-a100-1762b2306762"
+                },
+                {
+                  "id": "5c5d4b22-2d78-4f4b-8999-37b45013009c",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/order-template/:transactionSystemRef?customerId=<long>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "order-template",
+                        ":transactionSystemRef"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<long>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "transactionSystemRef"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T01:25:22.000Z",
+                  "updatedAt": "2026-07-28T01:25:22.000Z",
+                  "uid": "35240-5c5d4b22-2d78-4f4b-8999-37b45013009c"
+                }
+              ],
+              "createdAt": "2026-07-28T01:25:22.000Z",
+              "updatedAt": "2026-07-28T01:25:22.000Z",
+              "uid": "35240-e63e66e8-1dc7-42c9-97c7-a3c7f1507336"
+            }
+          ],
+          "id": "47fc00b2-1dda-45ce-9b89-3e75ae03f21c",
+          "createdAt": "2026-07-28T01:25:22.000Z",
+          "updatedAt": "2026-07-28T01:25:22.000Z",
+          "uid": "35240-47fc00b2-1dda-45ce-9b89-3e75ae03f21c"
+        },
+        {
+          "name": "Generate Order Template",
+          "id": "1629453f-4b0b-4f80-a315-560ed33ae17c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"providerId\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"<string>\",\n  \"externalCustodyCreditInfo\": {\n    \"walletAddress\": \"<string>\",\n    \"blockchainMemo\": \"<string>\"\n  },\n  \"chain\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/order-template",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "order-template"
+              ]
+            },
+            "description": "Initiates an order template creation (i.e. creates a barcode)"
+          },
+          "response": [
+            {
+              "id": "4dedc8ac-003b-4db9-b8f0-4c11bc8bf353",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"providerId\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"<string>\",\n  \"externalCustodyCreditInfo\": {\n    \"walletAddress\": \"<string>\",\n    \"blockchainMemo\": \"<string>\"\n  },\n  \"chain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/order-template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "order-template"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n    \\\"data\\\": {\\n        \\\"transactionTemplate\\\": {\\n            \\\"transactionSystemRef\\\": \\\"1231976224861065216\\\",\\n            \\\"transactionProviderRef\\\": \\\"830324007540008113329460093303\\\",\\n            \\\"sealed\\\": true,\\n            \\\"debitCurrencyCode\\\": \\\"USD\\\",\\n            \\\"debitCurrencyUnitPrice\\\": \\\"90887.64\\\",\\n            \\\"creditCurrencyCode\\\": \\\"BTC\\\",\\n            \\\"creditCurrencyAmount\\\": \\\"0.00012100\\\",\\n            \\\"amountValue\\\": \\\"11\\\",\\n            \\\"amountCurrencyCode\\\": \\\"USD\\\",\\n            \\\"feesMap\\\": {},\\n            \\\"providerExclusiveFees\\\": {\\n                \\\"retailerCustomerFee\\\": {\\n                    \\\"amount\\\": \\\"3.95\\\",\\n                    \\\"currency\\\": \\\"USD\\\"\\n                }\\n            }\\n            \\\"active\\\": true,\\n            \\\"expiryTimestamp\\\": \\\"2025-04-22T15:33:48.270Z\\\"\\n        }\\n    },\\n    \\\"errorResponse\\\": null\\n\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:22.000Z",
+              "updatedAt": "2026-07-28T01:25:22.000Z",
+              "uid": "35240-4dedc8ac-003b-4db9-b8f0-4c11bc8bf353"
+            },
+            {
+              "id": "3d852e1c-cbc3-46af-ae6b-859fc904d214",
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"providerId\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"<string>\",\n  \"externalCustodyCreditInfo\": {\n    \"walletAddress\": \"<string>\",\n    \"blockchainMemo\": \"<string>\"\n  },\n  \"chain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/order-template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "order-template"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T01:25:22.000Z",
+              "updatedAt": "2026-07-28T01:25:22.000Z",
+              "uid": "35240-3d852e1c-cbc3-46af-ae6b-859fc904d214"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:22.000Z",
+          "updatedAt": "2026-07-28T01:25:22.000Z",
+          "uid": "35240-1629453f-4b0b-4f80-a315-560ed33ae17c"
+        }
+      ],
+      "id": "73f019d6-2e4e-4859-a084-c782b5dd9add",
+      "createdAt": "2026-07-28T01:25:22.000Z",
+      "updatedAt": "2026-07-28T01:25:22.000Z",
+      "uid": "35240-73f019d6-2e4e-4859-a084-c782b5dd9add"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    },
+    {
+      "key": "customerId",
+      "value": "<long>"
+    },
+    {
+      "key": "providerId",
+      "value": "<string>"
+    }
+  ]
+}

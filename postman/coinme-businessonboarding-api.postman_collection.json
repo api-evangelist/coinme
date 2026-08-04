@@ -1,0 +1,216 @@
+{
+  "info": {
+    "_postman_id": "9a6c9de3-27da-4f06-a317-4d4152054a1e",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Businessonboarding API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:09.000Z",
+    "updatedAt": "2026-07-28T01:25:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9a6c9de3-27da-4f06-a317-4d4152054a1e"
+  },
+  "item": [
+    {
+      "name": "businessonboarding",
+      "item": [
+        {
+          "name": "Initiate Business Onboarding",
+          "id": "4efa35e4-3f03-4cbf-9967-e1dd3acf2d0e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyName\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"companyAddress\": {\n    \"line1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"line2\": \"<string>\"\n  },\n  \"countryOfIncorporation\": \"<string>\",\n  \"companyType\": \"Proprietorship\",\n  \"companyTaxIdentification Number\": \"<string>\",\n  \"companyPhone\": {\n    \"countryCode\": \"<string>\",\n    \"number\": \"<string>\"\n  },\n  \"companyEmail\": \"<string>\",\n  \"ultimateBeneficialOwnerFullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\",\n    \"otherNames\": {\n      \"secondLastName\": \"<string>\",\n      \"otherName1\": \"<string>\",\n      \"otherName2\": \"<string>\"\n    }\n  },\n  \"stateOfIncorporation\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/businessonboarding",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "businessonboarding"
+              ]
+            },
+            "description": "Create a new business account if one does not exist. This is to be used for partners who service business clients."
+          },
+          "response": [
+            {
+              "id": "75024590-42c7-412f-a50e-baa4ba1a8fea",
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"companyAddress\": {\n    \"line1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"line2\": \"<string>\"\n  },\n  \"countryOfIncorporation\": \"<string>\",\n  \"companyType\": \"Proprietorship\",\n  \"companyTaxIdentification Number\": \"<string>\",\n  \"companyPhone\": {\n    \"countryCode\": \"<string>\",\n    \"number\": \"<string>\"\n  },\n  \"companyEmail\": \"<string>\",\n  \"ultimateBeneficialOwnerFullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\",\n    \"otherNames\": {\n      \"secondLastName\": \"<string>\",\n      \"otherName1\": \"<string>\",\n      \"otherName2\": \"<string>\"\n    }\n  },\n  \"stateOfIncorporation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/businessonboarding",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "businessonboarding"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"customerId\": \"<string>\"\n  },\n  \"errorResponse\": {}\n}",
+              "createdAt": "2026-07-28T01:25:09.000Z",
+              "updatedAt": "2026-07-28T01:25:09.000Z",
+              "uid": "35240-75024590-42c7-412f-a50e-baa4ba1a8fea"
+            },
+            {
+              "id": "30c50408-84c6-4376-9a2b-5ea3ae4c3073",
+              "name": "400",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"companyAddress\": {\n    \"line1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"line2\": \"<string>\"\n  },\n  \"countryOfIncorporation\": \"<string>\",\n  \"companyType\": \"Proprietorship\",\n  \"companyTaxIdentification Number\": \"<string>\",\n  \"companyPhone\": {\n    \"countryCode\": \"<string>\",\n    \"number\": \"<string>\"\n  },\n  \"companyEmail\": \"<string>\",\n  \"ultimateBeneficialOwnerFullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\",\n    \"otherNames\": {\n      \"secondLastName\": \"<string>\",\n      \"otherName1\": \"<string>\",\n      \"otherName2\": \"<string>\"\n    }\n  },\n  \"stateOfIncorporation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/businessonboarding",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "businessonboarding"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {},\n  \"errorResponse\": {\n    \"httpStatus\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"path\": \"<string>\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ],\n    \"retry\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:25:09.000Z",
+              "updatedAt": "2026-07-28T01:25:09.000Z",
+              "uid": "35240-30c50408-84c6-4376-9a2b-5ea3ae4c3073"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:09.000Z",
+          "updatedAt": "2026-07-28T01:25:09.000Z",
+          "uid": "35240-4efa35e4-3f03-4cbf-9967-e1dd3acf2d0e"
+        }
+      ],
+      "id": "7eddddb7-be94-45c4-9d7c-3a46d7ff4415",
+      "createdAt": "2026-07-28T01:25:09.000Z",
+      "updatedAt": "2026-07-28T01:25:09.000Z",
+      "uid": "35240-7eddddb7-be94-45c4-9d7c-3a46d7ff4415"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

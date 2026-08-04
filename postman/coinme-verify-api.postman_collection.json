@@ -1,0 +1,221 @@
+{
+  "info": {
+    "_postman_id": "0a8427e1-57b0-4f6b-b02f-f78c2af9710a",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Verify API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:26:22.000Z",
+    "updatedAt": "2026-07-28T01:26:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0a8427e1-57b0-4f6b-b02f-f78c2af9710a"
+  },
+  "item": [
+    {
+      "name": "verify",
+      "item": [
+        {
+          "name": "Initiate Verify",
+          "id": "2b948d25-4d0c-43bb-85bc-78baa06c5057",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ssn\": \"<string>\",\n  \"phoneNumber\": \"<integer>\",\n  \"consentStatus\": \"optedOut\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"extendedAddress\": \"<string>\",\n  \"city\": \"<string>\",\n  \"region\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"dob\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/verify",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "verify"
+              ]
+            },
+            "description": "This endpoint can be called to verify that the submitted data correctly matches the customer associated with it. The more data input, the more accurate of a result can be returned. In order to keep the information confidential, Coinme uses a third party, VeryGoodSecurity, as a reverse proxy to create a token for the ssn upon the request and then decrypt the token on the request to Prove\u2019s pre-fill service."
+          },
+          "response": [
+            {
+              "id": "c77920e0-535d-4a25-bc31-d026b781d480",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssn\": \"<string>\",\n  \"phoneNumber\": \"<integer>\",\n  \"consentStatus\": \"optedOut\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"extendedAddress\": \"<string>\",\n  \"city\": \"<string>\",\n  \"region\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"dob\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/verify",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "verify"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n\\t\\\"data\\\": {\\n\\t\\t\\\"requestId\\\": \\\"<<UUID>>\\\",\\n\\t\\t\\\"status\\\": 0,\\n\\t\\t\\\"description\\\": \\\"Success.\\\",\\n\\t\\t\\\"additionalInfo\\\": null,\\n\\t\\t\\\"response\\\": {\\n\\t\\t\\t\\\"verified\\\": true, //boolean to say if the data matches\\n\\t\\t\\t\\\"transactionId\\\": \\\"12228136833\\\",\\n\\t\\t\\t\\\"payfoneAlias\\\": \\\"<<payfoneAliasId>>\\\",\\n\\t\\t\\t\\\"phoneNumber\\\": \\\"<<inputPhoneNumber>>\\\",\\n\\t\\t\\t\\\"lineType\\\": \\\"Landline\\\",\\n\\t\\t\\t\\\"carrier\\\": \\\"<<carrier>>\\\",\\n\\t\\t\\t\\\"countryCode\\\": \\\"US\\\",\\n\\t\\t\\t\\\"reasonCodes\\\": [\\n\\t\\t\\t<<List of 2-digit reason codes>>\\n\\t\\t\\t],\\n\\t\\t\\t\\\"address\\\": {\\n\\t\\t\\t\\t\\\"distance\\\": 0.0,\\n\\t\\t\\t\\t\\\"addressScore\\\": 100, //0-100 on matching of address\\n\\t\\t\\t\\t\\\"streetNumber\\\": 100, //0-100 on matching of street number\\n\\t\\t\\t\\t\\\"street\\\": false, // boolean on street match\\n\\t\\t\\t\\t\\\"city\\\": true, //boolean on city match\\n\\t\\t\\t\\t\\\"region\\\": true, //boolean on region match\\n\\t\\t\\t\\t\\\"postalCode\\\": true //boolean on postal code match\\n\\t\\t\\t},\\n\\t\\t\\t\\\"name\\\": {\\n\\t\\t\\t\\t\\\"nameScore\\\": 100, //0-100 on matching of full name\\n\\t\\t\\t\\t\\\"firstName\\\": 100, //0-100 on matching of first name\\n\\t\\t\\t\\t\\\"lastName\\\": 100 //0-100 on matching of last name\\n\\t\\t\\t},\\n\\t\\t\\t\\\"identifiers\\\": {\\n\\t\\t\\t\\t\\\"last4\\\": false, //if last4 used instead of full ssn (should always be false in this case)\\n\\t\\t\\t\\t\\\"dob\\\": true, //boolean on dob matches\\n\\t\\t\\t\\t\\\"driversLicenseState\\\": false, //boolean on drivers license state match (not supported at this time)\\n\\t\\t\\t\\t\\\"driversLicenseNumber\\\": false, //boolean on drivers license number match (not supported at this time)\\n\\t\\t\\t\\t\\\"ssn\\\": true //boolean on ssn match\\n\\t\\t\\t},\\n\\t\\t\\t\\\"knowYourCustomer\\\": { //AML or Sanctions hits\\n\\t\\t\\t\\t\\\"totalHits\\\": 1, \\n\\t\\t\\t\\t\\\"amlTypeLists\\\": [\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\\"amlType\\\": \\\"pep-class-1\\\",\\n\\t\\t\\t\\t\\t\\t\\\"listHits\\\": 1,\\n\\t\\t\\t\\t\\t\\t\\\"fields\\\": [\\n\\t\\t\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\t\\t\\\"source\\\": \\\"europe-sanction-list\\\",\\n\\t\\t\\t\\t\\t\\t\\t\\t\\\"name\\\": \\\"TestName\\\",\\n\\t\\t\\t\\t\\t\\t\\t\\t\\\"value\\\": \\\"TestValue\\\"\\n\\t\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\t]\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t]\\n\\t\\t\\t},\\n\\t\\t\\t\\\"matchDataType\\\": null //not suported at this time\\n\\t\\t}\\n\\t},\\n\\t\\\"errorResponse\\\": null\\n}\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:26:22.000Z",
+              "updatedAt": "2026-07-28T01:26:22.000Z",
+              "uid": "35240-c77920e0-535d-4a25-bc31-d026b781d480"
+            },
+            {
+              "id": "9e844564-3214-491f-9185-1ae4e16f65f5",
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssn\": \"<string>\",\n  \"phoneNumber\": \"<integer>\",\n  \"consentStatus\": \"optedOut\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"extendedAddress\": \"<string>\",\n  \"city\": \"<string>\",\n  \"region\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"dob\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/verify",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "verify"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {},\n  \"errorResponse\": {\n    \"timestamp\": \"<string>\",\n    \"httpStatus\": 0,\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:26:22.000Z",
+              "updatedAt": "2026-07-28T01:26:22.000Z",
+              "uid": "35240-9e844564-3214-491f-9185-1ae4e16f65f5"
+            }
+          ],
+          "createdAt": "2026-07-28T01:26:22.000Z",
+          "updatedAt": "2026-07-28T01:26:22.000Z",
+          "uid": "35240-2b948d25-4d0c-43bb-85bc-78baa06c5057"
+        }
+      ],
+      "id": "23c61270-ba47-4565-adc2-1ba7a4c76e80",
+      "createdAt": "2026-07-28T01:26:22.000Z",
+      "updatedAt": "2026-07-28T01:26:22.000Z",
+      "uid": "35240-23c61270-ba47-4565-adc2-1ba7a4c76e80"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

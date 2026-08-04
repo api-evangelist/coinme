@@ -1,0 +1,338 @@
+{
+  "info": {
+    "_postman_id": "e4445b8a-ef06-43a7-8863-2c7838d7602e",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Customeronboarding API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:14.000Z",
+    "updatedAt": "2026-07-28T01:25:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e4445b8a-ef06-43a7-8863-2c7838d7602e"
+  },
+  "item": [
+    {
+      "name": "customeronboarding",
+      "item": [
+        {
+          "name": "Initiate Customer Onboarding",
+          "id": "2b997188-d2dd-4dfe-81dd-d03a335724e0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"fullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\",\n    \"otherNames\": {\n      \"secondLastName\": \"<string>\",\n      \"otherName1\": \"<string>\",\n      \"otherName2\": \"<string>\"\n    }\n  },\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"line2\": \"<string>\"\n  },\n  \"phoneNumber\": {\n    \"countryCode\": \"<integer>\",\n    \"number\": \"<number>\"\n  },\n  \"dateOfBirth\": \"<date>\",\n  \"SSN\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customeronboarding",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customeronboarding"
+              ]
+            },
+            "description": "Verify Customer KYC and create a new customer account if one does not exist"
+          },
+          "response": [
+            {
+              "id": "fe6c3e62-b29c-4f2b-92e8-fcd35c94ccb9",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"fullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\",\n    \"otherNames\": {\n      \"secondLastName\": \"<string>\",\n      \"otherName1\": \"<string>\",\n      \"otherName2\": \"<string>\"\n    }\n  },\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"line2\": \"<string>\"\n  },\n  \"phoneNumber\": {\n    \"countryCode\": \"<integer>\",\n    \"number\": \"<number>\"\n  },\n  \"dateOfBirth\": \"<date>\",\n  \"SSN\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customeronboarding",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customeronboarding"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"customerId\": \"<string>\"\n  },\n  \"errorResponse\": {}\n}",
+              "createdAt": "2026-07-28T01:25:15.000Z",
+              "updatedAt": "2026-07-28T01:25:15.000Z",
+              "uid": "35240-fe6c3e62-b29c-4f2b-92e8-fcd35c94ccb9"
+            },
+            {
+              "id": "84d586bf-9340-4769-9861-6a271a59aa77",
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"fullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\",\n    \"otherNames\": {\n      \"secondLastName\": \"<string>\",\n      \"otherName1\": \"<string>\",\n      \"otherName2\": \"<string>\"\n    }\n  },\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"line2\": \"<string>\"\n  },\n  \"phoneNumber\": {\n    \"countryCode\": \"<integer>\",\n    \"number\": \"<number>\"\n  },\n  \"dateOfBirth\": \"<date>\",\n  \"SSN\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customeronboarding",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customeronboarding"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {},\n  \"errorResponse\": {\n    \"httpStatus\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"path\": \"<string>\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ],\n    \"retry\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:25:15.000Z",
+              "updatedAt": "2026-07-28T01:25:15.000Z",
+              "uid": "35240-84d586bf-9340-4769-9861-6a271a59aa77"
+            },
+            {
+              "id": "94c502c1-ae31-4681-8c38-c4686f2fdbf7",
+              "name": "401",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"fullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\",\n    \"otherNames\": {\n      \"secondLastName\": \"<string>\",\n      \"otherName1\": \"<string>\",\n      \"otherName2\": \"<string>\"\n    }\n  },\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"line2\": \"<string>\"\n  },\n  \"phoneNumber\": {\n    \"countryCode\": \"<integer>\",\n    \"number\": \"<number>\"\n  },\n  \"dateOfBirth\": \"<date>\",\n  \"SSN\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customeronboarding",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customeronboarding"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:15.000Z",
+              "updatedAt": "2026-07-28T01:25:15.000Z",
+              "uid": "35240-94c502c1-ae31-4681-8c38-c4686f2fdbf7"
+            },
+            {
+              "id": "e9bc4834-80fa-4f47-9482-b1d9ba8b1151",
+              "name": "500",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"fullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\",\n    \"otherNames\": {\n      \"secondLastName\": \"<string>\",\n      \"otherName1\": \"<string>\",\n      \"otherName2\": \"<string>\"\n    }\n  },\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"line2\": \"<string>\"\n  },\n  \"phoneNumber\": {\n    \"countryCode\": \"<integer>\",\n    \"number\": \"<number>\"\n  },\n  \"dateOfBirth\": \"<date>\",\n  \"SSN\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customeronboarding",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customeronboarding"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:15.000Z",
+              "updatedAt": "2026-07-28T01:25:15.000Z",
+              "uid": "35240-e9bc4834-80fa-4f47-9482-b1d9ba8b1151"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:15.000Z",
+          "updatedAt": "2026-07-28T01:25:15.000Z",
+          "uid": "35240-2b997188-d2dd-4dfe-81dd-d03a335724e0"
+        }
+      ],
+      "id": "65942d33-8984-4163-8aed-abef3d736e42",
+      "createdAt": "2026-07-28T01:25:15.000Z",
+      "updatedAt": "2026-07-28T01:25:15.000Z",
+      "uid": "35240-65942d33-8984-4163-8aed-abef3d736e42"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

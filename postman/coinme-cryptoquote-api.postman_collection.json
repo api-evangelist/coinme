@@ -1,0 +1,1285 @@
+{
+  "info": {
+    "_postman_id": "6ef33254-5edf-4255-860a-952837feb6de",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Cryptoquote API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:13.000Z",
+    "updatedAt": "2026-07-28T01:25:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6ef33254-5edf-4255-860a-952837feb6de"
+  },
+  "item": [
+    {
+      "name": "cryptoquote",
+      "item": [
+        {
+          "name": "{quoteId}",
+          "item": [
+            {
+              "name": "Get Transactional Quote",
+              "id": "6519edf7-40d6-4c01-8525-3e1acdf718d0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "x-api-key",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoquote/:quoteId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoquote",
+                    ":quoteId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "70670067-b4a5-46d3-8684-459d518152a9",
+                      "key": "quoteId",
+                      "value": "<string>",
+                      "description": "(Required) Quote Identifier referring to the specific crypto quote"
+                    }
+                  ]
+                },
+                "description": "Gathers details on a transactional quote based on the quoteId"
+              },
+              "response": [
+                {
+                  "id": "83a8b130-3641-4da7-b5a8-33a8aea52c99",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/:quoteId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        ":quoteId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "quoteId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"quoteId\": \"<string>\",\n    \"creditCurrencyUnitPrice\": \"<string>\",\n    \"creditCurrencyUnitPriceCode\": \"<string>\",\n    \"debitCurrencyUnitPrice\": \"<string>\",\n    \"debitCurrencyUnitPriceCode\": \"<string>\",\n    \"creditCurrencyAmount\": \"<string>\",\n    \"creditCurrencyCode\": \"<string>\",\n    \"debitCurrencyAmount\": \"<string>\",\n    \"debitCurrencyCode\": \"<string>\",\n    \"totalFees\": \"<string>\",\n    \"feeCurrency\": \"<string>\",\n    \"feesMap\": {\n      \"exchangeFee\": \"<string>\",\n      \"blockchainFee\": \"<string>\"\n    },\n    \"expiresIn\": 0,\n    \"expirationTime\": \"<string>\",\n    \"spread\": \"<string>\",\n    \"spreadCurrencyCode\": \"<string>\"\n  },\n  \"errorResponse\": {}\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-83a8b130-3641-4da7-b5a8-33a8aea52c99"
+                },
+                {
+                  "id": "13fad7cd-6717-4838-92dd-6a68ca8ec624",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/:quoteId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        ":quoteId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "quoteId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-13fad7cd-6717-4838-92dd-6a68ca8ec624"
+                },
+                {
+                  "id": "b3195135-0b10-46ca-bd10-0dc7fab13098",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/:quoteId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        ":quoteId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "quoteId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-b3195135-0b10-46ca-bd10-0dc7fab13098"
+                },
+                {
+                  "id": "be889bfc-e2af-435e-be29-1a9c7c205358",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/:quoteId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        ":quoteId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "quoteId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-be889bfc-e2af-435e-be29-1a9c7c205358"
+                }
+              ],
+              "createdAt": "2026-07-28T01:25:14.000Z",
+              "updatedAt": "2026-07-28T01:25:14.000Z",
+              "uid": "35240-6519edf7-40d6-4c01-8525-3e1acdf718d0"
+            }
+          ],
+          "id": "be257296-4c0f-4675-8fad-239e4b4ebf99",
+          "createdAt": "2026-07-28T01:25:14.000Z",
+          "updatedAt": "2026-07-28T01:25:14.000Z",
+          "uid": "35240-be257296-4c0f-4675-8fad-239e4b4ebf99"
+        },
+        {
+          "name": "informative",
+          "item": [
+            {
+              "name": "Initiate Informative Quote",
+              "id": "60734011-9269-4a8b-87a7-121fb258bc2e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "x-api-key",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"USD\",\n  \"cryptoSettlementType\": \"INTERNAL\",\n  \"chain\": \"<string>\",\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"promoCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoquote/informative",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoquote",
+                    "informative"
+                  ]
+                },
+                "description": "Returns an informational crypto quote for amount exchanged from one currency to another. Unlike the Transactional Quote endpoint, this response does not include a quoteId (since its just informative) nor any expiration time. A buy or sell flow cannot be initiated with this quote"
+              },
+              "response": [
+                {
+                  "id": "8e7c66ea-d2ce-405d-870b-fec03e2bbb72",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"USD\",\n  \"cryptoSettlementType\": \"INTERNAL\",\n  \"chain\": \"<string>\",\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"promoCode\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/informative",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        "informative"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"creditCurrencyUnitPrice\": \"<string>\",\n    \"creditCurrencyUnitPriceCode\": \"<string>\",\n    \"debitCurrencyUnitPrice\": \"<string>\",\n    \"debitCurrencyUnitPriceCode\": \"<string>\",\n    \"creditCurrencyAmount\": \"<string>\",\n    \"creditCurrencyCode\": \"<string>\",\n    \"debitCurrencyAmount\": \"<string>\",\n    \"debitCurrencyCode\": \"<string>\",\n    \"totalFees\": \"<string>\",\n    \"feeCurrency\": \"<string>\",\n    \"feesMap\": {\n      \"exchangeFee\": \"<string>\",\n      \"processingFee\": \"<string>\",\n      \"blockchainFee\": \"<string>\"\n    },\n    \"spread\": \"<string>\",\n    \"spreadCurrencyCode\": \"<string>\"\n  },\n  \"errorResponse\": {}\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-8e7c66ea-d2ce-405d-870b-fec03e2bbb72"
+                },
+                {
+                  "id": "d698e77d-9fb2-4a37-8175-19d9fc8dd918",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"USD\",\n  \"cryptoSettlementType\": \"INTERNAL\",\n  \"chain\": \"<string>\",\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"promoCode\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/informative",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        "informative"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"httpStatus\\\":\\\"200\\\",\\n    \\\"timestamp\\\":\\\"2022-02-01T18:59:28.297Z\\\",//UTC\\n    \\\"path\\\":\\\"/services/cryptoquote POST\\\",\\n    \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\":\\\"123-123-123-123\\\",//The error code is just a sample showing the structure of the error code.\\n        \\\"message\\\":\\\"CreditCurrencyCode cannot be same as DebitCurrencyCode\\\"\\n      }\\n    ]\\n}\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-d698e77d-9fb2-4a37-8175-19d9fc8dd918"
+                },
+                {
+                  "id": "e976c491-c77b-487d-b6c8-1036a2f07677",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"USD\",\n  \"cryptoSettlementType\": \"INTERNAL\",\n  \"chain\": \"<string>\",\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"promoCode\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/informative",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        "informative"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-e976c491-c77b-487d-b6c8-1036a2f07677"
+                },
+                {
+                  "id": "11dd8923-5bb0-4b32-a1ca-49081863f730",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"USD\",\n  \"cryptoSettlementType\": \"INTERNAL\",\n  \"chain\": \"<string>\",\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"promoCode\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/informative",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        "informative"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-11dd8923-5bb0-4b32-a1ca-49081863f730"
+                }
+              ],
+              "createdAt": "2026-07-28T01:25:14.000Z",
+              "updatedAt": "2026-07-28T01:25:14.000Z",
+              "uid": "35240-60734011-9269-4a8b-87a7-121fb258bc2e"
+            }
+          ],
+          "id": "19703355-c69a-4546-922b-c2d03a9b2bd1",
+          "createdAt": "2026-07-28T01:25:14.000Z",
+          "updatedAt": "2026-07-28T01:25:14.000Z",
+          "uid": "35240-19703355-c69a-4546-922b-c2d03a9b2bd1"
+        },
+        {
+          "name": "sell-all",
+          "item": [
+            {
+              "name": "Initiate Sell All Transaction",
+              "id": "e60c4dca-4413-457e-b2af-772ac7c697f5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "x-api-key",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"cryptoSettlementType\": \"<string>\",\n  \"chain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoquote/sell-all",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoquote",
+                    "sell-all"
+                  ]
+                },
+                "description": "Sells all of the customer's remaining cryptocurrency as specified. The response is exactly same as the Cryptoquote end point. This is usable only if the user\u2019s crypto asset are managed by Coinme\u2019s custody wallet"
+              },
+              "response": [
+                {
+                  "id": "ea93c5a4-4154-4b60-bb99-e9b921b95909",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"cryptoSettlementType\": \"<string>\",\n  \"chain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/sell-all",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        "sell-all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"expiresIn\": 0,\n    \"expirationTime\": \"<string>\",\n    \"quoteId\": \"<string>\",\n    \"creditCurrencyUnitPrice\": \"<string>\",\n    \"creditCurrencyUnitPriceCode\": \"<string>\",\n    \"debitCurrencyUnitPrice\": \"<string>\",\n    \"debitCurrencyUnitPriceCode\": \"<string>\",\n    \"creditCurrencyAmount\": \"<string>\",\n    \"creditCurrencyCode\": \"<string>\",\n    \"debitCurrencyAmount\": \"<string>\",\n    \"debitCurrencyCode\": \"<string>\",\n    \"totalFees\": \"<string>\",\n    \"feeCurrencyCode\": \"<string>\",\n    \"feesMap\": {\n      \"exchangeFee\": \"<string>\",\n      \"processingFee\": \"<string>\",\n      \"blockchainFee\": \"<string>\"\n    },\n    \"spreadAmount\": \"<string>\",\n    \"spreadCurrencyCode\": \"<string>\",\n    \"timestamp\": \"<string>\"\n  },\n  \"errorResponse\": {}\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-ea93c5a4-4154-4b60-bb99-e9b921b95909"
+                },
+                {
+                  "id": "66c02795-2398-4de2-a547-fcc783dc2d26",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"cryptoSettlementType\": \"<string>\",\n  \"chain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/sell-all",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        "sell-all"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"httpStatus\\\":\\\"200\\\",\\n    \\\"timestamp\\\":\\\"2022-02-01T18:59:28.297Z\\\",//UTC\\n    \\\"path\\\":\\\"/services/cryptoquote POST\\\",\\n    \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\":\\\"123-123-123-123\\\",//The error code is just a sample showing the structure of the error code.\\n        \\\"message\\\":\\\"CreditCurrencyCode cannot be same as DebitCurrencyCode\\\"\\n      }\\n    ]\\n}\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-66c02795-2398-4de2-a547-fcc783dc2d26"
+                },
+                {
+                  "id": "dcdb49de-fb59-4268-a1fb-15f6cc7c23cd",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"cryptoSettlementType\": \"<string>\",\n  \"chain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/sell-all",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        "sell-all"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-dcdb49de-fb59-4268-a1fb-15f6cc7c23cd"
+                },
+                {
+                  "id": "13e416a4-2dcb-4119-a9b8-c898a132f29d",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"cryptoSettlementType\": \"<string>\",\n  \"chain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cryptoquote/sell-all",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cryptoquote",
+                        "sell-all"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:25:14.000Z",
+                  "updatedAt": "2026-07-28T01:25:14.000Z",
+                  "uid": "35240-13e416a4-2dcb-4119-a9b8-c898a132f29d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:25:14.000Z",
+              "updatedAt": "2026-07-28T01:25:14.000Z",
+              "uid": "35240-e60c4dca-4413-457e-b2af-772ac7c697f5"
+            }
+          ],
+          "id": "be0dfead-64ed-4110-9b57-9cbe2d936fe1",
+          "createdAt": "2026-07-28T01:25:14.000Z",
+          "updatedAt": "2026-07-28T01:25:14.000Z",
+          "uid": "35240-be0dfead-64ed-4110-9b57-9cbe2d936fe1"
+        },
+        {
+          "name": "Initiate Transactional Quote",
+          "id": "2ceac6cf-ec19-4d3a-b129-6b14f2d27bd4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"<string>\",\n  \"providerId\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"gpsCoordinates\": {\n    \"latitude\": \"<string>\",\n    \"longitude\": \"<string>\"\n  },\n  \"cryptoSettlementType\": \"INTERNAL\",\n  \"chain\": \"<string>\",\n  \"promoCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cryptoquote",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cryptoquote"
+              ]
+            },
+            "description": "Return crypto quote for amount exchanged from one currency to another and it\u2019s expiration time in UTC. Response also includes a quoteId, which can be used to initiate a transaction. Quotes expire after 30 seconds by default."
+          },
+          "response": [
+            {
+              "id": "34089aa3-d04b-4807-b3a3-ce9a19a6359b",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"<string>\",\n  \"providerId\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"gpsCoordinates\": {\n    \"latitude\": \"<string>\",\n    \"longitude\": \"<string>\"\n  },\n  \"cryptoSettlementType\": \"INTERNAL\",\n  \"chain\": \"<string>\",\n  \"promoCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoquote",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoquote"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T01:25:14.000Z",
+              "updatedAt": "2026-07-28T01:25:14.000Z",
+              "uid": "35240-34089aa3-d04b-4807-b3a3-ce9a19a6359b"
+            },
+            {
+              "id": "086b67ea-4ba9-4dbb-8401-fbb3eef270a4",
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"<string>\",\n  \"providerId\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"gpsCoordinates\": {\n    \"latitude\": \"<string>\",\n    \"longitude\": \"<string>\"\n  },\n  \"cryptoSettlementType\": \"INTERNAL\",\n  \"chain\": \"<string>\",\n  \"promoCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoquote",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoquote"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"httpStatus\\\":\\\"200\\\",\\n    \\\"timestamp\\\":\\\"2022-02-01T18:59:28.297Z\\\",//UTC\\n    \\\"path\\\":\\\"/services/cryptoquote POST\\\",\\n    \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\":\\\"123-123-123-123\\\",//The error code is just a sample showing the structure of the error code.\\n        \\\"message\\\":\\\"CreditCurrencyCode cannot be same as DebitCurrencyCode\\\"\\n      }\\n    ]\\n}\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:14.000Z",
+              "updatedAt": "2026-07-28T01:25:14.000Z",
+              "uid": "35240-086b67ea-4ba9-4dbb-8401-fbb3eef270a4"
+            },
+            {
+              "id": "7ad492d7-1e2e-46e8-9241-348e889a8b12",
+              "name": "401",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"<string>\",\n  \"providerId\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"gpsCoordinates\": {\n    \"latitude\": \"<string>\",\n    \"longitude\": \"<string>\"\n  },\n  \"cryptoSettlementType\": \"INTERNAL\",\n  \"chain\": \"<string>\",\n  \"promoCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoquote",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoquote"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:14.000Z",
+              "updatedAt": "2026-07-28T01:25:14.000Z",
+              "uid": "35240-7ad492d7-1e2e-46e8-9241-348e889a8b12"
+            },
+            {
+              "id": "b43648c7-50ad-4a36-bee0-d14472c8bedf",
+              "name": "500",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"debitCurrencyCode\": \"<string>\",\n  \"creditCurrencyCode\": \"<string>\",\n  \"amountValue\": \"<string>\",\n  \"amountCurrencyCode\": \"<string>\",\n  \"providerId\": \"<string>\",\n  \"locationReference\": \"<string>\",\n  \"gpsCoordinates\": {\n    \"latitude\": \"<string>\",\n    \"longitude\": \"<string>\"\n  },\n  \"cryptoSettlementType\": \"INTERNAL\",\n  \"chain\": \"<string>\",\n  \"promoCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cryptoquote",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cryptoquote"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:14.000Z",
+              "updatedAt": "2026-07-28T01:25:14.000Z",
+              "uid": "35240-b43648c7-50ad-4a36-bee0-d14472c8bedf"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:14.000Z",
+          "updatedAt": "2026-07-28T01:25:14.000Z",
+          "uid": "35240-2ceac6cf-ec19-4d3a-b129-6b14f2d27bd4"
+        }
+      ],
+      "id": "e25bf76e-eb1f-40d5-9cd9-44faca70fbab",
+      "createdAt": "2026-07-28T01:25:14.000Z",
+      "updatedAt": "2026-07-28T01:25:14.000Z",
+      "uid": "35240-e25bf76e-eb1f-40d5-9cd9-44faca70fbab"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

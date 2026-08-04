@@ -1,0 +1,343 @@
+{
+  "info": {
+    "_postman_id": "896bd8fa-8992-4ba1-a138-b2e4bb2510c1",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Locationlicensing API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:25:17.000Z",
+    "updatedAt": "2026-07-28T01:25:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-896bd8fa-8992-4ba1-a138-b2e4bb2510c1"
+  },
+  "item": [
+    {
+      "name": "locationlicensing",
+      "item": [
+        {
+          "name": "Get Location Licensing",
+          "id": "4c059641-7840-4dff-9d49-60882d209dd8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"country\": \"USA\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/locationlicensing",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "locationlicensing"
+              ]
+            },
+            "description": "Return list of states Coinme is approved to operate in"
+          },
+          "response": [
+            {
+              "id": "22f20fbc-fc92-4613-a6dd-999409a19757",
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"country\": \"USA\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/locationlicensing",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "locationlicensing"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"locations\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"errorResponse\": {}\n}",
+              "createdAt": "2026-07-28T01:25:18.000Z",
+              "updatedAt": "2026-07-28T01:25:18.000Z",
+              "uid": "35240-22f20fbc-fc92-4613-a6dd-999409a19757"
+            },
+            {
+              "id": "383deb08-a479-4ecc-814b-1a55814bc541",
+              "name": "400",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"country\": \"USA\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/locationlicensing",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "locationlicensing"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {},\n  \"errorResponse\": {\n    \"httpStatus\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"path\": \"<string>\",\n    \"errorData\": [\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"errorCode\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:25:18.000Z",
+              "updatedAt": "2026-07-28T01:25:18.000Z",
+              "uid": "35240-383deb08-a479-4ecc-814b-1a55814bc541"
+            },
+            {
+              "id": "e9e00882-4973-4e4f-95b0-61c85e0c1f95",
+              "name": "401",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"country\": \"USA\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/locationlicensing",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "locationlicensing"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:18.000Z",
+              "updatedAt": "2026-07-28T01:25:18.000Z",
+              "uid": "35240-e9e00882-4973-4e4f-95b0-61c85e0c1f95"
+            },
+            {
+              "id": "d2d6ea21-fa5b-4154-8fed-aafe931bb333",
+              "name": "500",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"country\": \"USA\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/locationlicensing",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "locationlicensing"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:25:18.000Z",
+              "updatedAt": "2026-07-28T01:25:18.000Z",
+              "uid": "35240-d2d6ea21-fa5b-4154-8fed-aafe931bb333"
+            }
+          ],
+          "createdAt": "2026-07-28T01:25:18.000Z",
+          "updatedAt": "2026-07-28T01:25:18.000Z",
+          "uid": "35240-4c059641-7840-4dff-9d49-60882d209dd8"
+        }
+      ],
+      "id": "a1277496-6582-4de1-b8c5-6c3524d8f304",
+      "createdAt": "2026-07-28T01:25:18.000Z",
+      "updatedAt": "2026-07-28T01:25:18.000Z",
+      "uid": "35240-a1277496-6582-4de1-b8c5-6c3524d8f304"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}

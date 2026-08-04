@@ -1,0 +1,406 @@
+{
+  "info": {
+    "_postman_id": "3dcb6221-8410-4a38-b86c-06aa9294f89b",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Wallets API",
+    "description": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:26:22.000Z",
+    "updatedAt": "2026-07-28T01:26:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3dcb6221-8410-4a38-b86c-06aa9294f89b"
+  },
+  "item": [
+    {
+      "name": "wallets",
+      "item": [
+        {
+          "name": "estimateFee",
+          "item": [
+            {
+              "name": "get walletsestimate Fee",
+              "id": "1e5de00a-a77a-41f4-8926-ba88bacb2568",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/wallets/estimateFee?customerId=<long>&currencySymbol=<string>&chain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallets",
+                    "estimateFee"
+                  ],
+                  "query": [
+                    {
+                      "description": "Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Symbol of the crypto asset you\u2019re sending on that chain (e.g. ETH, USDT, USDC, BTC). Partners also have the option to use full asset ID (e.g. USDT_SOL, USDC_POL, etc)",
+                      "key": "currencySymbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The crypto chain identifier to estimate the fee on (e.g. ETH, SOL). Must match supported chains returned by /services/cryptoChains. Not needed if using full assetId in currencySymbol",
+                      "key": "chain",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f6ed1bc8-2bd5-496f-869b-6ce1aa3862f5",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/estimateFee?customerId=<long>&currencySymbol=<string>&chain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "estimateFee"
+                      ],
+                      "query": [
+                        {
+                          "description": "Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Symbol of the crypto asset you\u2019re sending on that chain (e.g. ETH, USDT, USDC, BTC). Partners also have the option to use full asset ID (e.g. USDT_SOL, USDC_POL, etc)",
+                          "key": "currencySymbol",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The crypto chain identifier to estimate the fee on (e.g. ETH, SOL). Must match supported chains returned by /services/cryptoChains. Not needed if using full assetId in currencySymbol",
+                          "key": "chain",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"estimateFee\": \"0.00042\",\n  \"estimateFeeUSD\": \"0.15\"\n}",
+                  "createdAt": "2026-07-28T01:26:23.000Z",
+                  "updatedAt": "2026-07-28T01:26:23.000Z",
+                  "uid": "35240-f6ed1bc8-2bd5-496f-869b-6ce1aa3862f5"
+                },
+                {
+                  "id": "cd81cddd-4215-4539-92de-eee2366d5049",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                        "key": "User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/estimateFee?customerId=<long>&currencySymbol=<string>&chain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "estimateFee"
+                      ],
+                      "query": [
+                        {
+                          "description": "Unique customer identifier",
+                          "key": "customerId",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Symbol of the crypto asset you\u2019re sending on that chain (e.g. ETH, USDT, USDC, BTC). Partners also have the option to use full asset ID (e.g. USDT_SOL, USDC_POL, etc)",
+                          "key": "currencySymbol",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The crypto chain identifier to estimate the fee on (e.g. ETH, SOL). Must match supported chains returned by /services/cryptoChains. Not needed if using full assetId in currencySymbol",
+                          "key": "chain",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T01:26:23.000Z",
+                  "updatedAt": "2026-07-28T01:26:23.000Z",
+                  "uid": "35240-cd81cddd-4215-4539-92de-eee2366d5049"
+                }
+              ],
+              "createdAt": "2026-07-28T01:26:23.000Z",
+              "updatedAt": "2026-07-28T01:26:23.000Z",
+              "uid": "35240-1e5de00a-a77a-41f4-8926-ba88bacb2568"
+            }
+          ],
+          "id": "6b0cb47c-2eeb-4fd9-9ed1-950b1c54c2d2",
+          "createdAt": "2026-07-28T01:26:23.000Z",
+          "updatedAt": "2026-07-28T01:26:23.000Z",
+          "uid": "35240-6b0cb47c-2eeb-4fd9-9ed1-950b1c54c2d2"
+        },
+        {
+          "name": "get wallets",
+          "id": "ea4a645c-8823-488a-b194-156759444309",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/wallets?customerId=<long>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "wallets"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Unique customer identifier",
+                  "key": "customerId",
+                  "value": "<long>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "074386c8-4a12-4810-b6a1-8247a514f13a",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/wallets?customerId=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallets"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"examples\": {\n    \"OK\": {\n      \"summary\": \"OK\",\n      \"value\": {\n        \"walletAddresses\": [\n          {\n            \"walletAddress\": \"bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh\",\n            \"currencyName\": \"Bitcoin\",\n            \"currencySymbol\": \"BTC\",\n            \"assetId\": \"btc-main\",\n            \"chain\": \"BTC\"\n          },\n          {\n            \"walletAddress\": \"0x742d35Cc6634C0532925a3b844Bc9e7595f2bD3e\",\n            \"currencyName\": \"Ethereum\",\n            \"currencySymbol\": \"ETH\",\n            \"assetId\": \"eth-main\",\n            \"chain\": \"ETH\"\n          }\n        ]\n      }\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:26:23.000Z",
+              "updatedAt": "2026-07-28T01:26:23.000Z",
+              "uid": "35240-074386c8-4a12-4810-b6a1-8247a514f13a"
+            },
+            {
+              "id": "d5d475dd-d1ea-4ada-a8d6-80cfdd2daf65",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/wallets?customerId=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallets"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique customer identifier",
+                      "key": "customerId",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T01:26:23.000Z",
+              "updatedAt": "2026-07-28T01:26:23.000Z",
+              "uid": "35240-d5d475dd-d1ea-4ada-a8d6-80cfdd2daf65"
+            }
+          ],
+          "createdAt": "2026-07-28T01:26:23.000Z",
+          "updatedAt": "2026-07-28T01:26:23.000Z",
+          "uid": "35240-ea4a645c-8823-488a-b194-156759444309"
+        }
+      ],
+      "id": "e87def3e-ea1c-42a2-8223-00e2d4f4e9f0",
+      "createdAt": "2026-07-28T01:26:23.000Z",
+      "updatedAt": "2026-07-28T01:26:23.000Z",
+      "uid": "35240-e87def3e-ea1c-42a2-8223-00e2d4f4e9f0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://caas.coinme.com/services"
+    }
+  ]
+}
