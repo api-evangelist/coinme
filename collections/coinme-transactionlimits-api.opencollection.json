@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Transactionlimits API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactionlimits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Transaction Limits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/transactionlimits",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Unique customer identifier"
+              },
+              {
+                "name": "fiatCurrencyCode",
+                "value": "",
+                "type": "query",
+                "description": "Currency code of the fiat (i.e. USD)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return the remaining limit based on varying transaction limits that are dynamically imposed on the Customer based on risk analysis and documents/data collected"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

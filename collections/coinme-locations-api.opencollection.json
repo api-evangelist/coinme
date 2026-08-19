@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Locations API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Cash Ramp Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caas.coinme.com/services/locations/v2/query",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of physical store locations, sorted by the shortest distance to the coordinates sent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Verify API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Verify",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate Verify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caas.coinme.com/services/verify",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint can be called to verify that the submitted data correctly matches the customer associated with it. The more data input, the more accurate of a result can be returned. In order to keep the information confidential, Coinme uses a third party, VeryGoodSecurity, as a reverse proxy to create a token for the ssn upon the request and then decrypt the token on the request to Prove’s pre-fill service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

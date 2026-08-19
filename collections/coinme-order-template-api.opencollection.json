@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Order Template API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Order Template",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Order Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caas.coinme.com/services/order-template",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Initiates an order template creation (i.e. creates a barcode)"
+        },
+        {
+          "info": {
+            "name": "Get Order Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/order-template/templates/:customerId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path",
+                "description": "Unique customer identifier"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of all order templates for a particular user"
+        },
+        {
+          "info": {
+            "name": "Get Order Templates Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/order-template/templates/count/:customerId?providerId=:providerId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path",
+                "description": "Unique customer identifier"
+              },
+              {
+                "name": "providerId",
+                "value": "",
+                "type": "path",
+                "description": "ID of payment provider (provided by Coinme)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the number of active/created order templates and additional details"
+        },
+        {
+          "info": {
+            "name": "Delete Order Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://caas.coinme.com/services/order-template/:transactionSystemRef",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "transactionSystemRef",
+                "value": "",
+                "type": "path",
+                "description": "ID of the order template in Coinme's system"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Unique customer identifier"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Invalidates an order template. An order template can only be invalidated if it is in the CREATED status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

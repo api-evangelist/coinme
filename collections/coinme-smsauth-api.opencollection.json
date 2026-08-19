@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult SmsAuth API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SmsAuth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Instant Link by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/smsAuth/:authId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "authId",
+                "value": "",
+                "type": "path",
+                "description": "authId appended to the smsRedirectUrl from the Initiate Instant Link response"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "To be used for the First Option in the Customer Onboarding using Coinme KYC guide. The smsRedirectUrl is a URL in the Coinme domain"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

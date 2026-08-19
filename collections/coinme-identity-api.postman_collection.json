@@ -1,0 +1,354 @@
+{
+  "item": [
+    {
+      "id": "547d7b69-84ed-4ac7-a2ee-a0f542f0b19e",
+      "name": "Identity",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a55e3272-b34b-45bc-99d3-facaf3367562",
+          "name": "Initiate Identity Pre-Fill",
+          "request": {
+            "name": "Initiate Identity Pre-Fill",
+            "description": {
+              "content": "The following API will attempt to retrieve the personal information for a user given their phone number and Social Security number. In order to keep the information confidential, Coinme uses a third party, VeryGoodSecurity, as a reverse proxy to create a token for the ssn upon the request and then decrypt the token on the request to Prove’s pre-fill service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identity"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"last4\": \"<string>\",\n  \"phoneNumber\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b4602b69-13fe-4c3e-a875-96c331b8f39b",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"last4\": \"<string>\",\n  \"phoneNumber\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"data\\\": {\\n\\t\\t\\\"requestId\\\": \\\"<<UUID>>\\\",\\n\\t\\t\\\"status\\\": 0,\\n\\t\\t\\\"description\\\": \\\"Success.\\\",\\n\\t\\t\\\"additionalInfo\\\": null,\\n\\t\\t\\\"response\\\": {\\n\\t\\t\\t\\\"transactionId\\\": \\\"12228113388\\\",\\n\\t\\t\\t\\\"phoneNumber\\\": \\\"<<User Phone Number>>\\\",\\n\\t\\t\\t\\\"lineType\\\": \\\"Landline\\\",\\n\\t\\t\\t\\\"carrier\\\": \\\"<<Carrier>>\\\",\\n\\t\\t\\t\\\"countryCode\\\": \\\"US\\\",\\n\\t\\t\\t\\\"reasonCodes\\\": [\\n\\t\\t\\t<<List of 2-digit reason codes>>\\n\\t\\t\\t],\\n\\t\\t\\t\\\"individual\\\": {\\n\\t\\t\\t\\t\\\"firstName\\\": \\\"<<fname>>\\\",\\n\\t\\t\\t\\t\\\"lastName\\\": \\\"<<lname>>\\\",\\n\\t\\t\\t\\t\\\"addresses\\\": [\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\\"address\\\": \\\"<<street>>\\\",\\n\\t\\t\\t\\t\\t\\t\\\"extendedAddress\\\": \\\"\\\",\\n\\t\\t\\t\\t\\t\\t\\\"city\\\": \\\"<<city>>\\\",\\n\\t\\t\\t\\t\\t\\t\\\"region\\\": \\\"<<state>>\\\",\\n\\t\\t\\t\\t\\t\\t\\\"postalCode\\\": \\\"<<zip>>\\\"\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t],\\n\\t\\t\\t\\t\\\"emailAddresses\\\": null,\\n\\t\\t\\t\\t\\\"dob\\\": \\\"YYYY-MM-dd\\\",\\n\\t\\t\\t\\t\\\"ssn\\\": \\\"<<SSN Token>>\\\"\\n\\t\\t\\t}\\n\\t\\t}\\n\\t},\\n\\t\\\"errorResponse\\\": null\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4eb5de3-c85e-4273-bf0a-7bf26abee573",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"last4\": \"<string>\",\n  \"phoneNumber\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"data\\\": null,\\n\\t\\\"errorResponse\\\": {\\n\\t\\t\\\"timestamp\\\": \\\"2023-08-30T04:43:56.286644803Z\\\",\\n\\t\\t\\\"httpStatus\\\": 200,\\n\\t\\t\\\"errorData\\\": [\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"errorCode\\\": \\\"131-400-110-004\\\",\\n\\t\\t\\t\\t\\\"message\\\": \\\"Subscriber is not found on the required whitelist. - \\\"\\n\\t\\t\\t}\\n\\t\\t],\\n\\t\\t\\\"path\\\": \\\"POST /services/identity\\\"\\n\\t}\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8de66aad-1c2b-4749-8b5d-0ebb81813af3",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"last4\": \"<string>\",\n  \"phoneNumber\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc5815e5-c4be-4847-a429-dfc6b088b31e",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"last4\": \"<string>\",\n  \"phoneNumber\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://caas.coinme.com/services",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "43993db0-5daf-43fd-9095-8344ebcc3121",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Identity API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+      "type": "text/plain"
+    }
+  }
+}

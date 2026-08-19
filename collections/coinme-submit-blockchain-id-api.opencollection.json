@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Submit Blockchain Id API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Submit Blockchain Id",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "put_submit-blockchain-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://caas.coinme.com/services/submit-blockchain-id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

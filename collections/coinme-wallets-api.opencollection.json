@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Wallets API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Wallets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get_wallets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/wallets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Unique customer identifier"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "get_walletsestimateFee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/wallets/estimateFee",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Unique customer identifier"
+              },
+              {
+                "name": "currencySymbol",
+                "value": "",
+                "type": "query",
+                "description": "Symbol of the crypto asset you’re sending on that chain (e.g. ETH, USDT, USDC, BTC). Partners also have the option to use full asset ID (e.g. USDT_SOL, USDC_POL, etc)"
+              },
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query",
+                "description": "The crypto chain identifier to estimate the fee on (e.g. ETH, SOL). Must match supported chains returned by /services/cryptoChains. Not needed if using full assetId in currencySymbol"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

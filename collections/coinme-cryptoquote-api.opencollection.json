@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Cryptoquote API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cryptoquote",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate Transactional Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caas.coinme.com/services/cryptoquote",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return crypto quote for amount exchanged from one currency to another and it’s expiration time in UTC. Response also includes a quoteId, which can be used to initiate a transaction. Quotes expire after 30 seconds by default."
+        },
+        {
+          "info": {
+            "name": "Get Transactional Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/cryptoquote/:quoteId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path",
+                "description": "Quote Identifier referring to the specific crypto quote"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Gathers details on a transactional quote based on the quoteId"
+        },
+        {
+          "info": {
+            "name": "Initiate Informative Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caas.coinme.com/services/cryptoquote/informative",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns an informational crypto quote for amount exchanged from one currency to another. Unlike the Transactional Quote endpoint, this response does not include a quoteId (since its just informative) nor any expiration time. A buy or sell flow cannot be initiated with this quote"
+        },
+        {
+          "info": {
+            "name": "Initiate Sell All Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caas.coinme.com/services/cryptoquote/sell-all",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Sells all of the customer's remaining cryptocurrency as specified. The response is exactly same as the Cryptoquote end point. This is usable only if the user’s crypto asset are managed by Coinme’s custody wallet"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

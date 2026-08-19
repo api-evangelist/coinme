@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Widget API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Widget",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Copy of Get Transaction History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/widget/transactionhistory",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Unique customer identifier"
+              },
+              {
+                "name": "currencyCode",
+                "value": "",
+                "type": "query",
+                "description": "Currency code of the cryptocurrency (i.e. DOGE)"
+              },
+              {
+                "name": "startDateTime",
+                "value": "",
+                "type": "query",
+                "description": "UTC (i.e. 2022-01-24T16:44:49Z)"
+              },
+              {
+                "name": "endDateTime",
+                "value": "",
+                "type": "query",
+                "description": "UTC (i.e. 2022-01-24T16:44:49Z)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Number of pages"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size (max value is 500)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return the list of all transactions initiated via Partner interface by specific customer within the specified time"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

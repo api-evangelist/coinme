@@ -1,0 +1,234 @@
+{
+  "item": [
+    {
+      "id": "66ff5105-de7d-4f86-9ef1-17b7b0e4605c",
+      "name": "Locations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "49a57eb3-13ca-4b73-afda-9221acfa74c4",
+          "name": "Get Cash Ramp Locations",
+          "request": {
+            "name": "Get Cash Ramp Locations",
+            "description": {
+              "content": "Returns a list of physical store locations, sorted by the shortest distance to the coordinates sent",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations",
+                "v2",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"limit\": \"<integer>\",\n  \"providers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1a0ece1c-9d50-49e2-84ff-f92bef81e527",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    "v2",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"limit\": \"<integer>\",\n  \"providers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n   \\\"data\\\":{\\n      \\\"providers\\\":[\\n         \\\"GREENDOT\\\"\\n      ],\\n      \\\"locations\\\":[\\n         {\\n            \\\"id\\\":\\\"CVS9823\\\",\\n            \\\"locationReference\\\":\\\"R1JFRU5ET1QtMjQzNDpsYXQ9MzguNDk1MTMzLGxuZz0tMTIxLjUwNTMzNg==\\\",\\n            \\\"provider\\\":\\\"GREENDOT\\\",\\n            \\\"country\\\":\\\"USA\\\",\\n            \\\"state\\\":\\\"CA\\\",\\n            \\\"city\\\":\\\"Sacramento\\\",\\n            \\\"address\\\":\\\"1350 Florin Rd\\\",\\n            \\\"zipCode\\\":\\\"95822\\\",\\n            \\\"hours\\\":null,\\n            \\\"sellAllowed\\\":false,\\n            \\\"buyAllowed\\\":true,\\n            \\\"imageUrl\\\":null,\\n            \\\"googlePlacesLink\\\":null,\\n            \\\"notes\\\":null,\\n            \\\"description\\\":\\\"CVS\\\",\\n            \\\"coordinates\\\":{\\n               \\\"latitude\\\":38.495133,\\n               \\\"longitude\\\":-121.505336\\n            },\\n            \\\"lineOfSightDistance\\\":0.1727927078581357,\\n            \\\"lineOfSightMetric\\\":\\\"mi\\\",\\n            \\\"supportedCoins\\\":[\\n            ],\\n            \\\"locationFees\\\":null,\\n            \\\"metadata\\\":{\\n               \\\"providerLocationReference\\\":\\\"2434\\\",\\n               \\\"phone\\\":\\\"9163925184\\\"\\n            }\\n         },\\n         {\\n            \\\"id\\\":\\\"Rite Aid6084\\\",\\n            \\\"locationReference\\\":\\\"R1JFRU5ET1QtMjQ2MTpsYXQ9MzguNDkzNTEzLGxuZz0tMTIxLjUyMjU2MQ==\\\",\\n            \\\"provider\\\":\\\"GREENDOT\\\",\\n            \\\"country\\\":\\\"USA\\\",\\n            \\\"state\\\":\\\"CA\\\",\\n            \\\"city\\\":\\\"Sacramento\\\",\\n            \\\"address\\\":\\\"980 Florin Rd\\\",\\n            \\\"zipCode\\\":\\\"95831\\\",\\n            \\\"hours\\\":null,\\n            \\\"sellAllowed\\\":false,\\n            \\\"buyAllowed\\\":true,\\n            \\\"imageUrl\\\":null,\\n            \\\"googlePlacesLink\\\":null,\\n            \\\"notes\\\":null,\\n            \\\"description\\\":\\\"Rite Aid\\\",\\n            \\\"coordinates\\\":{\\n               \\\"latitude\\\":38.493513,\\n               \\\"longitude\\\":-121.522561\\n            },\\n            \\\"lineOfSightDistance\\\":0.7824274400825684,\\n            \\\"lineOfSightMetric\\\":\\\"mi\\\",\\n            \\\"supportedCoins\\\":[\\n            ],\\n            \\\"locationFees\\\":null,\\n            \\\"metadata\\\":{\\n               \\\"providerLocationReference\\\":\\\"2461\\\",\\n               \\\"phone\\\":\\\"9164227202\\\"\\n            }\\n         }\\n      ]\\n   },\\n   \\\"errorResponse\\\":null\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e330ee6-434b-4688-8c46-f7b03d66aed6",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    "v2",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"limit\": \"<integer>\",\n  \"providers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://caas.coinme.com/services",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "73cc6669-1ac6-415d-9468-cb5083c1e806",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+      "type": "text/plain"
+    }
+  }
+}

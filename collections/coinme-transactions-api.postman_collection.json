@@ -1,0 +1,354 @@
+{
+  "item": [
+    {
+      "id": "c541c4ae-e3c1-4e2c-8b14-9ffd2b4a4393",
+      "name": "Transactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "77ac8752-e678-4169-b924-c95d772da1b2",
+          "name": "Get Specific Transaction",
+          "request": {
+            "name": "Get Specific Transaction",
+            "description": {
+              "content": "The below API takes the partnerTransactionId in the request and returns the transactions related to only that particular transactionId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                ":partnerTransactionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partnerTransactionId",
+                  "description": "(Required) Transaction ID of the desired transaction"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "afa1c99c-e827-43db-aba3-cc74af94fed3",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":partnerTransactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partnerTransactionId",
+                      "description": "(Required) Transaction ID of the desired transaction"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"data\\\": {\\n            \\\"totalFees\\\": \\\"2.5\\\",\\n            \\\"feeCurrencyCode\\\":\\\"USD\\\",\\n            \\\"creditCurrencyAmount\\\":\\\"771.9075\\\",\\n            \\\"creditCurrencyCode\\\":\\\"DOGE\\\",\\n            \\\"debitCurrencyAmount\\\":\\\"100\\\",//Amount value requested by User\\n            \\\"debitCurrencyCode\\\":\\\"USD\\\",\\n            \\\"transactionDateTime\\\": \\\"2022-01-25T09:27:07.066193Z\\\",//UTC\\n            \\\"partnerTransactionId\\\": \\\"345678\\\",\\n            \\\"transactionStatus\\\": \\\"CONFIRMED\\\",\\n            \\\"fromWalletAddress\\\": \\\"\\\",//will be used in future for SEND and RECEIVE\\n            \\\"toWalletAddress\\\": \\\"\\\"//will be used in future for SEND and RECEIVE\\n        }\\n  },\\n  \\\"errorResponse\\\": null\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "caf24762-7245-4cf1-b0a0-ea79807544f4",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":partnerTransactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partnerTransactionId",
+                      "description": "(Required) Transaction ID of the desired transaction"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"httpStatus\\\":\\\"200\\\",\\n    \\\"timestamp\\\":\\\"2022-02-01T18:59:28.297Z\\\",//UTC\\n    \\\"path\\\":\\\"/services/transactions GET\\\",\\n    \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\":\\\"123-123-123-123\\\",//The error code is just a sample showing the structure of the error code.\\n        \\\"message\\\":\\\"Partner Transaction id not found\\\"\\n      }\\n    ]\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69745134-88f8-4371-b4ff-6882d220e261",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":partnerTransactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partnerTransactionId",
+                      "description": "(Required) Transaction ID of the desired transaction"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f7723e3d-d8a5-4251-8226-3b6dfcc7da96",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":partnerTransactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partnerTransactionId",
+                      "description": "(Required) Transaction ID of the desired transaction"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://caas.coinme.com/services",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1f443b49-063e-4817-bcc8-2a61e9d5ea75",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+      "type": "text/plain"
+    }
+  }
+}

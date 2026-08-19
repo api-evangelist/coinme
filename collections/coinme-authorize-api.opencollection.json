@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Authorize API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authorize",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Authorization Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caas.coinme.com/services/authorize",
+            "headers": [
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The first step for a partner is to obtain authentication token by calling the Coinme authorize endpoint, this token has a 60m life and needs to be passed with each subsequent call"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

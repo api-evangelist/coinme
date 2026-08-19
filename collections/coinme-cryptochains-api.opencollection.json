@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult CryptoChains API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CryptoChains",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Supported Crypto Chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/cryptoChains",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of supported crypto currencies and their supported chains."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

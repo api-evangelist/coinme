@@ -1,0 +1,403 @@
+{
+  "item": [
+    {
+      "id": "34f4b872-24c3-4828-8af0-085ea91e71f2",
+      "name": "Cryptoassetbalance",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cb98e72a-07de-4448-95af-3db943c59d5d",
+          "name": "Get Crypto Asset Balance",
+          "request": {
+            "name": "Get Crypto Asset Balance",
+            "description": {
+              "content": "Return the list of all crypto assets and balances of Partner’s customer with estimated (point in time) value in the requested currency",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cryptoassetbalance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<long>",
+                  "description": "(Required) Unique customer identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "estimatedBalanceCurrencyCode",
+                  "value": "USD",
+                  "description": "(Required) Currency code of the balance (i.e. USD)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2b4f57cc-a939-4f9f-b8c8-202e13ef0aa8",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cryptoassetbalance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "estimatedBalanceCurrencyCode",
+                      "value": "USD"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"data\\\": \\n  {\\n    \\\"cryptoAssetsBalance\\\": [\\n        {\\n            \\\"balance\\\": \\\"500\\\",\\n            \\\"currencyName\\\": \\\"Dogecoin\\\",\\n            \\\"currencySymbol\\\": \\\"DOGE\\\",\\n            \\\"updatedAt\\\": \\\"2021-12-15T14:11:41.479362Z\\\",// UTC\\n            \\\"estimatedBalanceValue\\\": \\\"65.40\\\"\\n        },\\n        {\\n            \\\"balance\\\": \\\"0.07\\\",\\n            \\\"currencyName\\\": \\\"Bitcoin\\\",\\n            \\\"currencySymbol\\\": \\\"BTC\\\",\\n            \\\"updatedAt\\\": \\\"2021-12-15T13:38:45.930845Z\\\",//UTC\\n            \\\"estimatedBalanceValue\\\": \\\"2657.95\\\"\\n        }\\n       \\n      ]\\n  },\\n  \\\"errorResponse\\\": null\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13e0a60b-af56-4f4c-88ee-4d7c04f0a3c4",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cryptoassetbalance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "estimatedBalanceCurrencyCode",
+                      "value": "USD"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"httpStatus\\\":\\\"200\\\",\\n    \\\"timestamp\\\":\\\"2022-02-01T18:59:28.297Z\\\",//UTC\\n    \\\"path\\\":\\\"/services/cryptoassetbalance GET\\\",\\n    \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\":\\\"123-123-123-123\\\",//The error code is just a sample showing the structure of the error code.\\n        \\\"message\\\":\\\"Customer Id not found\\\"\\n      }\\n    ]\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d049909-0ee0-4fbd-a1e6-8eae0f505709",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cryptoassetbalance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "estimatedBalanceCurrencyCode",
+                      "value": "USD"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "438be0b1-3c6d-48c4-9e67-157ae81bc4e7",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cryptoassetbalance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "estimatedBalanceCurrencyCode",
+                      "value": "USD"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://caas.coinme.com/services",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "49b66f75-2c60-4265-89d9-41ad3570a7df",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Cryptoassetbalance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+      "type": "text/plain"
+    }
+  }
+}

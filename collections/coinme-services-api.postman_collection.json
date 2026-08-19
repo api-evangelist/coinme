@@ -1,0 +1,220 @@
+{
+  "item": [
+    {
+      "id": "2535b573-854e-4972-ba83-c353f125a3ad",
+      "name": "Services",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7a811fa6-5046-4043-859b-0f2ca14ff3c5",
+          "name": "Regenerate Order Template",
+          "request": {
+            "name": "Regenerate Order Template",
+            "description": {
+              "content": "Generates a new order template, with the same parameters as an already crated order template",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                "order-template",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "refreshOrderTemplateId",
+                  "value": "{{refreshOrderTemplateId}}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "948f72eb-9820-4d9c-9ae6-2e89948ab9d9",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    "order-template",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"data\\\": {\\n        \\\"transactionTemplate\\\": {\\n            \\\"transactionSystemRef\\\": \\\"1231976224861065216\\\",\\n            \\\"transactionProviderRef\\\": \\\"830324007540008113329460093303\\\",\\n            \\\"sealed\\\": true,\\n            \\\"debitCurrencyCode\\\": \\\"USD\\\",\\n            \\\"debitCurrencyUnitPrice\\\": \\\"90887.64\\\",\\n            \\\"creditCurrencyCode\\\": \\\"BTC\\\",\\n            \\\"creditCurrencyAmount\\\": \\\"0.00012100\\\",\\n            \\\"amountValue\\\": \\\"11\\\",\\n            \\\"amountCurrencyCode\\\": \\\"USD\\\",\\n            \\\"feesMap\\\": {\\n                \\\"instantWithdrawalFee\\\": \\\"2.50\\\",\\n                \\\"exchangeFee\\\": \\\"0.16\\\"\\n            },\\n            \\\"active\\\": true,\\n            \\\"expiryTimestamp\\\": \\\"2025-04-22T15:33:48.270Z\\\"\\n        }\\n    },\\n    \\\"errorResponse\\\": null\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00ec5bcc-e946-428c-9c0a-3f0122290346",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    "order-template",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://caas.coinme.com/services",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ID of a previously generated order template, from which the new one will be generated",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "refreshOrderTemplateId"
+    }
+  ],
+  "info": {
+    "_postman_id": "d1849181-7eb0-4f84-94b5-f62d77eef0fe",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+      "type": "text/plain"
+    }
+  }
+}

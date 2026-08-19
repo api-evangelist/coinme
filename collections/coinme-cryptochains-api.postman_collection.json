@@ -1,0 +1,309 @@
+{
+  "item": [
+    {
+      "id": "92369d2c-30cd-4d0a-95b2-123ecca84bc5",
+      "name": "CryptoChains",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d67c63ee-ff31-4ec3-a8c4-8d56d2e92855",
+          "name": "Get Supported Crypto Chains",
+          "request": {
+            "name": "Get Supported Crypto Chains",
+            "description": {
+              "content": "Returns a list of supported crypto currencies and their supported chains.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cryptoChains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "503da37d-0e91-4780-9a77-7b5969a52b75",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cryptoChains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"data\\\": {\\n    \\\"cryptoChains\\\": {\\n      \\\"BTC\\\": {\\n        \\\"code\\\": \\\"BTC\\\",\\n        \\\"name\\\": \\\"Bitcoin\\\",\\n        \\\"decimals\\\": 8,\\n        \\\"supportedChains\\\": [\\n          \\\"BTC\\\"\\n        ]\\n      },\\n      \\\"MATIC\\\": {\\n        \\\"code\\\": \\\"MATIC\\\",\\n        \\\"name\\\": \\\"Polygon\\\",\\n        \\\"decimals\\\": 18,\\n        \\\"supportedChains\\\": [\\n          \\\"ETH\\\"\\n        ]\\n      },\\n      \\\"ETH\\\": {\\n        \\\"code\\\": \\\"ETH\\\",\\n        \\\"name\\\": \\\"Ethereum\\\",\\n        \\\"decimals\\\": 18,\\n        \\\"supportedChains\\\": [\\n          \\\"ETH\\\"\\n        ]\\n      },\\n      \\\"XLM\\\": {\\n        \\\"code\\\": \\\"XLM\\\",\\n        \\\"name\\\": \\\"Stellar Lumens\\\",\\n        \\\"decimals\\\": 7,\\n        \\\"supportedChains\\\": [\\n          \\\"XLM\\\"\\n        ]\\n      },\\n      \\\"LINK\\\": {\\n        \\\"code\\\": \\\"LINK\\\",\\n        \\\"name\\\": \\\"Chainlink\\\",\\n        \\\"decimals\\\": 18,\\n        \\\"supportedChains\\\": [\\n          \\\"ETH\\\"\\n        ]\\n      },\\n      \\\"DOGE\\\": {\\n        \\\"code\\\": \\\"DOGE\\\",\\n        \\\"name\\\": \\\"Dogecoin\\\",\\n        \\\"decimals\\\": 8,\\n        \\\"supportedChains\\\": [\\n          \\\"DOGE\\\"\\n        ]\\n      },\\n      \\\"USDC\\\": {\\n        \\\"code\\\": \\\"USDC\\\",\\n        \\\"name\\\": \\\"USD Coin\\\",\\n        \\\"decimals\\\": 6,\\n        \\\"supportedChains\\\": [\\n          \\\"ETH\\\"\\n        ]\\n      },\\n      \\\"LTC\\\": {\\n        \\\"code\\\": \\\"LTC\\\",\\n        \\\"name\\\": \\\"Litecoin\\\",\\n        \\\"decimals\\\": 8,\\n        \\\"supportedChains\\\": [\\n          \\\"LTC\\\"\\n        ]\\n      }\\n    }\\n  },\\n  \\\"errorResponse\\\": null\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9a4cb1d-a874-4d2e-bfba-275dcd77d5b3",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cryptoChains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"timestamp\\\": \\\"2022-05-05T13:41:30.927993Z\\\",\\n    \\\"httpStatus\\\": 200,\\n    \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\": \\\"113-404-317-704\\\",\\n        \\\"message\\\": \\\"PartnerProfile resource not found with identifier: 0oa6m8x63q6vlKDds1d7\\\"\\n      }\\n    ],\\n    \\\"path\\\": \\\"GET /partner-profile/0oa6m8x63q6vlKDds1d7/currency/chain\\\"\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b20b6ee-3783-43ab-9ae4-f5cde121edf0",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cryptoChains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4048e013-7619-4314-9ab8-ee54ff9f5562",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cryptoChains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://caas.coinme.com/services",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b03d2cb5-7e1a-45ed-95bf-a12450cc184f",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult CryptoChains API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+      "type": "text/plain"
+    }
+  }
+}

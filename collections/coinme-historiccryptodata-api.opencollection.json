@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Historiccryptodata API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Historiccryptodata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Historical Crypto Market Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/historiccryptodata",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "The interval (SECONDS, MINUTES, HOURS, DAYS)"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Currency code of crypto (i.e. BTC, ETH)"
+              },
+              {
+                "name": "fiat",
+                "value": "",
+                "type": "query",
+                "description": "Currency code of fiat (i.e. USD)"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Number of intervals"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves the historical crypto market prices for a specified cryptocurrency over a certain period of time."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

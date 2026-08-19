@@ -2,8 +2,7 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: openapi/coinme-caas-openapi.json
-notes: >-
-  No official hosted/remote Coinme MCP server was found (docs, npm @modelcontextprotocol, registries).
+notes: No official hosted/remote Coinme MCP server was found (docs, npm @modelcontextprotocol, registries).
   This is a candidate tool surface derived one-tool-per-operation from the harvested CaaS OpenAPI, to
   seed a future MCP server. Not published by Coinme.
 server:
@@ -70,3 +69,9 @@ tools:
 - name: get_historical_crypto_market_data
   description: Retrieve historical crypto market prices for an asset.
   source_operation: openapi/coinme-caas-openapi.json#get-historical-crypto-market-data
+deployment:
+  mode: none
+  verified: derived
+  tools: 20
+  checked: '2026-08-12'
+  source: catalog MCP census

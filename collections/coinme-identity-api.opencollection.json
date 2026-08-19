@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Identity API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Identity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate Identity Pre-Fill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caas.coinme.com/services/identity",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "The following API will attempt to retrieve the personal information for a user given their phone number and Social Security number. In order to keep the information confidential, Coinme uses a third party, VeryGoodSecurity, as a reverse proxy to create a token for the ssn upon the request and then decrypt the token on the request to Prove’s pre-fill service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

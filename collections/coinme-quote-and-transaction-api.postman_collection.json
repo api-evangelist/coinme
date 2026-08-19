@@ -1,0 +1,354 @@
+{
+  "item": [
+    {
+      "id": "b9ed529a-7ddd-4261-96c3-8ea5cf2d1413",
+      "name": "Quote And Transaction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1bc9d8ee-7a3b-435b-9658-1edddfb3a222",
+          "name": "Initiate Buy or Sell without Quote",
+          "request": {
+            "name": "Initiate Buy or Sell without Quote",
+            "description": {
+              "content": "Initiates a buy or sell order without the end user's explicit approval",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quote-and-transaction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<long>\",\n  \"quoteInput\": {\n    \"debitCurrencyCode\": \"<string>\",\n    \"creditCurrencyCode\": \"<string>\",\n    \"amountValue\": \"<string>\",\n    \"amountCurrencyCode\": \"<string>\",\n    \"locationReference\": \"<string>\",\n    \"gpsCoordinates\": {\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\"\n    },\n    \"cryptoSettlementType\": \"INTERNAL\",\n    \"chain\": \"<string>\"\n  },\n  \"partnerTransactionId\": \"<string>\",\n  \"paymentMethodId\": \"<long>\",\n  \"externalCustodyCreditInfo\": {\n    \"walletAddress\": \"<string>\",\n    \"blockchainMemo\": \"<string>\"\n  },\n  \"sourceWalletAddress\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"webSessionId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d01e23ff-c968-472a-b27f-1f55995e65df",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote-and-transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"quoteInput\": {\n    \"debitCurrencyCode\": \"<string>\",\n    \"creditCurrencyCode\": \"<string>\",\n    \"amountValue\": \"<string>\",\n    \"amountCurrencyCode\": \"<string>\",\n    \"locationReference\": \"<string>\",\n    \"gpsCoordinates\": {\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\"\n    },\n    \"cryptoSettlementType\": \"INTERNAL\",\n    \"chain\": \"<string>\"\n  },\n  \"partnerTransactionId\": \"<string>\",\n  \"paymentMethodId\": \"<long>\",\n  \"externalCustodyCreditInfo\": {\n    \"walletAddress\": \"<string>\",\n    \"blockchainMemo\": \"<string>\"\n  },\n  \"sourceWalletAddress\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"webSessionId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"data\\\": \\n  { \\\"partnerTransactionId\\\":\\\"34567890\\\",\\n    \\\"creditCurrencyUnitPrice\\\":\\\"7.917\\\",\\n    \\\"creditCurrencyUnitPriceCode\\\":\\\"DOGE/USD\\\",\\n    \\\"debitCurrencyUnitPrice\\\":\\\"0.1263104711\\\",\\n    \\\"debitCurrencyUnitPriceCode\\\":\\\"USD/DOGE\\\",\\n    \\\"creditCurrencyAmount\\\":\\\"771.9075\\\",//include the spread \\n    \\\"creditCurrencyCode\\\":\\\"DOGE\\\",\\n    \\\"debitCurrencyAmount\\\":\\\"100\\\",//Amount value requested by User\\n    \\\"debitCurrencyCode\\\":\\\"USD\\\",\\n    \\\"totalFees\\\":\\\"2.5\\\",//exchange fee value\\n    \\\"feeCurrencyCode\\\":\\\"USD\\\", // exchange fee currency code\\n    \\\"feesMap\\\":{\\n      \\\"exchangeFee\\\":\\\"2.5\\\",\\n      \\\"processingFee\\\":\\\"0\\\",\\n      \\\"blockchainFee\\\": \\\"0.4\\\" // present if request for quote had cryptoSettlementType: EXTERNAL\\n    },\\n    \\\"spreadAmount\\\":\\\"0.117\\\",\\n    \\\"spreadCurrencyCode\\\":\\\"USD\\\"\\n},\\n  \\\"errorResponse\\\": null\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1842ae4-3fb7-4d75-859f-b37848a74048",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote-and-transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"quoteInput\": {\n    \"debitCurrencyCode\": \"<string>\",\n    \"creditCurrencyCode\": \"<string>\",\n    \"amountValue\": \"<string>\",\n    \"amountCurrencyCode\": \"<string>\",\n    \"locationReference\": \"<string>\",\n    \"gpsCoordinates\": {\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\"\n    },\n    \"cryptoSettlementType\": \"INTERNAL\",\n    \"chain\": \"<string>\"\n  },\n  \"partnerTransactionId\": \"<string>\",\n  \"paymentMethodId\": \"<long>\",\n  \"externalCustodyCreditInfo\": {\n    \"walletAddress\": \"<string>\",\n    \"blockchainMemo\": \"<string>\"\n  },\n  \"sourceWalletAddress\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"webSessionId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"data\\\": null,\\n  \\\"errorResponse\\\": {\\n    \\\"httpStatus\\\":\\\"200\\\",\\n    \\\"timestamp\\\":\\\"2022-02-01T18:59:28.297Z\\\",//UTC\\n    \\\"path\\\":\\\"/services/transaction POST\\\",\\n    \\\"errorData\\\": [\\n      {\\n        \\\"errorCode\\\":\\\"123-123-123-123\\\",//The error code is just a sample showing the structure of the error code.\\n        \\\"message\\\":\\\"Invalid QuoteId\\\"\\n      }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db521883-6109-48ac-9e1c-d8d62c4aca5c",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote-and-transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"quoteInput\": {\n    \"debitCurrencyCode\": \"<string>\",\n    \"creditCurrencyCode\": \"<string>\",\n    \"amountValue\": \"<string>\",\n    \"amountCurrencyCode\": \"<string>\",\n    \"locationReference\": \"<string>\",\n    \"gpsCoordinates\": {\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\"\n    },\n    \"cryptoSettlementType\": \"INTERNAL\",\n    \"chain\": \"<string>\"\n  },\n  \"partnerTransactionId\": \"<string>\",\n  \"paymentMethodId\": \"<long>\",\n  \"externalCustodyCreditInfo\": {\n    \"walletAddress\": \"<string>\",\n    \"blockchainMemo\": \"<string>\"\n  },\n  \"sourceWalletAddress\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"webSessionId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c0c524a-3d6f-4048-aacd-0e117f0cbe2c",
+              "name": "500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote-and-transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token {authorize} endpoint",
+                    "key": "Authorization",
+                    "value": "Bearer ******"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Partner User Agent ID (provided by Coinme)",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<long>\",\n  \"quoteInput\": {\n    \"debitCurrencyCode\": \"<string>\",\n    \"creditCurrencyCode\": \"<string>\",\n    \"amountValue\": \"<string>\",\n    \"amountCurrencyCode\": \"<string>\",\n    \"locationReference\": \"<string>\",\n    \"gpsCoordinates\": {\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\"\n    },\n    \"cryptoSettlementType\": \"INTERNAL\",\n    \"chain\": \"<string>\"\n  },\n  \"partnerTransactionId\": \"<string>\",\n  \"paymentMethodId\": \"<long>\",\n  \"externalCustodyCreditInfo\": {\n    \"walletAddress\": \"<string>\",\n    \"blockchainMemo\": \"<string>\"\n  },\n  \"sourceWalletAddress\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"webSessionId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://caas.coinme.com/services",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "524e1055-798c-42ff-8847-ecf8f656d17f",
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Quote And Transaction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.",
+      "type": "text/plain"
+    }
+  }
+}

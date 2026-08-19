@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Services API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Regenerate Order Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/services/order-template/refresh?refreshOrderTemplateId=:refreshOrderTemplateId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "refreshOrderTemplateId",
+                "value": "",
+                "type": "path",
+                "description": "ID of a previously generated order template, from which the new one will be generated"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Generates a new order template, with the same parameters as an already crated order template"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

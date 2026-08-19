@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coinme Crypto-as-a-Service AuthLinkResult Cryptoassetbalance API",
+    "version": "1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cryptoassetbalance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Crypto Asset Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caas.coinme.com/services/cryptoassetbalance",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Unique customer identifier"
+              },
+              {
+                "name": "estimatedBalanceCurrencyCode",
+                "value": "",
+                "type": "query",
+                "description": "Currency code of the balance (i.e. USD)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return the list of all crypto assets and balances of Partner’s customer with estimated (point in time) value in the requested currency"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
