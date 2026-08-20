@@ -38,6 +38,19 @@ tags:
 - Cryptocurrency
 - Payments
 - Bitcoin
+- Wallets
+- KYC
+- Onboarding
+- Fintech
+- Crypto-as-a-Service
+- On-Ramp
+- Off-Ramp
+tags_raw:
+- Company
+- Crypto
+- Cryptocurrency
+- Payments
+- Bitcoin
 - Wallet
 - KYC
 - Onboarding
@@ -177,6 +190,8 @@ apis:
   humanURL: https://docs.coinme.com/
   baseURL: https://caas.coinme.com/services
   tags:
+  - Customer Onboarding
+  tags_raw:
   - Customeronboarding
   properties:
   - type: OpenAPI
@@ -337,6 +352,8 @@ apis:
   humanURL: https://docs.coinme.com/
   baseURL: https://caas.coinme.com/services
   tags:
+  - Payment Methods
+  tags_raw:
   - Paymentmethods
   properties:
   - type: OpenAPI
@@ -497,6 +514,8 @@ apis:
   humanURL: https://docs.coinme.com/
   baseURL: https://caas.coinme.com/services
   tags:
+  - Transaction History
+  tags_raw:
   - Transactionhistory
   properties:
   - type: OpenAPI
@@ -537,6 +556,8 @@ apis:
   humanURL: https://docs.coinme.com/
   baseURL: https://caas.coinme.com/services
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
