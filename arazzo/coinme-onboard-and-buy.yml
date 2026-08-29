@@ -6,8 +6,20 @@ info:
     Authorize as a partner, KYC-onboard an end user, create an executable buy quote, and execute it
     against the quote. Operation ids are verified against openapi/coinme-caas-openapi.json.
 sourceDescriptions:
-- name: coinme
-  url: ../openapi/coinme-caas-openapi.json
+- name: authorizeApi
+  url: ../openapi/coinme-authorize-api-openapi.yml
+  type: openapi
+- name: cryptoquoteApi
+  url: ../openapi/coinme-cryptoquote-api-openapi.yml
+  type: openapi
+- name: customeronboardingApi
+  url: ../openapi/coinme-customeronboarding-api-openapi.yml
+  type: openapi
+- name: transactionApi
+  url: ../openapi/coinme-transaction-api-openapi.yml
+  type: openapi
+- name: transactionhistoryApi
+  url: ../openapi/coinme-transactionhistory-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: onboard-and-buy
@@ -15,8 +27,8 @@ workflows:
   inputs:
     type: object
     properties:
-      debitCurrencyCode: { type: string, default: USD }
-      creditCurrencyCode: { type: string, default: BTC }
+      debitCurrencyCode: {type: string, default: USD}
+      creditCurrencyCode: {type: string, default: BTC}
   steps:
   - stepId: authorize
     operationId: initiate-authorize
