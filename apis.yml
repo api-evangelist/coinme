@@ -202,7 +202,7 @@ apis:
   humanURL: https://docs.coinme.com/
   baseURL: https://caas.coinme.com/services
   tags:
-  - Customer Onboarding
+  - Customeronboarding
   tags_raw:
   - Customeronboarding
   properties:
@@ -364,7 +364,7 @@ apis:
   humanURL: https://docs.coinme.com/
   baseURL: https://caas.coinme.com/services
   tags:
-  - Payment Methods
+  - Paymentmethods
   tags_raw:
   - Paymentmethods
   properties:
@@ -526,7 +526,7 @@ apis:
   humanURL: https://docs.coinme.com/
   baseURL: https://caas.coinme.com/services
   tags:
-  - Transaction History
+  - Transactionhistory
   tags_raw:
   - Transactionhistory
   properties:
