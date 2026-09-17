@@ -301,26 +301,6 @@ apis:
     url: asyncapi/coinme-webhooks.yml
   - type: Arazzo
     url: arazzo/coinme-onboard-and-buy.yml
-- aid: coinme:coinme-mobileauth-api
-  name: Coinme MobileAuth API
-  description: The MobileAuth API from Coinme — 1 operation(s) for mobileauth.
-  humanURL: https://docs.coinme.com/
-  baseURL: https://caas.coinme.com/services
-  tags:
-  - MobileAuth
-  properties:
-  - type: OpenAPI
-    url: openapi/coinme-mobileauth-api-openapi.yml
-  - type: Documentation
-    url: https://docs.coinme.com/
-  - type: APIReference
-    url: https://docs.coinme.com/reference/initiate-authorize
-  - type: GettingStarted
-    url: https://docs.coinme.com/docs/getting-started
-  - type: Webhooks
-    url: asyncapi/coinme-webhooks.yml
-  - type: Arazzo
-    url: arazzo/coinme-onboard-and-buy.yml
 - aid: coinme:coinme-mobileauthfinish-api
   name: Coinme MobileAuthFinish API
   description: The MobileAuthFinish API from Coinme — 1 operation(s) for mobileauthfinish.
@@ -351,28 +331,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/coinme-order-template-api-openapi.yml
-  - type: Documentation
-    url: https://docs.coinme.com/
-  - type: APIReference
-    url: https://docs.coinme.com/reference/initiate-authorize
-  - type: GettingStarted
-    url: https://docs.coinme.com/docs/getting-started
-  - type: Webhooks
-    url: asyncapi/coinme-webhooks.yml
-  - type: Arazzo
-    url: arazzo/coinme-onboard-and-buy.yml
-- aid: coinme:coinme-paymentmethods-api
-  name: Coinme Paymentmethods API
-  description: The Paymentmethods API from Coinme — 3 operation(s) for paymentmethods.
-  humanURL: https://docs.coinme.com/
-  baseURL: https://caas.coinme.com/services
-  tags:
-  - Payment Methods
-  tags_raw:
-  - Paymentmethods
-  properties:
-  - type: OpenAPI
-    url: openapi/coinme-paymentmethods-api-openapi.yml
   - type: Documentation
     url: https://docs.coinme.com/
   - type: APIReference
@@ -523,28 +481,6 @@ apis:
     url: asyncapi/coinme-webhooks.yml
   - type: Arazzo
     url: arazzo/coinme-onboard-and-buy.yml
-- aid: coinme:coinme-transactionhistory-api
-  name: Coinme Transactionhistory API
-  description: The Transactionhistory API from Coinme — 1 operation(s) for transactionhistory.
-  humanURL: https://docs.coinme.com/
-  baseURL: https://caas.coinme.com/services
-  tags:
-  - Transaction History
-  tags_raw:
-  - Transactionhistory
-  properties:
-  - type: OpenAPI
-    url: openapi/coinme-transactionhistory-api-openapi.yml
-  - type: Documentation
-    url: https://docs.coinme.com/
-  - type: APIReference
-    url: https://docs.coinme.com/reference/initiate-authorize
-  - type: GettingStarted
-    url: https://docs.coinme.com/docs/getting-started
-  - type: Webhooks
-    url: asyncapi/coinme-webhooks.yml
-  - type: Arazzo
-    url: arazzo/coinme-onboard-and-buy.yml
 - aid: coinme:coinme-transactionlimits-api
   name: Coinme Transactionlimits API
   description: The Transactionlimits API from Coinme — 1 operation(s) for transactionlimits.
@@ -637,6 +573,66 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/coinme-widget-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coinme.com/
+  - type: APIReference
+    url: https://docs.coinme.com/reference/initiate-authorize
+  - type: GettingStarted
+    url: https://docs.coinme.com/docs/getting-started
+  - type: Webhooks
+    url: asyncapi/coinme-webhooks.yml
+  - type: Arazzo
+    url: arazzo/coinme-onboard-and-buy.yml
+- aid: coinme:coinme-mobile-auth-api
+  name: Coinme Mobile Auth API
+  description: The Mobile Auth API from Coinme — 1 operation(s) for mobile auth.
+  humanURL: https://docs.coinme.com/
+  baseURL: https://caas.coinme.com/services
+  tags:
+  - Mobile Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/coinme-mobile-auth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coinme.com/
+  - type: APIReference
+    url: https://docs.coinme.com/reference/initiate-authorize
+  - type: GettingStarted
+    url: https://docs.coinme.com/docs/getting-started
+  - type: Webhooks
+    url: asyncapi/coinme-webhooks.yml
+  - type: Arazzo
+    url: arazzo/coinme-onboard-and-buy.yml
+- aid: coinme:coinme-payment-methods-api
+  name: Coinme Payment Methods API
+  description: The Payment Methods API from Coinme — 3 operation(s) for payment methods.
+  humanURL: https://docs.coinme.com/
+  baseURL: https://caas.coinme.com/services
+  tags:
+  - Payment Methods
+  properties:
+  - type: OpenAPI
+    url: openapi/coinme-payment-methods-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coinme.com/
+  - type: APIReference
+    url: https://docs.coinme.com/reference/initiate-authorize
+  - type: GettingStarted
+    url: https://docs.coinme.com/docs/getting-started
+  - type: Webhooks
+    url: asyncapi/coinme-webhooks.yml
+  - type: Arazzo
+    url: arazzo/coinme-onboard-and-buy.yml
+- aid: coinme:coinme-transaction-history-api
+  name: Coinme Transaction History API
+  description: The Transaction History API from Coinme — 1 operation(s) for transaction history.
+  humanURL: https://docs.coinme.com/
+  baseURL: https://caas.coinme.com/services
+  tags:
+  - Transaction History
+  properties:
+  - type: OpenAPI
+    url: openapi/coinme-transaction-history-api-openapi.yml
   - type: Documentation
     url: https://docs.coinme.com/
   - type: APIReference
