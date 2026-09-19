@@ -287,6 +287,8 @@ apis:
   humanURL: https://docs.coinme.com/
   baseURL: https://caas.coinme.com/services
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
@@ -569,6 +571,8 @@ apis:
   humanURL: https://docs.coinme.com/
   baseURL: https://caas.coinme.com/services
   tags:
+  - Widgets
+  tags_raw:
   - Widget
   properties:
   - type: OpenAPI
