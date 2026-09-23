@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Coinme Crypto-as-a-Service AuthLinkResult Paymentmethods API
+  title: Coinme Crypto-as-a-Service Paymentmethods API
   version: '1.2'
   description: 'Coinme Crypto-as-a-Service (CaaS) API. Harvested from provider-published per-endpoint OpenAPI blocks at docs.coinme.com/reference. Modular crypto infrastructure: KYC onboarding, quotes, buy/sell orders, wallets, sends, cash on/off-ramp, payment methods, and webhooks.'
 servers:
@@ -9,7 +9,7 @@ servers:
 - url: https://caas-staging.coinme.com/services
   description: staging
 tags:
-- name: Paymentmethods
+- name: Payment Methods
 paths:
   /paymentmethods:
     post:
@@ -244,7 +244,7 @@ paths:
       security:
       - {}
       tags:
-      - Paymentmethods
+      - Payment Methods
     get:
       summary: Get All Payment Methods
       description: Method for fetching all payment methods for a specific customer
@@ -382,7 +382,7 @@ paths:
       security:
       - x-api-key: []
       tags:
-      - Paymentmethods
+      - Payment Methods
   /paymentmethods/{paymentMethodId}:
     get:
       summary: Get Payment Method
@@ -543,7 +543,7 @@ paths:
       security:
       - x-api-key: []
       tags:
-      - Paymentmethods
+      - Payment Methods
     delete:
       summary: Delete Payment Method
       description: Method for deleting a payment method
@@ -703,7 +703,7 @@ paths:
       security:
       - x-api-key: []
       tags:
-      - Paymentmethods
+      - Payment Methods
   /paymentmethods/status:
     get:
       description: Check if a customer has reached their payment method limits. Returns the status of various payment method thresholds to determine if the customer can add additional payment methods.
@@ -791,7 +791,7 @@ paths:
       security:
       - x-api-key: []
       tags:
-      - Paymentmethods
+      - Payment Methods
 components:
   securitySchemes:
     basic:
